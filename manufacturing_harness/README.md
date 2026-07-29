@@ -21,7 +21,7 @@ ROS2 Topic / Service / Action 연동
 ```
 ---
 # 가상환경
-- physical_ai
+- conda create -n manufac python=3.11 -y
 
 # 개발 환경
 
