@@ -1,0 +1,64 @@
+project:
+  name: manufacturing_physical_ai
+  version: "1.0.0"
+  environment: development
+
+experiment:
+  seed: 42
+  experiment_name: panda_manufacturing_harness
+
+simulation:
+  engine: mujoco
+  mujoco_version: "3.6.0"
+  model_path: assets/mujoco_menagerie/franka_emika_panda/scene.xml
+  timestep: 0.002
+  control_frequency: 100
+  episode_seconds: 10.0
+  render: true
+
+sensors:
+  temperature:
+    enabled: true
+    unit: celsius
+    sampling_frequency: 10
+    warning_limit: 65.0
+    critical_limit: 75.0
+
+  vibration:
+    enabled: true
+    unit: g
+    sampling_frequency: 100
+    warning_limit: 1.5
+    critical_limit: 2.5
+
+  motor_current:
+    enabled: true
+    unit: ampere
+    sampling_frequency: 100
+    warning_limit: 8.0
+    critical_limit: 12.0
+
+monitoring:
+  anomaly_detection_enabled: true
+  anomaly_score_threshold: 0.7
+  consecutive_alarm_count: 3
+
+production:
+  target_count_per_hour: 120
+  maximum_defect_rate: 0.02
+  target_cycle_time_seconds: 30.0
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  results: data/results
+  logs: logs
+  models: models
+  reports: reports
+
+reinforcement_learning:
+  algorithm: PPO
+  total_timesteps: 100000
+  learning_rate: 0.0003
+  batch_size: 64
+  device: auto
