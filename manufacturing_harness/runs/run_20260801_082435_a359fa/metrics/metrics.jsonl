@@ -1,0 +1,3 @@
+{"timestamp": "2026-07-31T23:24:35.910371+00:00", "run_id": "run_20260801_082435_a359fa", "metric_name": "production.cycle_time_seconds", "metric_value": 0.4056080000009388, "step": 1, "tags": {"robot_id": "panda_01", "product_type": "part_A"}}
+{"timestamp": "2026-07-31T23:24:35.910371+00:00", "run_id": "run_20260801_082435_a359fa", "metric_name": "quality.defect_rate", "metric_value": 0.012, "step": 1, "tags": {"line_id": "line_01"}}
+{"timestamp": "2026-07-31T23:24:35.910371+00:00", "run_id": "run_20260801_082435_a359fa", "metric_name": "maintenance.anomaly_score", "metric_value": 0.18, "step": 1, "tags": {"equipment_id": "panda_01"}}

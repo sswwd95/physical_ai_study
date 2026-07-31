@@ -1,0 +1,10 @@
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=harness_initialization | robot=unknown | logging_harness.py:71 | 실행 시작 | experiment=panda_cycle_logging_test
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:19 | Panda 생산 사이클 시작
+2026-08-01 08:24:35 | DEBUG    | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:27 | 센서 원본값 | temperature=58.40 | vibration=0.170 | current=5.80
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:37 | 부품 접근 동작 완료
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:40 | 부품 집기 완료
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:43 | 부품 이동 완료
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:46 | 부품 배치 완료
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=panda_production_cycle | robot=panda_01 | ex30_integrated_logging.py:92 | Panda 생산 사이클 완료 | cycle_time=0.406초
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=main | robot=panda_01 | ex30_integrated_logging.py:122 | 모든 작업 정상 완료 | metrics={'cycle_time_seconds': 0.4056080000009388, 'defect_rate': 0.012, 'anomaly_score': 0.18}
+2026-08-01 08:24:35 | INFO     | run_id=run_20260801_082435_a359fa | task=harness_finish | robot=unknown | logging_harness.py:244 | 실행 종료 | success=True | error=None

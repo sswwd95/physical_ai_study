@@ -1,0 +1,12 @@
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=harness_initialization | robot=unknown | logging_harness.py:71 | 실행 시작 | experiment=panda_five_cycles
+2026-08-01 08:31:38 | WARNING  | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:64 | 온도 경고 | cycle=1 | temperature=69.71
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:116 | 생산 사이클 완료 | cycle=1 | cycle_time=0.050 | defect=False
+2026-08-01 08:31:38 | WARNING  | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:64 | 온도 경고 | cycle=2 | temperature=71.94
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:116 | 생산 사이클 완료 | cycle=2 | cycle_time=0.050 | defect=True
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:72 | 온도 정상 | cycle=3 | temperature=64.70
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:116 | 생산 사이클 완료 | cycle=3 | cycle_time=0.051 | defect=False
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:72 | 온도 정상 | cycle=4 | temperature=55.61
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:116 | 생산 사이클 완료 | cycle=4 | cycle_time=0.050 | defect=False
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:72 | 온도 정상 | cycle=5 | temperature=60.07
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=production_loop | robot=panda_01 | 2577315837.py:116 | 생산 사이클 완료 | cycle=5 | cycle_time=0.051 | defect=True
+2026-08-01 08:31:38 | INFO     | run_id=run_20260801_083138_66e691 | task=harness_finish | robot=unknown | logging_harness.py:244 | 실행 종료 | success=True | error=None

@@ -1,0 +1,18 @@
+{
+  "run_context": {
+    "run_id": "run_20260801_083138_66e691",
+    "project_name": "manufacturing_physical_ai",
+    "experiment_name": "panda_five_cycles",
+    "started_at": "2026-08-01T08:31:38",
+    "run_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691",
+    "logs_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\logs",
+    "metrics_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\metrics",
+    "models_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\models",
+    "artifacts_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\artifacts",
+    "config_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\config",
+    "reports_directory": "C:\\work\\physical_ai\\manufacturing_harness\\runs\\run_20260801_083138_66e691\\reports"
+  },
+  "finished_at": "2026-08-01T08:31:38",
+  "success": true,
+  "error_message": null
+}
