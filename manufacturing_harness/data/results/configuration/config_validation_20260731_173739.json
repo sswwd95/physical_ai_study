@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "validated_at": "2026-07-31T17:37:39",
+  "project_name": "manufacturing_physical_ai",
+  "environment": "development",
+  "seed": 42,
+  "model_path": "C:\\work\\physical_ai\\manufacturing_harness\\assets\\mujoco_menagerie\\franka_emika_panda\\scene.xml",
+  "configuration": {
+    "project_name": "manufacturing_physical_ai",
+    "environment": "development",
+    "seed": 42,
+    "simulation": {
+      "model_path": "C:\\work\\physical_ai\\manufacturing_harness\\assets\\mujoco_menagerie\\franka_emika_panda\\scene.xml",
+      "timestep": 0.002,
+      "control_frequency": 100,
+      "episode_seconds": 5.0,
+      "render": true
+    },
+    "sensor_thresholds": {
+      "temperature_warning": 65.0,
+      "temperature_critical": 75.0,
+      "vibration_warning": 1.5,
+      "vibration_critical": 2.5,
+      "current_warning": 8.0,
+      "current_critical": 12.0
+    },
+    "production": {
+      "target_count_per_hour": 120,
+      "maximum_defect_rate": 0.02,
+      "target_cycle_time_seconds": 30.0
+    },
+    "paths": {
+      "raw_data": "C:\\work\\physical_ai\\manufacturing_harness\\data\\raw",
+      "processed_data": "C:\\work\\physical_ai\\manufacturing_harness\\data\\processed",
+      "results": "C:\\work\\physical_ai\\manufacturing_harness\\data\\results",
+      "logs": "C:\\work\\physical_ai\\manufacturing_harness\\logs",
+      "models": "C:\\work\\physical_ai\\manufacturing_harness\\models",
+      "reports": "C:\\work\\physical_ai\\manufacturing_harness\\reports"
+    },
+    "reinforcement_learning": {
+      "algorithm": "PPO",
+      "total_timesteps": 10000,
+      "learning_rate": 0.0003,
+      "batch_size": 64,
+      "device": "auto"
+    }
+  },
+  "environment_variable_status": {
+    "MANUFACTURING_ENV": "development",
+    "database_password_configured": true
+  }
+}

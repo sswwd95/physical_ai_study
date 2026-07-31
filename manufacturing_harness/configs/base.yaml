@@ -1,64 +1,96 @@
+# ==============================================================================
+# 제조 Physical AI 하네스 기본 설정 파일 (base.yaml)
+# 초보자 가이드: 각 항목은 시스템 작동 및 AI 학습 환경에 대한 기본 매개변수입니다.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. 프로젝트 기본 정보 (Project Information)
+# ------------------------------------------------------------------------------
 project:
-  name: manufacturing_physical_ai
-  version: "1.0.0"
-  environment: development
+  name: manufacturing_physical_ai  # 프로젝트의 식별 이름
+  version: "1.0.0"                # 프로젝트 버전 (메이저.마이너.패치 형식)
+  environment: development        # 실행 환경 구분 (development: 개발용, staging: 검증용, production: 상용)
 
+# ------------------------------------------------------------------------------
+# 2. 실험 설정 (Experiment Settings)
+# ------------------------------------------------------------------------------
 experiment:
-  seed: 42
-  experiment_name: panda_manufacturing_harness
+  seed: 42                        # 난수 생성 시드값 (결과의 재현성을 위해 고정된 정수 사용)
+  experiment_name: panda_manufacturing_harness  # 진행 중인 실험의 이름 (로그 및 결과 저장용)
 
+# ------------------------------------------------------------------------------
+# 3. 로봇 물리 시뮬레이션 설정 (Simulation Environment)
+# ------------------------------------------------------------------------------
 simulation:
-  engine: mujoco
-  mujoco_version: "3.6.0"
-  model_path: assets/mujoco_menagerie/franka_emika_panda/scene.xml
-  timestep: 0.002
-  control_frequency: 100
-  episode_seconds: 10.0
-  render: true
+  engine: mujoco                  # 물리 시뮬레이션 엔진 이름 (예: mujoco, pybullet 등)
+  mujoco_version: "3.6.0"         # 사용할 MuJoCo 엔진의 특정 버전
+  model_path: assets/mujoco_menagerie/franka_emika_panda/scene.xml  # 로봇 3D 모델 및 환경 XML 파일 경로
+  timestep: 0.002                 # 시뮬레이션 물리 계산 주기 (초 단위, 0.002초 = 500Hz)
+  control_frequency: 100          # 로봇 제어 명령 전송 주파수 (Hz 단위, 초당 100회 제어)
+  episode_seconds: 10.0           # 1회 시뮬레이션(에피소드) 총 진행 시간 (초 단위)
+  render: true                    # 시뮬레이션 화면 3D 시각화 여부 (true: 화면 표시, false: 화면 없이 속도 최적화)
 
+# ------------------------------------------------------------------------------
+# 4. 물리 센서 상태 및 임계값 설정 (Sensor Settings)
+# ------------------------------------------------------------------------------
 sensors:
+  # 4-1. 온도 센서 (Temperature Sensor)
   temperature:
-    enabled: true
-    unit: celsius
-    sampling_frequency: 10
-    warning_limit: 65.0
-    critical_limit: 75.0
+    enabled: true                 # 온도 센서 수집 및 모니터링 사용 여부
+    unit: celsius                 # 온도 측정 단위 (celsius: 섭씨 ℃)
+    sampling_frequency: 10        # 초당 데이터 수집 횟수 (10Hz = 초당 10개 데이터)
+    warning_limit: 65.0           # 경고 알람 발생 온도 (℃)
+    critical_limit: 75.0          # 비상 정지/위험 알람 발생 한계 온도 (℃)
 
+  # 4-2. 진동 센서 (Vibration Sensor)
   vibration:
-    enabled: true
-    unit: g
-    sampling_frequency: 100
-    warning_limit: 1.5
-    critical_limit: 2.5
+    enabled: true                 # 진동 센서 수집 및 모니터링 사용 여부
+    unit: g                       # 진동 측정 단위 (g: 중력가속도 단위)
+    sampling_frequency: 100       # 초당 데이터 수집 횟수 (100Hz)
+    warning_limit: 1.5            # 경고 수준의 진동 수치
+    critical_limit: 2.5           # 위험/설비 정지 수준의 진동 수치
 
+  # 4-3. 모터 전류 센서 (Motor Current Sensor)
   motor_current:
-    enabled: true
-    unit: ampere
-    sampling_frequency: 100
-    warning_limit: 8.0
-    critical_limit: 12.0
+    enabled: true                 # 모터 전류 센서 수집 및 모니터링 사용 여부
+    unit: ampere                  # 전류 측정 단위 (ampere: 암페어 A)
+    sampling_frequency: 100       # 초당 데이터 수집 횟수 (100Hz)
+    warning_limit: 8.0            # 모터 부하 경고 전류 수치 (A)
+    critical_limit: 12.0          # 모터 과전류 비상 정지 수치 (A)
 
+# ------------------------------------------------------------------------------
+# 5. 제조 모니터링 및 이상 감지 설정 (Monitoring & Anomaly Detection)
+# ------------------------------------------------------------------------------
 monitoring:
-  anomaly_detection_enabled: true
-  anomaly_score_threshold: 0.7
-  consecutive_alarm_count: 3
+  anomaly_detection_enabled: true  # AI 기반 센서 이상 감지 기능 활성화 여부
+  anomaly_score_threshold: 0.7     # 이상 감지 점수 기준값 (0.0~1.0 사이, 이 값을 넘으면 이상 상태 판단)
+  consecutive_alarm_count: 3       # 연속으로 임계값을 초과할 때 알람을 띄울 횟수 (일시적 튀는 값/노이즈 방지)
 
+# ------------------------------------------------------------------------------
+# 6. 제조 공정 생산성 및 품질 목표 (Production KPIs)
+# ------------------------------------------------------------------------------
 production:
-  target_count_per_hour: 120
-  maximum_defect_rate: 0.02
-  target_cycle_time_seconds: 30.0
+  target_count_per_hour: 120      # 시간당 목표 생산량 (UPH: Units Per Hour)
+  maximum_defect_rate: 0.02       # 허용 가능한 최대 불량률 (0.02 = 2%)
+  target_cycle_time_seconds: 30.0 # 제품 1개 완성에 걸리는 목표 시간(Cycle Time, 초 단위)
 
+# ------------------------------------------------------------------------------
+# 7. 프로젝트 파일 및 데이터 저장 경로 (Directory Paths)
+# ------------------------------------------------------------------------------
 paths:
-  raw_data: data/raw
-  processed_data: data/processed
-  results: data/results
-  logs: logs
-  models: models
-  reports: reports
+  raw_data: data/raw              # 가공되지 않은 원천 센서/시뮬레이션 데이터 폴더
+  processed_data: data/processed  # 전처리 완료된 데이터 저장 폴더
+  results: data/results           # 테스트 및 평가 결과 저장 폴더
+  logs: logs                      # 실행 중 발생하는 시스템 로그 파일 폴더
+  models: models                  # 학습된 AI/강화학습 모델 저장 폴더
+  reports: reports                # 성과 리포트 및 결과보고서 저장 폴더
 
+# ------------------------------------------------------------------------------
+# 8. 강화학습 AI 모델 설정 (Reinforcement Learning)
+# ------------------------------------------------------------------------------
 reinforcement_learning:
-  algorithm: PPO
-  total_timesteps: 100000
-  learning_rate: 0.0003
-  batch_size: 64
-  device: auto
+  algorithm: PPO                  # 사용할 강화학습 알고리즘 (PPO: Proximal Policy Optimization)
+  total_timesteps: 100000         # 학습할 총 시뮬레이션 타임스텝 수 (전체 행동 횟수)
+  learning_rate: 0.0003           # 신경망 학습률 (Learning Rate: 0.0003은 일반적인 기본 권장값)
+  batch_size: 64                  # 1회 학습 시 동시 처리할 샘플 데이터 묶음 크기
+  device: auto                    # 학습 계산 장치 설정 ('auto': GPU(CUDA) 가능 시 자동 사용, 없으면 CPU)

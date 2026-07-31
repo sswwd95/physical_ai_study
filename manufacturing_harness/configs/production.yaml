@@ -1,0 +1,12 @@
+project:
+  environment: production
+
+simulation:
+  render: false
+  episode_seconds: 30.0
+
+reinforcement_learning:
+  total_timesteps: 1000000
+
+monitoring:
+  consecutive_alarm_count: 5
