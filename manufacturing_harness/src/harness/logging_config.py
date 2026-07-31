@@ -124,3 +124,91 @@ def log_temperature_state(
         )
 
     return state
+
+# 실습 24
+import logging
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
+
+
+def setup_rotating_logger(
+    log_directory: Path,
+    logger_name: str = "manufacturing_rotating",
+    max_bytes: int = 1_000_000,
+    backup_count: int = 5,
+) -> logging.Logger:
+    """크기 기준 회전 로그를 구성한다."""
+
+    log_directory.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.DEBUG)
+
+    if logger.handlers:
+        return logger
+
+    formatter = logging.Formatter(
+        fmt=(
+            "%(asctime)s | %(levelname)s | "
+            "%(name)s | %(message)s"
+        ),
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
+    rotating_handler = RotatingFileHandler(
+        filename=log_directory / "manufacturing.log",
+        maxBytes=max_bytes,
+        backupCount=backup_count,
+        encoding="utf-8",
+    )
+    rotating_handler.setLevel(logging.DEBUG)
+    rotating_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(rotating_handler)
+    logger.addHandler(console_handler)
+    logger.propagate = False
+
+    return logger
+
+# 실습 25
+import logging
+from pathlib import Path
+
+from src.harness.json_formatter import JsonFormatter
+
+
+def setup_json_logger(
+    log_path: Path,
+    logger_name: str = "manufacturing_json",
+) -> logging.Logger:
+    """JSON 파일 로그를 구성한다."""
+
+    log_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.DEBUG)
+
+    if logger.handlers:
+        return logger
+
+    file_handler = logging.FileHandler(
+        filename=log_path,
+        encoding="utf-8",
+    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(JsonFormatter())
+
+    logger.addHandler(file_handler)
+    logger.propagate = False
+
+    return logger

@@ -1,0 +1,1 @@
+{"timestamp": "2026-07-31T22:48:09.777202+00:00", "level": "INFO", "logger": "manufacturing_json", "message": "Panda 로봇 사이클 완료", "module": "ex25_json_logging", "function": "<module>", "line": 11, "process_id": 1200, "thread_name": "MainThread", "robot_id": "panda_01", "cycle_id": 105, "cycle_time_seconds": 28.4, "product_id": "part_A", "success": true}
