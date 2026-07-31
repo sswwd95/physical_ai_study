@@ -1,0 +1,6 @@
+2026-08-01 07:21:30 | DEBUG    | manufacturing_harness | ex22_console_file_logging.py:9 | 디버그용 상세 메시지입니다.
+2026-08-01 07:21:30 | INFO     | manufacturing_harness | ex22_console_file_logging.py:10 | 온도 센서 수집을 시작합니다.
+2026-08-01 07:21:30 | WARNING  | manufacturing_harness | ex22_console_file_logging.py:11 | 온도가 경고 기준에 접근했습니다.
+2026-08-01 07:27:15 | INFO     | manufacturing_harness | logging_config.py:121 | 설비 온도 정상 | temperature=52.30
+2026-08-01 07:27:15 | WARNING  | manufacturing_harness | logging_config.py:111 | 설비 온도 경고 | temperature=66.50 | warning_limit=65.00
+2026-08-01 07:27:15 | ERROR    | manufacturing_harness | logging_config.py:101 | 설비 온도 위험 | temperature=76.20 | critical_limit=75.00
