@@ -81,3 +81,5 @@ manufacturing_harness/
 ├─ requirements.txt
 └─ README.md
 ```
+
+* 실습 테스트 파일은 manufacturing_harness 에서 돌리기

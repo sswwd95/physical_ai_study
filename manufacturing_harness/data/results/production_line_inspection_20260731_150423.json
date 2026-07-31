@@ -1,0 +1,14 @@
+{
+  "task_name": "production_line_inspection",
+  "success": true,
+  "started_at": "2026-07-31T15:04:23",
+  "finished_at": "2026-07-31T15:04:23",
+  "duration_seconds": 2e-06,
+  "message": "작업이 정상적으로 완료되었습니다.",
+  "metrics": {
+    "production_count": 950,
+    "target_count": 1000,
+    "achievement_rate": 0.95,
+    "defect_rate": 0.018947368421052633
+  }
+}
