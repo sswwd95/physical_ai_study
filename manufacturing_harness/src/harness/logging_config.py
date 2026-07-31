@@ -212,3 +212,56 @@ def setup_json_logger(
     logger.propagate = False
 
     return logger
+
+# 실습 27
+import logging
+from typing import Any
+
+
+def calculate_sensor_average(
+    sensor_values: list[float],
+) -> float:
+    """센서 평균을 계산한다."""
+
+    if not sensor_values:
+        raise ValueError(
+            "센서 데이터가 비어 있습니다."
+        )
+
+    return sum(sensor_values) / len(sensor_values)
+
+
+def run_sensor_analysis(
+    logger: logging.Logger,
+    sensor_values: list[float],
+) -> dict[str, Any]:
+    """센서 분석을 실행하고 오류를 기록한다."""
+
+    try:
+        average = calculate_sensor_average(
+            sensor_values
+        )
+
+        logger.info(
+            "센서 평균 계산 완료 | average=%.3f",
+            average,
+        )
+
+        return {
+            "success": True,
+            "average": average,
+            "error": None,
+        }
+
+    except Exception as error:
+        logger.exception(
+            "센서 평균 계산 실패"
+        )
+
+        return {
+            "success": False,
+            "average": None,
+            "error": (
+                f"{type(error).__name__}: {error}"
+            ),
+        }

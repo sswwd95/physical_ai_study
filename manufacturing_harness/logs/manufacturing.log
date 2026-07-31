@@ -4,3 +4,11 @@
 2026-08-01 07:27:15 | INFO     | manufacturing_harness | logging_config.py:121 | 설비 온도 정상 | temperature=52.30
 2026-08-01 07:27:15 | WARNING  | manufacturing_harness | logging_config.py:111 | 설비 온도 경고 | temperature=66.50 | warning_limit=65.00
 2026-08-01 07:27:15 | ERROR    | manufacturing_harness | logging_config.py:101 | 설비 온도 위험 | temperature=76.20 | critical_limit=75.00
+2026-08-01 08:00:25 | ERROR    | manufacturing_harness | logging_config.py:257 | 센서 평균 계산 실패
+Traceback (most recent call last):
+  File "C:\work\physical_ai\manufacturing_harness\src\harness\logging_config.py", line 241, in run_sensor_analysis
+    average = calculate_sensor_average(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\physical_ai\manufacturing_harness\src\harness\logging_config.py", line 227, in calculate_sensor_average
+    raise ValueError(
+ValueError: 센서 데이터가 비어 있습니다.
