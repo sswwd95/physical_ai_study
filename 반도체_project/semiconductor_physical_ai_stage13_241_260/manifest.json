@@ -1,0 +1,162 @@
+[
+  {
+    "num": 241,
+    "title": "lifetime_data_profile",
+    "objective": "수명·검열·그룹 분포를 확인합니다.",
+    "prompt": "설비 수명 데이터의 검열 비율, 챔버 유형별 수명, RUL 스냅샷 크기를 요약하라.",
+    "file": "ex241_lifetime_data_profile.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 242,
+    "title": "exponential_lifetime_model",
+    "objective": "지수분포 기반 수명모형을 학습합니다.",
+    "prompt": "고장 관측 장비의 수명을 Exponential 모형으로 추정하라.",
+    "file": "ex242_exponential_lifetime_model.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 243,
+    "title": "weibull_lifetime_model",
+    "objective": "Weibull 수명분포의 형상·스케일을 추정합니다.",
+    "prompt": "Weibull 형상 alpha와 스케일 beta의 사후분포를 추정하라.",
+    "file": "ex243_weibull_lifetime_model.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 244,
+    "title": "censored_weibull_model",
+    "objective": "우측 검열을 포함한 Weibull 모형을 작성합니다.",
+    "prompt": "pm.Censored를 사용해 우측 검열된 Weibull 수명모형을 작성하라.",
+    "file": "ex244_censored_weibull_model.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 245,
+    "title": "failure_probability_by_cycle",
+    "objective": "특정 주기 이전 고장확률을 계산합니다.",
+    "prompt": "Weibull 사후표본으로 80·100·120·150주기 이전 고장확률을 계산하라.",
+    "file": "ex245_failure_probability_by_cycle.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 246,
+    "title": "survival_probability_curve",
+    "objective": "주기별 생존확률 사후분포를 계산합니다.",
+    "prompt": "20주기 간격 생존확률 평균과 94% HDI를 CSV로 저장하라.",
+    "file": "ex246_survival_probability_curve.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 247,
+    "title": "median_lifetime_hdi",
+    "objective": "중앙 수명의 사후평균과 HDI를 계산합니다.",
+    "prompt": "Weibull 중앙수명을 deterministic으로 정의하고 HDI를 계산하라.",
+    "file": "ex247_median_lifetime_hdi.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 248,
+    "title": "chamber_type_effect",
+    "objective": "챔버 유형별 수명 차이를 회귀계수로 추정합니다.",
+    "prompt": "챔버 유형별 로그수명 효과를 베이지안 회귀로 추정하라.",
+    "file": "ex248_chamber_type_effect.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 249,
+    "title": "maintenance_policy_effect",
+    "objective": "정비 정책별 수명 차이의 사후확률을 계산합니다.",
+    "prompt": "condition_based 정책이 reactive보다 수명이 길 확률을 계산하라.",
+    "file": "ex249_maintenance_policy_effect.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 250,
+    "title": "hierarchical_equipment_model",
+    "objective": "장비별 수명 차이를 계층적으로 부분 풀링합니다.",
+    "prompt": "장비별 랜덤효과를 포함한 비중심 계층 수명모형을 작성하라.",
+    "file": "ex250_hierarchical_equipment_model.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 251,
+    "title": "sensor_aft_model",
+    "objective": "센서값을 포함한 가속수명 회귀를 작성합니다.",
+    "prompt": "진동·온도·전류·입자수를 포함한 로그수명 회귀를 작성하라.",
+    "file": "ex251_sensor_aft_model.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 252,
+    "title": "posterior_failure_risk",
+    "objective": "장비별 향후 20주기 고장확률을 계산합니다.",
+    "prompt": "각 장비가 향후 20주기 안에 고장할 조건부 확률을 계산하라.",
+    "file": "ex252_posterior_failure_risk.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 253,
+    "title": "bayesian_rul_regression",
+    "objective": "센서 스냅샷으로 RUL 사후분포를 추정합니다.",
+    "prompt": "센서 스냅샷으로 베이지안 RUL 회귀를 작성하라.",
+    "file": "ex253_bayesian_rul_regression.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 254,
+    "title": "rul_prediction_interval",
+    "objective": "장비별 RUL 평균과 HDI를 생성합니다.",
+    "prompt": "행별 RUL 사후예측 평균과 3~97% 구간을 저장하라.",
+    "file": "ex254_rul_prediction_interval.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 255,
+    "title": "near_failure_probability",
+    "objective": "RUL이 20 이하일 사후확률을 계산합니다.",
+    "prompt": "각 행의 P(RUL<=20)을 계산하라.",
+    "file": "ex255_near_failure_probability.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 256,
+    "title": "prior_sensitivity_lifetime",
+    "objective": "수명 스케일 사전분포 민감도를 비교합니다.",
+    "prompt": "Weibull beta 사전 스케일 80·150·250을 비교하라.",
+    "file": "ex256_prior_sensitivity_lifetime.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 257,
+    "title": "loo_lifetime_comparison",
+    "objective": "지수·Weibull 수명모형을 LOO로 비교합니다.",
+    "prompt": "지수분포와 Weibull 수명모형을 LOO로 비교하라.",
+    "file": "ex257_loo_lifetime_comparison.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 258,
+    "title": "mcmc_diagnostics_lifetime",
+    "objective": "R-hat·ESS·Divergence를 점검합니다.",
+    "prompt": "Weibull 모형의 R-hat·ESS·Divergence를 저장하라.",
+    "file": "ex258_mcmc_diagnostics_lifetime.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 259,
+    "title": "maintenance_decision_cost",
+    "objective": "정비·고장 비용을 결합해 행동을 선택합니다.",
+    "prompt": "고장비용 5000, 정비비용 1200으로 행동별 기대비용을 계산하라.",
+    "file": "ex259_maintenance_decision_cost.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 260,
+    "title": "automated_bayesian_pm_report",
+    "objective": "수명·위험·RUL·의사결정 Excel 보고서를 생성합니다.",
+    "prompt": "수명요약·고장위험·최신RUL·의사결정 Excel 보고서를 생성하라.",
+    "file": "ex260_automated_bayesian_pm_report.py",
+    "expected": "요청한 베이지안 수명·고장확률·RUL 분석 결과가 출력 또는 저장됩니다."
+  }
+]

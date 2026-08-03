@@ -1,0 +1,26 @@
+{
+  "stage": 1,
+  "exercise_range": "001-005",
+  "platform": "Windows 10",
+  "environment": "Anaconda",
+  "bayesian_library": "PyMC",
+  "agent_harness": "Antigravity-compatible prompts",
+  "generated_files": [
+    "README.md",
+    "docs/400_exercise_roadmap.csv",
+    "docs/400_exercise_roadmap.md",
+    "docs/examples_001_005_line_by_line.md",
+    "environment.yml",
+    "examples/example_001_project_config.py",
+    "examples/example_002_generate_sensor_data.py",
+    "examples/example_003_validate_sensor_schema.py",
+    "examples/example_004_basic_monitoring.py",
+    "examples/example_005_bayesian_temperature.py",
+    "prompts/prompt_001.md",
+    "prompts/prompt_002.md",
+    "prompts/prompt_003.md",
+    "prompts/prompt_004.md",
+    "prompts/prompt_005.md",
+    "requirements.txt"
+  ]
+}

@@ -1,0 +1,10 @@
+﻿column,missing_count,missing_ratio
+chamber_pressure_pa,4,0.013245033112582781
+rf_power_w,3,0.009933774834437087
+timestamp,0,0.0
+chamber_temp_c,0,0.0
+lot_id,0,0.0
+gas_flow_sccm,0,0.0
+vibration_g,0,0.0
+particle_count,0,0.0
+process_state,0,0.0

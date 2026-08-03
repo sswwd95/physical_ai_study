@@ -1,0 +1,31 @@
+{
+  "stage": 16,
+  "exercise_range": "076-080",
+  "topics": [
+    "normality tests",
+    "nonnormal capability",
+    "bootstrap Cpk interval",
+    "capability uncertainty comparison",
+    "capability decision report"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/capability_specs.json",
+    "data/capability_uncertainty_log.csv",
+    "docs/examples_076_080_line_by_line.md",
+    "docs/stage16_overview.md",
+    "environment.yml",
+    "examples/example_076_normality_tests.py",
+    "examples/example_077_nonnormal_capability.py",
+    "examples/example_078_bootstrap_cpk_interval.py",
+    "examples/example_079_capability_uncertainty_comparison.py",
+    "examples/example_080_capability_decision_report.py",
+    "prompts/prompt_076.md",
+    "prompts/prompt_077.md",
+    "prompts/prompt_078.md",
+    "prompts/prompt_079.md",
+    "prompts/prompt_080.md",
+    "requirements.txt",
+    "tests/test_stage16_uncertainty.py"
+  ]
+}

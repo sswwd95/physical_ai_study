@@ -1,0 +1,7 @@
+{
+  "quality_score_threshold": 92.0,
+  "temperature_low": 63.8,
+  "temperature_high": 66.2,
+  "vibration_high": 2.35,
+  "rule_description": "quality_score below threshold OR temperature outside range OR vibration above limit"
+}

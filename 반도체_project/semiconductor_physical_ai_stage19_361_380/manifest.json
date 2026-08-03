@@ -1,0 +1,142 @@
+[
+  {
+    "num": 361,
+    "title": "project_directory_validation",
+    "objective": "운영 프로젝트 폴더와 필수 파일을 검증합니다.",
+    "prompt": "프로젝트 폴더·데이터·설정·로그·모델 경로 존재 여부를 검증하라.",
+    "file": "ex361_project_directory_validation.py"
+  },
+  {
+    "num": 362,
+    "title": "config_loader",
+    "objective": "JSON 설정을 읽고 유효성을 검증합니다.",
+    "prompt": "JSON 설정 파일을 읽고 필수 키와 batch_size 유효성을 검증하라.",
+    "file": "ex362_config_loader.py"
+  },
+  {
+    "num": 363,
+    "title": "structured_logging",
+    "objective": "파일·콘솔 구조화 로그를 구성합니다.",
+    "prompt": "콘솔과 파일에 동시에 기록하는 구조화 로그를 작성하라.",
+    "file": "ex363_structured_logging.py"
+  },
+  {
+    "num": 364,
+    "title": "data_ingestion_pipeline",
+    "objective": "입력 데이터 로딩과 기본 검증 파이프라인을 작성합니다.",
+    "prompt": "CSV 입력 로딩·필수컬럼·빈 데이터·시간정렬 검증 함수를 작성하라.",
+    "file": "ex364_data_ingestion_pipeline.py"
+  },
+  {
+    "num": 365,
+    "title": "batch_processing",
+    "objective": "대용량 데이터를 배치 단위로 처리합니다.",
+    "prompt": "설정 batch_size로 데이터를 나누고 배치별 수율·고장수를 저장하라.",
+    "file": "ex365_batch_processing.py"
+  },
+  {
+    "num": 366,
+    "title": "data_quality_gate",
+    "objective": "결측·범위·중복 기준으로 품질 게이트를 적용합니다.",
+    "prompt": "결측·중복·센서범위·수율범위 품질 게이트를 작성하라.",
+    "file": "ex366_data_quality_gate.py"
+  },
+  {
+    "num": 367,
+    "title": "feature_pipeline",
+    "objective": "운영용 특징공학 파이프라인을 구성합니다.",
+    "prompt": "운영용 센서 편차·위험·건강점수 특징을 생성하라.",
+    "file": "ex367_feature_pipeline.py"
+  },
+  {
+    "num": 368,
+    "title": "model_training_pipeline",
+    "objective": "고장 분류 모델 학습 파이프라인을 작성합니다.",
+    "prompt": "RandomForest 고장 분류 학습 파이프라인을 작성하라.",
+    "file": "ex368_model_training_pipeline.py"
+  },
+  {
+    "num": 369,
+    "title": "model_versioning",
+    "objective": "모델과 메타데이터 버전을 저장합니다.",
+    "prompt": "학습 모델과 버전 메타데이터를 joblib·JSON으로 저장하라.",
+    "file": "ex369_model_versioning.py"
+  },
+  {
+    "num": 370,
+    "title": "model_loading_inference",
+    "objective": "저장 모델을 로드해 추론합니다.",
+    "prompt": "최신 모델을 로드해 고장 예측과 확률을 계산하라.",
+    "file": "ex370_model_loading_inference.py"
+  },
+  {
+    "num": 371,
+    "title": "prediction_monitoring",
+    "objective": "예측 분포와 임계값 초과 건수를 모니터링합니다.",
+    "prompt": "예측확률 평균·95분위·0.7·0.9 초과 건수를 집계하라.",
+    "file": "ex371_prediction_monitoring.py"
+  },
+  {
+    "num": 372,
+    "title": "data_drift_check",
+    "objective": "학습·운영 데이터 분포 차이를 점검합니다.",
+    "prompt": "학습구간과 최신구간의 평균·표준편차 드리프트를 점검하라.",
+    "file": "ex372_data_drift_check.py"
+  },
+  {
+    "num": 373,
+    "title": "model_performance_monitor",
+    "objective": "운영 정답이 있을 때 모델 성능을 집계합니다.",
+    "prompt": "운영 정답 기준 accuracy·precision·recall·F1을 집계하라.",
+    "file": "ex373_model_performance_monitor.py"
+  },
+  {
+    "num": 374,
+    "title": "retry_and_recovery",
+    "objective": "실패 작업 재시도와 체크포인트 복구를 구현합니다.",
+    "prompt": "최대 3회 재시도와 JSON 체크포인트 복구를 구현하라.",
+    "file": "ex374_retry_and_recovery.py"
+  },
+  {
+    "num": 375,
+    "title": "daily_kpi_aggregation",
+    "objective": "일별 수율·고장·사이클타임 KPI를 집계합니다.",
+    "prompt": "일별 수율·고장·사이클타임·가동비율 KPI를 집계하라.",
+    "file": "ex375_daily_kpi_aggregation.py"
+  },
+  {
+    "num": 376,
+    "title": "equipment_health_summary",
+    "objective": "장비별 건강 상태 요약을 생성합니다.",
+    "prompt": "장비별 수율·고장률·센서·건강등급 요약을 생성하라.",
+    "file": "ex376_equipment_health_summary.py"
+  },
+  {
+    "num": 377,
+    "title": "operations_alert_output",
+    "objective": "운영 경보 CSV와 우선순위를 생성합니다.",
+    "prompt": "고장·저수율·지연 경보와 우선순위를 CSV로 생성하라.",
+    "file": "ex377_operations_alert_output.py"
+  },
+  {
+    "num": 378,
+    "title": "run_manifest",
+    "objective": "실행 이력과 산출물 manifest를 생성합니다.",
+    "prompt": "실행ID·입력파일·산출물목록이 포함된 manifest를 생성하라.",
+    "file": "ex378_run_manifest.py"
+  },
+  {
+    "num": 379,
+    "title": "operations_checklist",
+    "objective": "운영 점검 체크리스트를 자동 생성합니다.",
+    "prompt": "운영 전 필수 점검 체크리스트를 CSV로 생성하라.",
+    "file": "ex379_operations_checklist.py"
+  },
+  {
+    "num": 380,
+    "title": "automated_operations_report",
+    "objective": "자동 운영 통합 Excel 보고서를 생성합니다.",
+    "prompt": "일별KPI·장비건강·경보·데이터품질 Excel 보고서를 생성하라.",
+    "file": "ex380_automated_operations_report.py"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "stage": 7,
+  "exercise_range": "031-035",
+  "topics": [
+    "sensor unit validation",
+    "unit conversion",
+    "time interval anomaly detection",
+    "duplicate timestamp resolution",
+    "sensor drift detection"
+  ],
+  "generated_files": [
+    "README.md",
+    "config/sensor_units.json",
+    "data/equipment_sensor_log_canonical.csv",
+    "data/equipment_sensor_log_mixed_units.csv",
+    "data/equipment_sensor_log_timing_issues.csv",
+    "docs/examples_031_035_line_by_line.md",
+    "docs/stage07_overview.md",
+    "environment.yml",
+    "examples/example_031_validate_sensor_units.py",
+    "examples/example_032_convert_sensor_units.py",
+    "examples/example_033_detect_time_interval_anomalies.py",
+    "examples/example_034_resolve_duplicate_timestamps.py",
+    "examples/example_035_detect_sensor_drift.py",
+    "prompts/prompt_031.md",
+    "prompts/prompt_032.md",
+    "prompts/prompt_033.md",
+    "prompts/prompt_034.md",
+    "prompts/prompt_035.md",
+    "requirements.txt",
+    "tests/test_stage07_units_time_drift.py"
+  ]
+}

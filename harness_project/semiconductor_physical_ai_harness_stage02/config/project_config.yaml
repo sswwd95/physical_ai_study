@@ -1,0 +1,30 @@
+project:
+  name: semiconductor_physical_ai
+  version: "0.2"
+  random_seed: 42
+
+paths:
+  data_dir: data
+  output_dir: outputs
+  log_dir: logs
+
+sampling:
+  interval_sec: 1.0
+  expected_rows: 600
+
+monitoring:
+  temperature_c:
+    low: 62.0
+    high: 69.0
+  pressure_kpa:
+    low: 99.5
+    high: 103.0
+  gas_flow_sccm:
+    low: 485.0
+    high: 515.0
+  vibration_rms:
+    low: 0.0
+    high: 2.5
+  motor_current_a:
+    low: 0.0
+    high: 9.0

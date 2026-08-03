@@ -1,0 +1,31 @@
+{
+  "stage": 6,
+  "exercise_range": "026-030",
+  "topics": [
+    "physical range check",
+    "IQR outlier detection",
+    "Z-score outlier detection",
+    "Hampel filter",
+    "outlier correction quality comparison"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log_complete.csv",
+    "data/equipment_sensor_log_with_outliers.csv",
+    "docs/examples_026_030_line_by_line.md",
+    "docs/stage06_overview.md",
+    "environment.yml",
+    "examples/example_026_physical_range_check.py",
+    "examples/example_027_iqr_outlier_detection.py",
+    "examples/example_028_zscore_outlier_detection.py",
+    "examples/example_029_hampel_filter.py",
+    "examples/example_030_compare_outlier_correction.py",
+    "prompts/prompt_026.md",
+    "prompts/prompt_027.md",
+    "prompts/prompt_028.md",
+    "prompts/prompt_029.md",
+    "prompts/prompt_030.md",
+    "requirements.txt",
+    "tests/test_stage06_outliers.py"
+  ]
+}

@@ -1,0 +1,13 @@
+name: semi-physical-ai-stage09
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - pymc
+  - arviz
+  - openpyxl
+  - jupyterlab

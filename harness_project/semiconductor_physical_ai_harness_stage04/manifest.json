@@ -1,0 +1,23 @@
+{
+  "stage": 4,
+  "exercise_range": "016-020",
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log.csv",
+    "docs/examples_016_020_line_by_line.md",
+    "docs/stage04_overview.md",
+    "environment.yml",
+    "examples/example_016_sensor_timeseries_plot.py",
+    "examples/example_017_lot_comparison.py",
+    "examples/example_018_recipe_comparison.py",
+    "examples/example_019_sensor_distribution_analysis.py",
+    "examples/example_020_basic_process_dashboard.py",
+    "prompts/prompt_016.md",
+    "prompts/prompt_017.md",
+    "prompts/prompt_018.md",
+    "prompts/prompt_019.md",
+    "prompts/prompt_020.md",
+    "requirements.txt",
+    "tests/test_stage04_outputs.py"
+  ]
+}

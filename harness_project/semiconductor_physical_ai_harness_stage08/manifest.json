@@ -1,0 +1,31 @@
+{
+  "stage": 8,
+  "exercise_range": "036-040",
+  "topics": [
+    "noise level analysis",
+    "moving average filter",
+    "exponential smoothing",
+    "Savitzky-Golay filter",
+    "filter performance comparison"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/sensor_signal_clean.csv",
+    "data/sensor_signal_noisy.csv",
+    "docs/examples_036_040_line_by_line.md",
+    "docs/stage08_overview.md",
+    "environment.yml",
+    "examples/example_036_noise_level_analysis.py",
+    "examples/example_037_moving_average_filter.py",
+    "examples/example_038_exponential_smoothing.py",
+    "examples/example_039_savgol_filter.py",
+    "examples/example_040_compare_filter_performance.py",
+    "prompts/prompt_036.md",
+    "prompts/prompt_037.md",
+    "prompts/prompt_038.md",
+    "prompts/prompt_039.md",
+    "prompts/prompt_040.md",
+    "requirements.txt",
+    "tests/test_stage08_filters.py"
+  ]
+}

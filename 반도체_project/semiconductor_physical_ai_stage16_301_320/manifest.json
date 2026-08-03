@@ -1,0 +1,162 @@
+[
+  {
+    "num": 301,
+    "title": "sensor_stream_profile",
+    "objective": "센서 스트림과 공정 단계 분포를 확인합니다.",
+    "prompt": "공정 단계별 센서 데이터 크기·결측값·기본 통계를 출력하라.",
+    "file": "ex301_sensor_stream_profile.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 302,
+    "title": "timestamp_validation",
+    "objective": "시간축 간격과 누락 시점을 검증합니다.",
+    "prompt": "1초 샘플링 기준으로 시간축 간격 오류를 검증하라.",
+    "file": "ex302_timestamp_validation.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 303,
+    "title": "missing_value_interpolation",
+    "objective": "센서 결측값을 시간 보간으로 복원합니다.",
+    "prompt": "다중 센서 결측값을 선형 시간 보간하고 전후 결측 수를 비교하라.",
+    "file": "ex303_missing_value_interpolation.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 304,
+    "title": "sensor_bias_estimation",
+    "objective": "두 센서 간 바이어스를 추정합니다.",
+    "prompt": "온도·압력 이중 센서 간 평균 바이어스와 표준편차를 계산하라.",
+    "file": "ex304_sensor_bias_estimation.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 305,
+    "title": "weighted_sensor_fusion",
+    "objective": "센서 분산 기반 가중평균 융합을 수행합니다.",
+    "prompt": "센서 오차분산의 역수를 가중치로 온도 센서를 융합하라.",
+    "file": "ex305_weighted_sensor_fusion.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 306,
+    "title": "median_robust_fusion",
+    "objective": "중앙값 기반 강건 센서 융합을 수행합니다.",
+    "prompt": "이중 온도 센서의 중앙값으로 강건 융합을 수행하라.",
+    "file": "ex306_median_robust_fusion.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 307,
+    "title": "moving_average_filter",
+    "objective": "이동평균으로 고주파 노이즈를 완화합니다.",
+    "prompt": "3·5·15·30 구간 이동평균의 RMSE를 비교하라.",
+    "file": "ex307_moving_average_filter.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 308,
+    "title": "exponential_smoothing",
+    "objective": "지수평활로 실시간 센서 상태를 추정합니다.",
+    "prompt": "지수평활 alpha별 온도 추정 RMSE를 비교하라.",
+    "file": "ex308_exponential_smoothing.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 309,
+    "title": "scalar_kalman_temperature",
+    "objective": "1차원 칼만 필터로 온도를 추정합니다.",
+    "prompt": "1차원 칼만 필터로 온도 상태를 추정하라.",
+    "file": "ex309_scalar_kalman_temperature.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 310,
+    "title": "scalar_kalman_pressure",
+    "objective": "1차원 칼만 필터로 압력을 추정합니다.",
+    "prompt": "1차원 칼만 필터로 압력 상태를 추정하라.",
+    "file": "ex310_scalar_kalman_pressure.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 311,
+    "title": "multivariable_state_estimation",
+    "objective": "온도·압력 상태를 함께 추정합니다.",
+    "prompt": "온도와 압력을 2차원 상태벡터로 칼만 추정하라.",
+    "file": "ex311_multivariable_state_estimation.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 312,
+    "title": "phase_based_twin_model",
+    "objective": "공정 단계별 디지털 트윈 기준값을 생성합니다.",
+    "prompt": "공정 단계별 디지털 트윈 기준값을 생성하라.",
+    "file": "ex312_phase_based_twin_model.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 313,
+    "title": "twin_residual_analysis",
+    "objective": "실측과 트윈 간 잔차를 분석합니다.",
+    "prompt": "실측 센서와 트윈 기준값의 잔차를 단계별로 분석하라.",
+    "file": "ex313_twin_residual_analysis.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 314,
+    "title": "sensor_fault_detection",
+    "objective": "센서 잔차로 바이어스·드리프트 이상을 탐지합니다.",
+    "prompt": "센서 잔차 임계값으로 바이어스·드리프트 고장을 탐지하라.",
+    "file": "ex314_sensor_fault_detection.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 315,
+    "title": "dynamic_threshold_alarm",
+    "objective": "이동 평균·표준편차 기반 동적 경보를 생성합니다.",
+    "prompt": "60초 이동 평균·표준편차로 동적 3시그마 경보를 생성하라.",
+    "file": "ex315_dynamic_threshold_alarm.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 316,
+    "title": "sensor_confidence_score",
+    "objective": "센서 신뢰도 점수를 계산합니다.",
+    "prompt": "센서 절대오차와 결측 여부로 0~1 신뢰도 점수를 계산하라.",
+    "file": "ex316_sensor_confidence_score.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 317,
+    "title": "fallback_sensor_selection",
+    "objective": "신뢰도에 따라 주센서·보조센서를 선택합니다.",
+    "prompt": "신뢰도가 높은 온도 센서를 시점별로 자동 선택하라.",
+    "file": "ex317_fallback_sensor_selection.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 318,
+    "title": "twin_health_score",
+    "objective": "트윈 오차를 이용해 공정 건강점수를 계산합니다.",
+    "prompt": "온도·압력·RF·가스 오차를 결합한 트윈 건강점수를 계산하라.",
+    "file": "ex318_twin_health_score.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 319,
+    "title": "realtime_twin_output",
+    "objective": "실시간 전달용 상태 추정 CSV를 생성합니다.",
+    "prompt": "융합 센서값·잔차·경보가 포함된 실시간 전달 CSV를 생성하라.",
+    "file": "ex319_realtime_twin_output.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 320,
+    "title": "automated_digital_twin_report",
+    "objective": "자동 디지털 트윈 Excel 보고서를 생성합니다.",
+    "prompt": "센서품질·단계요약·경보행·전체스트림 Excel 보고서를 생성하라.",
+    "file": "ex320_automated_digital_twin_report.py",
+    "expected": "요청한 디지털 트윈·센서 융합 결과가 출력 또는 저장됩니다."
+  }
+]

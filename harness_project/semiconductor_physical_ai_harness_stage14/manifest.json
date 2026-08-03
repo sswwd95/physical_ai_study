@@ -1,0 +1,30 @@
+{
+  "stage": 14,
+  "exercise_range": "066-070",
+  "topics": [
+    "PCA baseline training",
+    "principal component score monitoring",
+    "SPE Q statistic",
+    "sensor contributions",
+    "PCA monitoring dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/pca_process_log.csv",
+    "docs/examples_066_070_line_by_line.md",
+    "docs/stage14_overview.md",
+    "environment.yml",
+    "examples/example_066_train_pca_baseline.py",
+    "examples/example_067_pca_score_monitoring.py",
+    "examples/example_068_spe_q_statistic.py",
+    "examples/example_069_pca_sensor_contributions.py",
+    "examples/example_070_pca_monitoring_dashboard.py",
+    "prompts/prompt_066.md",
+    "prompts/prompt_067.md",
+    "prompts/prompt_068.md",
+    "prompts/prompt_069.md",
+    "prompts/prompt_070.md",
+    "requirements.txt",
+    "tests/test_stage14_pca.py"
+  ]
+}

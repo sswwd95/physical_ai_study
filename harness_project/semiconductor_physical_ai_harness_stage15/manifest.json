@@ -1,0 +1,31 @@
+{
+  "stage": 15,
+  "exercise_range": "071-075",
+  "topics": [
+    "Cp Cpk",
+    "Pp Ppk",
+    "spec violation rate",
+    "lot capability comparison",
+    "process capability dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/process_capability_temperature.csv",
+    "data/temperature_spec.json",
+    "docs/examples_071_075_line_by_line.md",
+    "docs/stage15_overview.md",
+    "environment.yml",
+    "examples/example_071_cp_cpk.py",
+    "examples/example_072_pp_ppk.py",
+    "examples/example_073_spec_violation_rate.py",
+    "examples/example_074_lot_capability_comparison.py",
+    "examples/example_075_capability_dashboard.py",
+    "prompts/prompt_071.md",
+    "prompts/prompt_072.md",
+    "prompts/prompt_073.md",
+    "prompts/prompt_074.md",
+    "prompts/prompt_075.md",
+    "requirements.txt",
+    "tests/test_stage15_capability.py"
+  ]
+}

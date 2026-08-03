@@ -1,0 +1,39 @@
+{
+  "temperature_c": {
+    "expected_unit": "degC",
+    "allowed_source_units": [
+      "degC",
+      "degF",
+      "K"
+    ]
+  },
+  "pressure_kpa": {
+    "expected_unit": "kPa",
+    "allowed_source_units": [
+      "kPa",
+      "Pa",
+      "bar"
+    ]
+  },
+  "gas_flow_sccm": {
+    "expected_unit": "sccm",
+    "allowed_source_units": [
+      "sccm",
+      "slm"
+    ]
+  },
+  "vibration_rms": {
+    "expected_unit": "mm/s",
+    "allowed_source_units": [
+      "mm/s",
+      "m/s"
+    ]
+  },
+  "motor_current_a": {
+    "expected_unit": "A",
+    "allowed_source_units": [
+      "A",
+      "mA"
+    ]
+  }
+}

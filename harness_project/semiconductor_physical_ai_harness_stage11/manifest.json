@@ -1,0 +1,30 @@
+{
+  "stage": 11,
+  "exercise_range": "051-055",
+  "topics": [
+    "SPC baseline",
+    "X-bar control chart",
+    "individuals chart",
+    "moving range chart",
+    "Western Electric rules"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/temperature_spc_log.csv",
+    "docs/examples_051_055_line_by_line.md",
+    "docs/stage11_overview.md",
+    "environment.yml",
+    "examples/example_051_spc_baseline_summary.py",
+    "examples/example_052_xbar_control_chart.py",
+    "examples/example_053_individuals_chart.py",
+    "examples/example_054_moving_range_chart.py",
+    "examples/example_055_western_electric_rules.py",
+    "prompts/prompt_051.md",
+    "prompts/prompt_052.md",
+    "prompts/prompt_053.md",
+    "prompts/prompt_054.md",
+    "prompts/prompt_055.md",
+    "requirements.txt",
+    "tests/test_stage11_spc.py"
+  ]
+}

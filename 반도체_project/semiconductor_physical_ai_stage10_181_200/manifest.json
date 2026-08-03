@@ -1,0 +1,142 @@
+[
+  {
+    "num": 181,
+    "title": "beta_binomial_basic",
+    "file": "ex181_beta_binomial_basic.py",
+    "objective": "전체 불량률을 베타-이항 모형으로 추정합니다.",
+    "prompt": "전체 wafer_count와 defect_count를 합산하고 p~Beta(1,1), defects~Binomial(n,p) 모형을 작성하라.\n사후 평균과 94% HDI를 출력하라."
+  },
+  {
+    "num": 182,
+    "title": "informative_prior",
+    "file": "ex182_informative_prior.py",
+    "objective": "기존 공정 지식을 반영한 정보성 사전분포를 적용합니다.",
+    "prompt": "과거 불량률 3%에 해당하는 Beta(3,97) 사전분포와 Beta(1,1)를 비교하라.\n두 모형의 사후 평균과 HDI를 표로 출력하라."
+  },
+  {
+    "num": 183,
+    "title": "target_exceedance_probability",
+    "file": "ex183_target_exceedance_probability.py",
+    "objective": "불량률이 관리 목표를 초과할 확률을 계산합니다.",
+    "prompt": "전체 불량률 모형에서 P(p>0.04), P(p>0.05)를 계산하라."
+  },
+  {
+    "num": 184,
+    "title": "recipe_defect_rates",
+    "file": "ex184_recipe_defect_rates.py",
+    "objective": "레시피별 불량률 사후분포를 추정합니다.",
+    "prompt": "recipe별 wafer_count와 defect_count를 집계하고 레시피별 p를 Beta(1,1)로 둔\n벡터화 베타-이항 모형을 작성하라."
+  },
+  {
+    "num": 185,
+    "title": "recipe_rate_difference",
+    "file": "ex185_recipe_rate_difference.py",
+    "objective": "레시피 간 불량률 차이의 사후확률을 계산합니다.",
+    "prompt": "ETCH-C와 ETCH-A의 불량률 차이 diff_C_A를 deterministic으로 정의하고\nP(diff>0), 평균 차이, HDI를 출력하라."
+  },
+  {
+    "num": 186,
+    "title": "chamber_defect_rates",
+    "file": "ex186_chamber_defect_rates.py",
+    "objective": "챔버별 불량률을 추정합니다.",
+    "prompt": "chamber_id별 베타-이항 모형을 작성하고 사후요약을 저장하라."
+  },
+  {
+    "num": 187,
+    "title": "hierarchical_recipe_model",
+    "file": "ex187_hierarchical_recipe_model.py",
+    "objective": "레시피별 불량률을 계층적으로 부분 풀링합니다.",
+    "prompt": "logit 불량률에 전체 평균과 레시피 랜덤효과를 둔 계층모형을 작성하라."
+  },
+  {
+    "num": 188,
+    "title": "hierarchical_chamber_model",
+    "file": "ex188_hierarchical_chamber_model.py",
+    "objective": "챔버별 불량률을 계층적으로 추정합니다.",
+    "prompt": "챔버 효과를 비중심 모수화한 계층 로지스틱 모형으로 작성하라."
+  },
+  {
+    "num": 189,
+    "title": "bayesian_logistic_regression",
+    "file": "ex189_bayesian_logistic_regression.py",
+    "objective": "공정 변수로 LOT 불량 발생확률을 예측합니다.",
+    "prompt": "LOT defect_count>0을 목표로 온도편차·압력편차·입자수를 표준화한 베이지안 로지스틱 회귀를 작성하라."
+  },
+  {
+    "num": 190,
+    "title": "logistic_coefficient_probability",
+    "file": "ex190_logistic_coefficient_probability.py",
+    "objective": "회귀계수의 양수 확률을 계산합니다.",
+    "prompt": "각 beta에 대해 P(beta>0)와 94% HDI를 표로 저장하라."
+  },
+  {
+    "num": 191,
+    "title": "posterior_predictive_defects",
+    "file": "ex191_posterior_predictive_defects.py",
+    "objective": "새 LOT의 불량 개수 사후예측분포를 계산합니다.",
+    "prompt": "wafer_count=100, p 사후표본을 사용해 Binomial posterior predictive를 생성하라."
+  },
+  {
+    "num": 192,
+    "title": "probability_of_zero_defects",
+    "file": "ex192_probability_of_zero_defects.py",
+    "objective": "다음 LOT에서 무불량일 확률을 계산합니다.",
+    "prompt": "wafer_count=100일 때 P(defect_count=0)를 사후예측으로 계산하라."
+  },
+  {
+    "num": 193,
+    "title": "decision_cost_matrix",
+    "file": "ex193_decision_cost_matrix.py",
+    "objective": "검사 강화와 유지의 기대비용을 비교합니다.",
+    "prompt": "불량 1건 비용, 검사 강화 비용, 감소효과를 가정해 사후표본별 기대비용을 계산하라."
+  },
+  {
+    "num": 194,
+    "title": "optimal_action_probability",
+    "file": "ex194_optimal_action_probability.py",
+    "objective": "각 사후표본에서 더 저렴한 의사결정을 선택합니다.",
+    "prompt": "강화검사가 더 유리한 사후확률과 기대 절감액을 계산하라."
+  },
+  {
+    "num": 195,
+    "title": "bayesian_ab_test",
+    "file": "ex195_bayesian_ab_test.py",
+    "objective": "두 레시피 불량률을 베이지안 A/B 테스트로 비교합니다.",
+    "prompt": "ETCH-A와 ETCH-B의 상대위험도 pB/pA와 P(pB<pA)를 계산하라."
+  },
+  {
+    "num": 196,
+    "title": "relative_risk_hdi",
+    "file": "ex196_relative_risk_hdi.py",
+    "objective": "상대위험도의 HDI와 목표 이하 확률을 계산합니다.",
+    "prompt": "pC/pA의 평균·HDI·P(RR<1.2)를 출력하라."
+  },
+  {
+    "num": 197,
+    "title": "model_diagnostics",
+    "file": "ex197_model_diagnostics.py",
+    "objective": "R-hat·ESS·Divergence를 점검합니다.",
+    "prompt": "계층모형의 az.summary와 divergence 수를 CSV로 저장하라."
+  },
+  {
+    "num": 198,
+    "title": "posterior_plot",
+    "file": "ex198_posterior_plot.py",
+    "objective": "불량률 사후분포 그래프를 저장합니다.",
+    "prompt": "레시피별 p의 az.plot_posterior 그래프를 PNG로 저장하라."
+  },
+  {
+    "num": 199,
+    "title": "lot_risk_table",
+    "file": "ex199_lot_risk_table.py",
+    "objective": "LOT별 추정 위험점수와 우선순위를 생성합니다.",
+    "prompt": "로지스틱 회귀 사후평균으로 LOT별 불량발생확률을 계산해 CSV로 저장하라."
+  },
+  {
+    "num": 200,
+    "title": "automated_defect_decision_report",
+    "file": "ex200_automated_defect_decision_report.py",
+    "objective": "사후요약·그룹비교·의사결정·LOT위험을 Excel 보고서로 생성합니다.",
+    "prompt": "summary, recipe_rates, decision_analysis, lot_risk 네 시트를 생성하라."
+  }
+]

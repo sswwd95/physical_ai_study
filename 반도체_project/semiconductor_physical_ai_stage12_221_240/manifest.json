@@ -1,0 +1,162 @@
+[
+  {
+    "num": 221,
+    "title": "maintenance_data_profile",
+    "objective": "장비별 수명과 센서 열화 분포를 확인합니다.",
+    "prompt": "장비별 수명, 고장 수, 정상·고장 센서 평균을 요약하라.",
+    "file": "ex221_maintenance_data_profile.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 222,
+    "title": "degradation_trend",
+    "objective": "장비별 센서 열화 추세를 계산합니다.",
+    "prompt": "장비별 온도·진동·전류·건강지수의 선형 기울기를 계산하라.",
+    "file": "ex222_degradation_trend.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 223,
+    "title": "rolling_health_features",
+    "objective": "이동평균·기울기 기반 건강 특징을 생성합니다.",
+    "prompt": "장비별 10주기 이동평균과 이동표준편차 특징을 생성하라.",
+    "file": "ex223_rolling_health_features.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 224,
+    "title": "health_index_reconstruction",
+    "objective": "센서 표준화 점수로 건강지수를 재구성합니다.",
+    "prompt": "센서 표준화 점수로 0~1 건강지수를 재구성하라.",
+    "file": "ex224_health_index_reconstruction.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 225,
+    "title": "failure_horizon_label",
+    "objective": "고장 임박 분류 라벨을 생성합니다.",
+    "prompt": "RUL 기준 10·20·30주기 고장임박 라벨을 생성하라.",
+    "file": "ex225_failure_horizon_label.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 226,
+    "title": "group_train_test_split",
+    "objective": "장비 단위 학습·평가 분할을 수행합니다.",
+    "prompt": "equipment_id 단위 GroupShuffleSplit을 수행하라.",
+    "file": "ex226_group_train_test_split.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 227,
+    "title": "failure_classifier_logistic",
+    "objective": "Logistic Regression으로 고장 임박을 분류합니다.",
+    "prompt": "Logistic Regression으로 20주기 이내 고장 여부를 분류하라.",
+    "file": "ex227_failure_classifier_logistic.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 228,
+    "title": "failure_classifier_random_forest",
+    "objective": "Random Forest로 고장 임박을 분류합니다.",
+    "prompt": "Random Forest로 20주기 이내 고장 여부를 분류하라.",
+    "file": "ex228_failure_classifier_random_forest.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 229,
+    "title": "failure_probability_threshold",
+    "objective": "고장확률 임계값별 정책을 비교합니다.",
+    "prompt": "고장확률 임계값별 precision·recall·F1을 비교하라.",
+    "file": "ex229_failure_probability_threshold.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 230,
+    "title": "rul_linear_regression",
+    "objective": "선형 회귀로 잔여수명을 예측합니다.",
+    "prompt": "선형 회귀로 RUL을 예측하고 MAE·RMSE·R²를 출력하라.",
+    "file": "ex230_rul_linear_regression.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 231,
+    "title": "rul_random_forest",
+    "objective": "Random Forest로 잔여수명을 예측합니다.",
+    "prompt": "Random Forest로 RUL을 예측하라.",
+    "file": "ex231_rul_random_forest.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 232,
+    "title": "rul_gradient_boosting",
+    "objective": "Gradient Boosting으로 잔여수명을 예측합니다.",
+    "prompt": "Gradient Boosting으로 RUL을 예측하라.",
+    "file": "ex232_rul_gradient_boosting.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 233,
+    "title": "rul_model_comparison",
+    "objective": "여러 RUL 회귀 모델을 비교합니다.",
+    "prompt": "Linear·RandomForest·GradientBoosting RUL 모델을 비교하라.",
+    "file": "ex233_rul_model_comparison.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 234,
+    "title": "rul_residual_analysis",
+    "objective": "RUL 예측 잔차를 분석합니다.",
+    "prompt": "RUL 잔차와 큰 오차 상위 20개를 저장하라.",
+    "file": "ex234_rul_residual_analysis.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 235,
+    "title": "near_failure_error",
+    "objective": "고장 임박 구간 오차를 별도로 평가합니다.",
+    "prompt": "전체 MAE와 RUL 20 이하 구간 MAE를 비교하라.",
+    "file": "ex235_near_failure_error.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 236,
+    "title": "maintenance_priority_score",
+    "objective": "정비 우선순위 점수를 계산합니다.",
+    "prompt": "건강지수와 RUL로 정비 우선순위 점수를 계산하라.",
+    "file": "ex236_maintenance_priority_score.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 237,
+    "title": "simple_survival_table",
+    "objective": "주기별 생존율 표를 계산합니다.",
+    "prompt": "장비 수명으로 10주기 간격 생존율 표를 생성하라.",
+    "file": "ex237_simple_survival_table.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 238,
+    "title": "remaining_life_interval",
+    "objective": "앙상블 기반 RUL 예측구간을 계산합니다.",
+    "prompt": "20개 Random Forest로 RUL 5·50·95% 구간을 계산하라.",
+    "file": "ex238_remaining_life_interval.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 239,
+    "title": "maintenance_schedule_output",
+    "objective": "정비 일정 추천 CSV를 생성합니다.",
+    "prompt": "최신 장비 상태에서 정비 권고와 예정 주기를 생성하라.",
+    "file": "ex239_maintenance_schedule_output.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 240,
+    "title": "automated_pm_report",
+    "objective": "자동 예지보전 Excel 보고서를 생성합니다.",
+    "prompt": "분류·회귀 성능, 예측, 정비 우선순위 Excel 보고서를 생성하라.",
+    "file": "ex240_automated_pm_report.py",
+    "expected": "요청한 예지보전 분석 결과가 출력 또는 저장됩니다."
+  }
+]

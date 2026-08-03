@@ -1,0 +1,162 @@
+[
+  {
+    "num": 41,
+    "title": "process_variable_summary",
+    "objective": "주요 공정 변수의 평균, 표준편차, 최소, 최대, 중앙값을 한 번에 요약합니다.",
+    "prompt": "반도체 장비 센서 CSV에서 온도, 압력, RF 전력, 가스 유량, 진동의\n평균, 표준편차, 최솟값, 중앙값, 최댓값을 계산하는 초보자용 pandas 예제를 작성하라.\n결과는 CSV로 저장하고 소수 셋째 자리까지 출력하라.",
+    "file": "ex041_process_variable_summary.py",
+    "expected": "5개 공정 변수의 핵심 통계량이 표로 출력되고 CSV로 저장됩니다."
+  },
+  {
+    "num": 42,
+    "title": "lot_mean_comparison",
+    "objective": "LOT별 평균 공정 조건을 비교하여 배치 간 차이를 확인합니다.",
+    "prompt": "lot_id별 온도, 압력, RF 전력, 가스 유량의 평균을 계산하고\n전체 평균과의 차이도 함께 계산하는 pandas 예제를 작성하라.\n결과를 CSV로 저장하라.",
+    "file": "ex042_lot_mean_comparison.py",
+    "expected": "LOT별 평균과 전체 평균 대비 차이가 함께 출력됩니다."
+  },
+  {
+    "num": 43,
+    "title": "rolling_mean_std",
+    "objective": "이동평균과 이동표준편차로 공정의 국소 추세와 변동성을 계산합니다.",
+    "prompt": "챔버 온도에 대해 20개 시점 이동평균과 이동표준편차를 계산하라.\nmin_periods=5를 사용하고 마지막 30행을 출력한 뒤 CSV로 저장하라.",
+    "file": "ex043_rolling_mean_std.py",
+    "expected": "최근 20개 시점의 온도 평균과 표준편차가 시점별로 계산됩니다."
+  },
+  {
+    "num": 44,
+    "title": "ewma_monitoring",
+    "objective": "EWMA를 이용해 최근 공정 변화에 민감한 추세 지표를 만듭니다.",
+    "prompt": "온도 센서에 대해 span=20인 EWMA를 계산하라.\n원본 온도와 EWMA를 CSV로 저장하고 마지막 20행을 출력하라.",
+    "file": "ex044_ewma_monitoring.py",
+    "expected": "원본 온도보다 부드럽지만 최근 변화에 빠르게 반응하는 EWMA가 생성됩니다."
+  },
+  {
+    "num": 45,
+    "title": "three_sigma_limits",
+    "objective": "평균과 표준편차를 이용해 3시그마 관리한계를 계산합니다.",
+    "prompt": "챔버 압력의 평균과 표준편차를 계산하고 중심선 CL, 상한 UCL, 하한 LCL을\n평균 ± 3표준편차로 계산하라. 관리한계를 벗어난 행을 출력하고 CSV로 저장하라.",
+    "file": "ex045_three_sigma_limits.py",
+    "expected": "압력 중심선과 3시그마 관리한계, 관리한계 이탈 행이 출력됩니다."
+  },
+  {
+    "num": 46,
+    "title": "individuals_control_chart",
+    "objective": "개별값 관리도(I Chart)를 생성하고 관리한계 이탈점을 표시합니다.",
+    "prompt": "챔버 온도의 평균과 표준편차로 I 관리도를 작성하라.\n원본값, 중심선, UCL, LCL을 표시하고 관리한계 이탈점을 별도 마커로 표시한 뒤\nPNG로 저장하라. 화면 없이 저장 가능하게 작성하라.",
+    "file": "ex046_individuals_control_chart.py",
+    "expected": "`outputs/ex046_temperature_i_chart.png`에 온도 I 관리도가 저장됩니다."
+  },
+  {
+    "num": 47,
+    "title": "moving_range_chart",
+    "objective": "연속 두 관측값의 차이로 이동범위(MR)를 계산하고 MR 관리도를 작성합니다.",
+    "prompt": "온도 센서의 절대 1시점 차이를 moving_range로 계산하라.\nMR 평균과 UCL=3.267*MR평균을 계산하고 MR 관리도를 PNG로 저장하라.\nUCL을 넘는 시점 수를 출력하라.",
+    "file": "ex047_moving_range_chart.py",
+    "expected": "온도 이동범위 관리도와 MR 관리한계 이탈 수가 생성됩니다."
+  },
+  {
+    "num": 48,
+    "title": "subgroup_xbar_chart",
+    "objective": "5개 관측값을 한 소그룹으로 묶어 X-bar 관리도의 기초를 실습합니다.",
+    "prompt": "온도 데이터를 연속 5개씩 소그룹으로 묶고 subgroup_mean과 subgroup_range를 계산하라.\n전체 소그룹 평균과 평균 범위를 사용하여 X-bar 관리한계를\nUCL=Xdoublebar+0.577*Rbar, LCL=Xdoublebar-0.577*Rbar로 계산하라.\n결과를 CSV로 저장하라.",
+    "file": "ex048_subgroup_xbar_chart.py",
+    "expected": "60개 소그룹의 평균, 범위, X-bar 관리한계와 이탈 여부가 저장됩니다."
+  },
+  {
+    "num": 49,
+    "title": "subgroup_r_chart",
+    "objective": "소그룹 범위로 R 관리도의 중심선과 관리한계를 계산합니다.",
+    "prompt": "실습 048과 동일하게 5개씩 소그룹을 만들고 범위를 계산하라.\nn=5의 D3=0, D4=2.114를 사용하여 R 관리도의 CL, UCL, LCL을 계산하고\n관리한계 이탈 소그룹을 출력하라.",
+    "file": "ex049_subgroup_r_chart.py",
+    "expected": "소그룹 범위의 중심선과 R 관리한계가 계산됩니다."
+  },
+  {
+    "num": 50,
+    "title": "run_rule_one_side",
+    "objective": "중심선 한쪽에 연속으로 나타나는 런 규칙을 탐지합니다.",
+    "prompt": "온도 평균을 중심선으로 사용하여 7개 연속 관측값이 모두 중심선 위 또는 아래에 있는\n구간을 탐지하라. 각 행에 run_rule_violation 플래그를 추가하고 위반 행을 저장하라.",
+    "file": "ex050_run_rule_one_side.py",
+    "expected": "중심선 한쪽에 7개 연속 위치한 구간의 끝 행이 탐지됩니다."
+  },
+  {
+    "num": 51,
+    "title": "trend_rule_detection",
+    "objective": "연속 상승 또는 연속 하락 추세를 감지합니다.",
+    "prompt": "온도 데이터에서 6개 연속 관측값이 계속 상승하거나 계속 하락하는 구간을 탐지하라.\ndiff의 부호를 이용하고 trend_violation 플래그를 추가하여 결과를 CSV로 저장하라.",
+    "file": "ex051_trend_rule_detection.py",
+    "expected": "6개 연속 상승 또는 하락 추세가 끝나는 시점이 탐지됩니다."
+  },
+  {
+    "num": 52,
+    "title": "zone_rule_detection",
+    "objective": "2시그마와 3시그마 구역을 이용한 간단한 Western Electric 규칙을 적용합니다.",
+    "prompt": "압력 평균과 표준편차를 계산하라.\n최근 3개 중 2개 이상이 같은 방향으로 평균±2표준편차를 넘으면 zone_rule_violation으로\n표시하라. 위쪽과 아래쪽 규칙을 모두 검사하고 위반 행을 저장하라.",
+    "file": "ex052_zone_rule_detection.py",
+    "expected": "최근 3개 중 2개가 2시그마 밖에 위치한 구간이 탐지됩니다."
+  },
+  {
+    "num": 53,
+    "title": "cp_calculation",
+    "objective": "규격폭과 공정 표준편차를 이용해 잠재 공정능력 Cp를 계산합니다.",
+    "prompt": "챔버 온도의 규격하한 LSL=69, 규격상한 USL=75로 두고\nCp=(USL-LSL)/(6*sigma)를 계산하라. Cp가 1.33 이상인지 판정 메시지도 출력하라.",
+    "file": "ex053_cp_calculation.py",
+    "expected": "온도 규격폭 대비 변동성을 나타내는 Cp가 계산됩니다."
+  },
+  {
+    "num": 54,
+    "title": "cpk_calculation",
+    "objective": "공정 평균의 치우침까지 반영하는 Cpk를 계산합니다.",
+    "prompt": "챔버 온도의 LSL=69, USL=75를 사용하라.\nCPU=(USL-mean)/(3*sigma), CPL=(mean-LSL)/(3*sigma), Cpk=min(CPU,CPL)를 계산하고\n평균이 어느 규격 쪽에 더 가까운지 출력하라.",
+    "file": "ex054_cpk_calculation.py",
+    "expected": "상·하한 방향 능력과 최종 Cpk가 출력됩니다."
+  },
+  {
+    "num": 55,
+    "title": "lot_capability_comparison",
+    "objective": "LOT별 Cp와 Cpk를 계산해 배치 간 공정능력을 비교합니다.",
+    "prompt": "lot_id별 챔버 온도 평균과 표준편차를 계산하고 LSL=69, USL=75를 사용하여\nCp, CPU, CPL, Cpk를 계산하라. Cpk가 낮은 순으로 정렬하고 CSV로 저장하라.",
+    "file": "ex055_lot_capability_comparison.py",
+    "expected": "LOT별 Cp·Cpk가 계산되고 공정능력이 낮은 LOT부터 정렬됩니다."
+  },
+  {
+    "num": 56,
+    "title": "spec_violation_rate",
+    "objective": "규격 이탈률을 계산해 실제 불량 후보 비율을 정량화합니다.",
+    "prompt": "온도 규격 69~75°C, 압력 규격 17~19Pa를 적용하라.\n각 센서별 규격 이탈 건수와 이탈률, 둘 중 하나라도 이탈한 행 비율을 계산하여 출력하고\n요약 CSV를 저장하라.",
+    "file": "ex056_spec_violation_rate.py",
+    "expected": "센서별 규격 이탈 건수와 전체 이탈률이 계산됩니다."
+  },
+  {
+    "num": 57,
+    "title": "multi_sensor_alarm_score",
+    "objective": "여러 SPC 경보를 점수화해 통합 공정 위험 점수를 만듭니다.",
+    "prompt": "온도 3시그마 이탈은 40점, 압력 3시그마 이탈은 30점,\n진동 0.15g 이상은 20점, 입자 수 10 이상은 10점을 부여하라.\n합계 50점 이상을 high_risk로 표시하고 위험 행을 CSV로 저장하라.",
+    "file": "ex057_multi_sensor_alarm_score.py",
+    "expected": "다중 센서 경보를 합산한 위험점수와 고위험 행이 생성됩니다."
+  },
+  {
+    "num": 58,
+    "title": "alarm_persistence",
+    "objective": "순간 경보와 지속 경보를 구분해 오경보를 줄입니다.",
+    "prompt": "실습 057과 같은 risk_score를 계산하라.\nhigh_risk가 최근 5개 중 3개 이상이면 persistent_alarm으로 표시하라.\n지속 경보 시작 시점을 찾아 출력하고 CSV로 저장하라.",
+    "file": "ex058_alarm_persistence.py",
+    "expected": "최근 5개 중 3개 이상 고위험인 지속 경보 시작점이 탐지됩니다."
+  },
+  {
+    "num": 59,
+    "title": "spc_dashboard_data",
+    "objective": "관리도와 KPI에 사용할 통합 대시보드 데이터를 생성합니다.",
+    "prompt": "timestamp별 온도, 압력, EWMA, 온도 UCL/LCL, 압력 UCL/LCL,\n규격 이탈 여부, 위험점수를 포함하는 대시보드용 CSV를 생성하라.\n모든 기준값은 데이터에서 계산하고 결과의 마지막 10행을 출력하라.",
+    "file": "ex059_spc_dashboard_data.py",
+    "expected": "SPC 대시보드에서 바로 사용할 시계열 기준선과 위험지표 CSV가 생성됩니다."
+  },
+  {
+    "num": 60,
+    "title": "automated_spc_report",
+    "objective": "공정 요약, 관리한계, 공정능력, 경보 건수를 하나의 Excel 보고서로 자동 생성합니다.",
+    "prompt": "온도와 압력에 대해 평균, 표준편차, UCL, LCL, 규격하한, 규격상한,\nCp, Cpk, 관리한계 이탈 수, 규격 이탈 수를 계산하라.\nsummary, alarm_rows 두 시트의 Excel 보고서를 생성하고 CSV 요약도 함께 저장하라.",
+    "file": "ex060_automated_spc_report.py",
+    "expected": "SPC 요약과 경보 행이 포함된 Excel 및 CSV 보고서가 생성됩니다."
+  }
+]

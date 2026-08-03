@@ -1,0 +1,142 @@
+[
+  {
+    "num": 161,
+    "title": "prior_predictive_yield",
+    "file": "ex161_prior_predictive_yield.py",
+    "objective": "사전예측분포로 수율 사전분포의 현실성을 확인합니다.",
+    "prompt": "평균 수율 mu~Normal(94,3), sigma~HalfNormal(2), y~Normal(mu,sigma)인 PyMC 모형을 만들고\n사전예측 1000개를 생성하여 범위와 평균을 출력하라."
+  },
+  {
+    "num": 162,
+    "title": "bayesian_mean_estimation",
+    "file": "ex162_bayesian_mean_estimation.py",
+    "objective": "전체 수율 평균과 표준편차의 사후분포를 추정합니다.",
+    "prompt": "yield_percent를 관측값으로 사용해 mu~Normal(94,5), sigma~HalfNormal(3)인 정규모형을 작성하라.\ndraws=1000, tune=1000, chains=2로 표본추출하고 az.summary를 저장하라."
+  },
+  {
+    "num": 163,
+    "title": "hdi_and_rope",
+    "file": "ex163_hdi_and_rope.py",
+    "objective": "HDI와 ROPE로 목표 수율 충족 가능성을 판단합니다.",
+    "prompt": "실습 162 모형에서 mu의 94% HDI와 P(mu>94), ROPE=[93.5,94.5] 안의 사후확률을 계산하라."
+  },
+  {
+    "num": 164,
+    "title": "recipe_group_means",
+    "file": "ex164_recipe_group_means.py",
+    "objective": "레시피별 평균 수율의 사후분포를 각각 추정합니다.",
+    "prompt": "recipe를 정수 인덱스로 바꾸고 레시피별 mu를 Normal(94,4), 공통 sigma를 HalfNormal(3)로 두어\n그룹 평균 모형을 작성하라. 레시피별 사후요약을 저장하라."
+  },
+  {
+    "num": 165,
+    "title": "recipe_difference_probability",
+    "file": "ex165_recipe_difference_probability.py",
+    "objective": "두 레시피 평균 차이의 사후확률을 계산합니다.",
+    "prompt": "ETCH-A와 ETCH-C 평균 차이를 deterministic 변수 diff_A_C로 정의하고\nP(diff>0), 평균 차이, 94% HDI를 출력하라."
+  },
+  {
+    "num": 166,
+    "title": "simple_bayesian_regression",
+    "file": "ex166_simple_bayesian_regression.py",
+    "objective": "입자 수와 수율의 베이지안 선형관계를 추정합니다.",
+    "prompt": "particle_mean을 표준화하고 yield=alpha+beta*x 모형을 작성하라.\nalpha~Normal(94,5), beta~Normal(0,2), sigma~HalfNormal(3)을 사용하라."
+  },
+  {
+    "num": 167,
+    "title": "multiple_bayesian_regression",
+    "file": "ex167_multiple_bayesian_regression.py",
+    "objective": "여러 공정 변수의 회귀계수를 동시에 추정합니다.",
+    "prompt": "온도, 압력, 입자, 진동, 정비경과시간을 표준화하고 beta 벡터를 Normal(0,1)로 둔\n다중 베이지안 회귀를 작성하라."
+  },
+  {
+    "num": 168,
+    "title": "posterior_predictive_check",
+    "file": "ex168_posterior_predictive_check.py",
+    "objective": "사후예측분포가 실제 수율 분포를 재현하는지 확인합니다.",
+    "prompt": "다중 회귀 모형을 학습한 뒤 pm.sample_posterior_predictive로 y 예측표본을 만들고\n관측 평균과 예측 평균, 관측 표준편차와 예측 표준편차를 비교하라."
+  },
+  {
+    "num": 169,
+    "title": "out_of_sample_prediction",
+    "file": "ex169_out_of_sample_prediction.py",
+    "objective": "새 공정 조건의 수율 사후예측분포를 계산합니다.",
+    "prompt": "입자 표준화 회귀모형에서 particle_mean=8인 새 조건의 mu_new를 deterministic으로 정의하고\n사후 평균과 94% HDI를 출력하라."
+  },
+  {
+    "num": 170,
+    "title": "hierarchical_chamber_model",
+    "file": "ex170_hierarchical_chamber_model.py",
+    "objective": "챔버별 평균 수율을 부분 풀링하는 계층모형을 작성합니다.",
+    "prompt": "챔버별 효과를 전체 평균 mu_global과 tau로부터 생성하는 비중심 계층모형으로 작성하라.\n챔버별 평균 수율의 사후요약을 저장하라."
+  },
+  {
+    "num": 171,
+    "title": "prior_sensitivity",
+    "file": "ex171_prior_sensitivity.py",
+    "objective": "사전분포 폭에 따른 회귀계수 변화를 비교합니다.",
+    "prompt": "약한 사전 beta~Normal(0,5)와 강한 사전 beta~Normal(0,0.5)를 각각 적합하고 beta 평균을 비교하라."
+  },
+  {
+    "num": 172,
+    "title": "robust_student_t_model",
+    "file": "ex172_robust_student_t_model.py",
+    "objective": "Student-t 관측모형으로 극단값에 강한 수율 추정을 수행합니다.",
+    "prompt": "Normal 대신 StudentT(nu,mu,sigma) 관측모형을 사용하고 nu~Exponential(1/10)+1로 정의하라."
+  },
+  {
+    "num": 173,
+    "title": "low_yield_probability",
+    "file": "ex173_low_yield_probability.py",
+    "objective": "각 LOT의 수율이 92% 미만일 사후예측확률을 계산합니다.",
+    "prompt": "단순 정규모형에서 posterior predictive를 생성하고 P(y_new<92)를 계산하라."
+  },
+  {
+    "num": 174,
+    "title": "bayesian_r_squared",
+    "file": "ex174_bayesian_r_squared.py",
+    "objective": "베이지안 R²의 사후분포를 계산합니다.",
+    "prompt": "다중 회귀의 mu 분산과 잔차분산으로 R2=var(mu)/(var(mu)+sigma^2)를 deterministic으로 정의하라."
+  },
+  {
+    "num": 175,
+    "title": "loo_model_comparison",
+    "file": "ex175_loo_model_comparison.py",
+    "objective": "단순 회귀와 다중 회귀를 LOO로 비교합니다.",
+    "prompt": "두 모델을 log_likelihood가 포함된 InferenceData로 적합하고 az.compare를 사용하라."
+  },
+  {
+    "num": 176,
+    "title": "diagnostic_summary",
+    "file": "ex176_diagnostic_summary.py",
+    "objective": "R-hat, ESS, divergence로 MCMC 품질을 점검합니다.",
+    "prompt": "az.summary와 sample_stats.diverging 합계를 출력하고 진단 CSV를 저장하라."
+  },
+  {
+    "num": 177,
+    "title": "trace_and_posterior_plot",
+    "file": "ex177_trace_and_posterior_plot.py",
+    "objective": "트레이스와 사후분포 그래프를 PNG로 저장합니다.",
+    "prompt": "az.plot_trace와 az.plot_posterior를 Agg 백엔드로 저장하라."
+  },
+  {
+    "num": 178,
+    "title": "hierarchical_recipe_chamber",
+    "file": "ex178_hierarchical_recipe_chamber.py",
+    "objective": "레시피와 챔버 효과를 함께 가진 계층 회귀를 작성합니다.",
+    "prompt": "레시피 고정효과와 챔버 랜덤효과를 함께 포함한 수율 모형을 작성하라."
+  },
+  {
+    "num": 179,
+    "title": "bayesian_prediction_table",
+    "file": "ex179_bayesian_prediction_table.py",
+    "objective": "평가 행별 사후예측 평균과 HDI를 표로 만듭니다.",
+    "prompt": "처음 20행에 대해 posterior predictive 평균, 3%, 97% 분위수를 CSV로 저장하라."
+  },
+  {
+    "num": 180,
+    "title": "automated_bayesian_report",
+    "file": "ex180_automated_bayesian_report.py",
+    "objective": "사후요약·진단·예측·그룹비교를 Excel 보고서로 생성합니다.",
+    "prompt": "summary, diagnostics, recipe_comparison, prediction_interval 네 시트를 생성하라."
+  }
+]

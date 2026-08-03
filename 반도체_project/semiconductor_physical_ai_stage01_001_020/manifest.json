@@ -1,0 +1,162 @@
+[
+  {
+    "num": 1,
+    "title": "generate_sensor_data",
+    "objective": "반도체 식각 장비를 모사한 온도·압력·RF 전력·가스 유량 센서 데이터를 생성하고 CSV 구조를 이해합니다.",
+    "prompt": "Windows 10과 Anaconda에서 실행할 초보자용 Python 예제를 작성하라.\n반도체 식각 장비의 300개 시점 데이터를 합성하라.\n컬럼은 timestamp, lot_id, chamber_temp_c, chamber_pressure_pa, rf_power_w,\ngas_flow_sccm, vibration_g, particle_count, process_state로 구성하라.\n정상 구간과 일부 이상 구간을 포함하고 data/semiconductor_sensor_data.csv에 저장하라.\n재현 가능하도록 난수 시드를 고정하고 각 처리 단계에 한국어 주석을 넣어라.",
+    "file": "ex001_generate_sensor_data.py",
+    "expected": "300행의 센서 데이터가 생성되고 `data/semiconductor_sensor_data.csv`에 저장됩니다."
+  },
+  {
+    "num": 2,
+    "title": "load_and_inspect",
+    "objective": "CSV를 읽고 행·열 개수, 컬럼명, 자료형, 앞부분 데이터를 확인합니다.",
+    "prompt": "반도체 센서 CSV를 pandas로 읽고 shape, columns, dtypes, head를 출력하는\n초보자용 점검 스크립트를 작성하라. 파일이 없으면 실습 001을 먼저 실행하라는\n친절한 오류 메시지를 표시하라.",
+    "file": "ex002_load_and_inspect.py",
+    "expected": "`(300, 9)` 형태의 크기, 9개 컬럼, 각 컬럼의 자료형과 처음 5행이 출력됩니다."
+  },
+  {
+    "num": 3,
+    "title": "select_sensor_columns",
+    "objective": "필요한 센서 컬럼만 선택하고 컬럼 선택 문법을 익힙니다.",
+    "prompt": "pandas DataFrame에서 timestamp, chamber_temp_c, chamber_pressure_pa,\nrf_power_w만 선택하여 출력하고 outputs/ex003_selected_columns.csv로 저장하는\n초보자용 예제를 작성하라.",
+    "file": "ex003_select_sensor_columns.py",
+    "expected": "선택된 4개 컬럼의 처음 10행이 출력되고 별도 CSV로 저장됩니다."
+  },
+  {
+    "num": 4,
+    "title": "basic_statistics",
+    "objective": "평균·표준편차·최솟값·최댓값으로 센서의 기본 상태를 요약합니다.",
+    "prompt": "온도, 압력, RF 전력, 가스 유량, 진동 센서에 대해 count, mean, std,\nmin, max를 계산하고 보기 좋게 출력하는 pandas 예제를 작성하라.",
+    "file": "ex004_basic_statistics.py",
+    "expected": "각 연속형 센서의 건수, 평균, 표준편차, 최소, 최대가 표로 출력됩니다."
+  },
+  {
+    "num": 5,
+    "title": "filter_temperature",
+    "objective": "조건식으로 고온 구간을 찾고 Boolean 필터링을 익힙니다.",
+    "prompt": "chamber_temp_c가 75도 이상인 행만 필터링하고 시점, LOT, 온도, 압력을\n출력하는 초보자용 pandas 예제를 작성하라. 필터링된 행 개수도 출력하라.",
+    "file": "ex005_filter_temperature.py",
+    "expected": "이상 구간을 중심으로 75°C 이상인 행과 총 개수가 출력됩니다."
+  },
+  {
+    "num": 6,
+    "title": "create_derived_feature",
+    "objective": "센서 두 개를 조합해 간단한 공정 부하 지표를 만듭니다.",
+    "prompt": "RF 전력과 가스 유량을 이용해 process_load = rf_power_w / gas_flow_sccm\n파생변수를 만들고 상위 10개 행을 출력하라. 0으로 나누는 문제를 방지하라.",
+    "file": "ex006_create_derived_feature.py",
+    "expected": "`process_load` 파생 컬럼이 생성되고 RF 전력 대비 가스 유량 비율을 확인할 수 있습니다."
+  },
+  {
+    "num": 7,
+    "title": "group_by_lot",
+    "objective": "LOT별 센서 평균과 변동성을 계산해 배치 간 차이를 확인합니다.",
+    "prompt": "lot_id로 그룹화하여 온도, 압력, 입자 수의 평균과 표준편차를 계산하는\npandas groupby 예제를 작성하라. 다중 컬럼 이름은 읽기 쉬운 단일 이름으로 바꿔라.",
+    "file": "ex007_group_by_lot.py",
+    "expected": "LOT-A, LOT-B, LOT-C별 주요 센서 평균과 표준편차가 출력됩니다."
+  },
+  {
+    "num": 8,
+    "title": "group_by_process_state",
+    "objective": "공정 상태별 센서 특성을 비교합니다.",
+    "prompt": "process_state별 chamber_temp_c, chamber_pressure_pa, vibration_g의\n평균을 계산하고 가장 진동이 큰 상태를 찾는 pandas 예제를 작성하라.",
+    "file": "ex008_group_by_process_state.py",
+    "expected": "상태별 평균 표와 진동 평균이 가장 큰 공정 상태가 출력됩니다."
+  },
+  {
+    "num": 9,
+    "title": "handle_missing_values",
+    "objective": "결측값을 탐지하고 중앙값으로 보정하는 기본 절차를 익힙니다.",
+    "prompt": "원본 센서 데이터의 일부 압력값을 의도적으로 NaN으로 바꾸고 결측 개수를\n확인한 뒤 중앙값으로 채우는 예제를 작성하라. 원본 CSV는 수정하지 말고 결과를\noutputs/ex009_filled_missing.csv에 저장하라.",
+    "file": "ex009_handle_missing_values.py",
+    "expected": "보정 전 압력 결측값 5개가 확인되고, 중앙값 대체 후 0개가 됩니다."
+  },
+  {
+    "num": 10,
+    "title": "detect_duplicate_rows",
+    "objective": "중복 행을 찾아 제거하고 데이터 품질 점검 절차를 익힙니다.",
+    "prompt": "센서 데이터의 앞 3개 행을 복사해 중복 데이터를 만든 뒤 duplicated로 찾고\ndrop_duplicates로 제거하는 예제를 작성하라. 처리 전후 행 수를 출력하라.",
+    "file": "ex010_detect_duplicate_rows.py",
+    "expected": "303행 중 중복 3행을 탐지하고 제거 후 다시 300행이 됩니다."
+  },
+  {
+    "num": 11,
+    "title": "sort_by_particle_count",
+    "objective": "입자 수가 높은 순서로 정렬하여 오염 위험 시점을 찾습니다.",
+    "prompt": "particle_count를 내림차순 정렬하여 상위 15개 시점의 timestamp, lot_id,\nparticle_count, chamber_temp_c를 출력하고 CSV로 저장하라.",
+    "file": "ex011_sort_by_particle_count.py",
+    "expected": "입자 수가 가장 높은 15개 시점이 큰 값부터 출력됩니다."
+  },
+  {
+    "num": 12,
+    "title": "time_range_filter",
+    "objective": "특정 시간 범위의 데이터만 선택하는 시계열 필터링을 익힙니다.",
+    "prompt": "timestamp를 datetime으로 읽고 09:02:00부터 09:02:30까지의 행만 선택하여\n시간, 온도, 압력, 진동을 출력하는 예제를 작성하라.",
+    "file": "ex012_time_range_filter.py",
+    "expected": "지정한 31초 구간의 센서 데이터만 출력됩니다."
+  },
+  {
+    "num": 13,
+    "title": "rolling_average",
+    "objective": "이동평균으로 순간 잡음을 줄이고 추세를 확인합니다.",
+    "prompt": "온도 센서에 10개 시점 이동평균 컬럼 temp_ma10을 추가하라.\n원본 온도와 이동평균의 마지막 20행을 출력하고 CSV로 저장하라.",
+    "file": "ex013_rolling_average.py",
+    "expected": "원본 온도보다 부드럽게 변화하는 10시점 이동평균이 계산됩니다."
+  },
+  {
+    "num": 14,
+    "title": "simple_threshold_alarm",
+    "objective": "다중 센서 임계값으로 기초 경보 규칙을 구현합니다.",
+    "prompt": "온도 75도 이상 또는 압력 20Pa 이상 또는 진동 0.15g 이상이면 alarm을 1로,\n아니면 0으로 설정하라. 경보 건수와 경보 행의 주요 컬럼을 출력하라.",
+    "file": "ex014_simple_threshold_alarm.py",
+    "expected": "합성된 이상 구간을 중심으로 경보 행이 탐지됩니다."
+  },
+  {
+    "num": 15,
+    "title": "zscore_temperature",
+    "objective": "Z-score를 계산해 평균에서 멀리 떨어진 온도값을 탐지합니다.",
+    "prompt": "scipy.stats.zscore를 사용해 chamber_temp_c의 z-score를 계산하고 절댓값이\n3 이상인 행을 이상 후보로 출력하라. z-score 컬럼을 포함하라.",
+    "file": "ex015_zscore_temperature.py",
+    "expected": "평균에서 3표준편차 이상 떨어진 고온 구간 일부가 이상 후보로 출력됩니다."
+  },
+  {
+    "num": 16,
+    "title": "sensor_correlation",
+    "objective": "센서 간 선형 상관관계를 계산하고 해석의 기초를 익힙니다.",
+    "prompt": "온도, 압력, RF 전력, 가스 유량, 진동, 입자 수의 Pearson 상관계수 행렬을\n계산하고 소수 셋째 자리로 출력하라. CSV로도 저장하라.",
+    "file": "ex016_sensor_correlation.py",
+    "expected": "6개 센서 사이의 -1~1 범위 Pearson 상관계수 행렬이 출력됩니다."
+  },
+  {
+    "num": 17,
+    "title": "plot_temperature_trend",
+    "objective": "Matplotlib으로 시간에 따른 온도 추세를 시각화하고 파일로 저장합니다.",
+    "prompt": "timestamp와 chamber_temp_c를 이용해 12x5 크기의 선 그래프를 작성하라.\n75도 기준선을 표시하고 제목, 축 이름, 범례, 격자를 추가한 뒤 PNG로 저장하라.\n화면 표시 없이 저장 가능하게 작성하라.",
+    "file": "ex017_plot_temperature_trend.py",
+    "expected": "`outputs/ex017_temperature_trend.png`에 온도 추세와 75°C 기준선이 저장됩니다."
+  },
+  {
+    "num": 18,
+    "title": "plot_sensor_histogram",
+    "objective": "히스토그램으로 센서값의 분포 모양을 확인합니다.",
+    "prompt": "chamber_pressure_pa의 히스토그램을 25개 구간으로 작성하고 평균선을 표시하라.\n제목, 축 이름, 범례를 넣고 PNG로 저장하라.",
+    "file": "ex018_plot_sensor_histogram.py",
+    "expected": "압력값의 빈도 분포와 평균선이 PNG 파일에 저장됩니다."
+  },
+  {
+    "num": 19,
+    "title": "bayesian_temperature_mean",
+    "objective": "PyMC로 챔버 평균 온도의 사후분포를 추정하는 첫 베이즈 실습을 수행합니다.",
+    "prompt": "PyMC를 사용해 chamber_temp_c의 평균을 추정하는 정규모형을 작성하라.\nmu는 Normal(72, 5), sigma는 HalfNormal(5) 사전분포를 사용하고\ndraws=1000, tune=1000, chains=2, random_seed=42로 샘플링하라.\narviz.summary로 mu와 sigma의 평균, 표준편차, HDI를 출력하고 CSV로 저장하라.",
+    "file": "ex019_bayesian_temperature_mean.py",
+    "expected": "평균 온도 `mu`와 온도 변동 `sigma`의 사후평균, 표준편차, 94% HDI가 출력됩니다."
+  },
+  {
+    "num": 20,
+    "title": "bayesian_alarm_probability",
+    "objective": "베타-이항 모형으로 공정 경보 확률을 추정합니다.",
+    "prompt": "온도 75도 이상 또는 압력 20Pa 이상 또는 진동 0.15g 이상을 경보로 정의하라.\n경보 횟수와 전체 횟수를 사용해 Beta(1,1) 사전분포와 Binomial 우도를 가진\nPyMC 모형을 작성하라. 경보확률 p의 사후요약과 P(p > 0.05)를 계산해 출력하라.",
+    "file": "ex020_bayesian_alarm_probability.py",
+    "expected": "관측된 경보 비율을 바탕으로 실제 경보 확률 `p`의 사후분포와 `p>5%` 확률이 출력됩니다."
+  }
+]

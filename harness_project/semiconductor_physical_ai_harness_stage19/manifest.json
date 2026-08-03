@@ -1,0 +1,30 @@
+{
+  "stage": 19,
+  "exercise_range": "091-095",
+  "topics": [
+    "decision tree and random forest",
+    "model comparison",
+    "probability calibration",
+    "permutation importance",
+    "ensemble dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/wafer_tree_modeling.csv",
+    "docs/examples_091_095_line_by_line.md",
+    "docs/stage19_overview.md",
+    "environment.yml",
+    "examples/example_091_train_tree_models.py",
+    "examples/example_092_compare_models.py",
+    "examples/example_093_probability_calibration.py",
+    "examples/example_094_permutation_importance.py",
+    "examples/example_095_ensemble_dashboard.py",
+    "prompts/prompt_091.md",
+    "prompts/prompt_092.md",
+    "prompts/prompt_093.md",
+    "prompts/prompt_094.md",
+    "prompts/prompt_095.md",
+    "requirements.txt",
+    "tests/test_stage19_ensemble.py"
+  ]
+}

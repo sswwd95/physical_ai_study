@@ -1,0 +1,31 @@
+{
+  "stage": 5,
+  "exercise_range": "021-025",
+  "topics": [
+    "missing value detection",
+    "missing pattern analysis",
+    "forward and backward fill",
+    "linear interpolation",
+    "imputation quality comparison"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log_complete.csv",
+    "data/equipment_sensor_log_with_missing.csv",
+    "docs/examples_021_025_line_by_line.md",
+    "docs/stage05_overview.md",
+    "environment.yml",
+    "examples/example_021_detect_missing_values.py",
+    "examples/example_022_analyze_missing_patterns.py",
+    "examples/example_023_forward_backward_fill.py",
+    "examples/example_024_linear_interpolation.py",
+    "examples/example_025_compare_imputation_quality.py",
+    "prompts/prompt_021.md",
+    "prompts/prompt_022.md",
+    "prompts/prompt_023.md",
+    "prompts/prompt_024.md",
+    "prompts/prompt_025.md",
+    "requirements.txt",
+    "tests/test_stage05_missing_values.py"
+  ]
+}

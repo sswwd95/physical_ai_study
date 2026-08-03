@@ -1,0 +1,123 @@
+# 실습 130 — model_comparison
+
+## 1. 학습 목표
+여러 다중 클래스 모델을 같은 지표로 비교합니다.
+
+## 2. Antigravity용 예제 소스 생성 하네스 프롬프트
+```text
+LogisticRegression, DecisionTree, RandomForest, HistGradientBoosting을 비교하라.
+accuracy, macro_f1, weighted_f1을 계산하고 macro_f1 순으로 정렬해 CSV로 저장하라.
+```
+
+## 3. 실행 명령
+```bat
+conda activate semi-physical-ai-stage07
+python examples\ex130_model_comparison.py
+```
+
+## 4. 예상 결과
+네 모델의 다중 클래스 성능이 macro F1 중심으로 비교됩니다.
+
+## 5. 라인별 해설
+
+| 줄 | 코드 | 쉬운 해설 |
+|---:|---|---|
+| 1 | `from pathlib import Path` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 2 | `import numpy as np` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 3 | `import pandas as pd` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 4 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 5 | `ROOT = Path(__file__).resolve().parents[1]` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 6 | `DATA_FILE = ROOT / "data" / "semiconductor_multiclass_defects.csv"` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 7 | `OUTPUT_DIR = ROOT / "outputs"` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 8 | `OUTPUT_DIR.mkdir(exist_ok=True)` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 9 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 10 | `if not DATA_FILE.exists():` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 11 | `    raise FileNotFoundError(` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 12 | `        "data/semiconductor_multiclass_defects.csv 파일이 없습니다."` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 13 | `    )` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 14 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 15 | `from sklearn.compose import ColumnTransformer` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 16 | `from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 17 | `from sklearn.linear_model import LogisticRegression` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 18 | `from sklearn.metrics import accuracy_score, f1_score` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 19 | `from sklearn.model_selection import train_test_split` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 20 | `from sklearn.pipeline import Pipeline` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 21 | `from sklearn.preprocessing import OneHotEncoder, StandardScaler` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 22 | `from sklearn.tree import DecisionTreeClassifier` | 필요한 라이브러리나 모델을 불러옵니다. |
+| 23 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 24 | `sensor_df = pd.read_csv(DATA_FILE)` | 다중 불량 유형 CSV를 DataFrame으로 읽습니다. |
+| 25 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 26 | `x = sensor_df.drop(columns=["timestamp", "lot_id", "defect_type"])` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 27 | `y = sensor_df["defect_type"]` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 28 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 29 | `numeric_features = [` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 30 | `    "chamber_temp_c",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 31 | `    "chamber_pressure_pa",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 32 | `    "rf_power_w",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 33 | `    "gas_flow_sccm",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 34 | `    "vibration_g",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 35 | `    "particle_count",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 36 | `    "etch_rate_nm_min",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 37 | `    "uniformity_percent",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 38 | `]` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 39 | `categorical_features = ["recipe", "chamber_id"]` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 40 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 41 | `x_train, x_test, y_train, y_test = train_test_split(` | 학습용과 평가용 데이터를 분리합니다. |
+| 42 | `    x, y, test_size=0.25, random_state=42, stratify=y` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 43 | `)` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 44 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 45 | `linear_pre = ColumnTransformer([` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 46 | `    ("num", StandardScaler(), numeric_features),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 47 | `    ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_features),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 48 | `])` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 49 | `tree_pre = ColumnTransformer([` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 50 | `    ("num", "passthrough", numeric_features),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 51 | `    ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_features),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 52 | `])` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 53 | `dense_pre = ColumnTransformer([` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 54 | `    ("num", "passthrough", numeric_features),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 55 | `    ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 56 | `])` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 57 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 58 | `models = {` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 59 | `    "LogisticRegression": Pipeline([` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 60 | `        ("preprocess", linear_pre),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 61 | `        ("classifier", LogisticRegression(max_iter=2000, class_weight="balanced", random_state=42)),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 62 | `    ]),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 63 | `    "DecisionTree": Pipeline([` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 64 | `        ("preprocess", tree_pre),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 65 | `        ("classifier", DecisionTreeClassifier(max_depth=6, class_weight="balanced", random_state=42)),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 66 | `    ]),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 67 | `    "RandomForest": Pipeline([` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 68 | `        ("preprocess", tree_pre),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 69 | `        ("classifier", RandomForestClassifier(n_estimators=300, class_weight="balanced", random_state=42, n_jobs=-1)),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 70 | `    ]),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 71 | `    "HistGradientBoosting": Pipeline([` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 72 | `        ("preprocess", dense_pre),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 73 | `        ("classifier", HistGradientBoostingClassifier(max_iter=200, random_state=42)),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 74 | `    ]),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 75 | `}` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 76 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 77 | `rows = []` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 78 | `for name, model in models.items():` | 여러 클래스·모델·설정에 같은 작업을 반복합니다. |
+| 79 | `    model.fit(x_train, y_train)` | 학습 데이터로 전처리기와 모델을 학습합니다. |
+| 80 | `    y_pred = model.predict(x_test)` | 학습된 모델로 불량 유형을 예측합니다. |
+| 81 | `    rows.append({` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 82 | `        "model": name,` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 83 | `        "accuracy": accuracy_score(y_test, y_pred),` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 84 | `        "macro_f1": f1_score(y_test, y_pred, average="macro"),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 85 | `        "weighted_f1": f1_score(y_test, y_pred, average="weighted"),` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 86 | `    })` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 87 | `` | 코드 구역을 구분하는 빈 줄입니다. |
+| 88 | `result_df = pd.DataFrame(rows).sort_values("macro_f1", ascending=False)` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 89 | `print(result_df.round(4))` | 실행 결과를 콘솔에 출력합니다. |
+| 90 | `result_df.to_csv(` | 결과를 CSV 파일로 저장합니다. |
+| 91 | `    OUTPUT_DIR / "ex130_model_comparison.csv",` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+| 92 | `    index=False,` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 93 | `    encoding="utf-8-sig",` | 계산 결과나 설정값을 변수에 저장합니다. |
+| 94 | `)` | 다중 클래스 분류 또는 모델 튜닝 단계를 수행합니다. |
+
+## 6. 실무 확인 질문
+1. 가장 희소한 불량 유형의 재현율이 낮으면 어떤 위험이 있는가?
+2. macro F1과 weighted F1 중 어떤 지표가 더 적합한가?
+3. 클래스 확률이 낮을 때 보류 또는 재검사 정책을 어떻게 설계할 것인가?

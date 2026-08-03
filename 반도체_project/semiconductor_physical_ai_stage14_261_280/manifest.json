@@ -1,0 +1,162 @@
+[
+  {
+    "num": 261,
+    "title": "experiment_data_profile",
+    "objective": "실험 조건별 품질 분포를 확인합니다.",
+    "prompt": "실험 조건 조합 수와 조건별 균일도·식각률·불량률 평균을 요약하라.",
+    "file": "ex261_experiment_data_profile.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 262,
+    "title": "recipe_ab_uniformity",
+    "objective": "두 레시피의 균일도 차이를 베이지안 A/B로 비교합니다.",
+    "prompt": "ETCH-A와 ETCH-B 균일도 차이의 사후분포와 우월확률을 계산하라.",
+    "file": "ex262_recipe_ab_uniformity.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 263,
+    "title": "recipe_ab_defect_rate",
+    "objective": "두 레시피의 불량률을 베타-이항 모형으로 비교합니다.",
+    "prompt": "ETCH-A와 ETCH-B 불량률을 베타-이항 A/B 테스트로 비교하라.",
+    "file": "ex263_recipe_ab_defect_rate.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 264,
+    "title": "three_recipe_means",
+    "objective": "세 레시피 평균 균일도를 동시에 추정합니다.",
+    "prompt": "세 레시피 평균 균일도를 벡터화 베이지안 모형으로 추정하라.",
+    "file": "ex264_three_recipe_means.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 265,
+    "title": "pairwise_superiority",
+    "objective": "모든 레시피 쌍의 우월확률을 계산합니다.",
+    "prompt": "모든 레시피 쌍의 우월확률과 평균 차이를 계산하라.",
+    "file": "ex265_pairwise_superiority.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 266,
+    "title": "effect_size_rope",
+    "objective": "효과크기와 ROPE로 실질적 차이를 판단합니다.",
+    "prompt": "ETCH-A와 ETCH-C의 표준화 효과크기와 ROPE 확률을 계산하라.",
+    "file": "ex266_effect_size_rope.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 267,
+    "title": "chamber_block_effect",
+    "objective": "챔버 블록 효과를 포함한 품질 비교를 수행합니다.",
+    "prompt": "레시피 효과와 챔버 블록 효과를 동시에 추정하라.",
+    "file": "ex267_chamber_block_effect.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 268,
+    "title": "pressure_level_effect",
+    "objective": "압력 수준별 품질 효과를 추정합니다.",
+    "prompt": "압력 수준 low·standard·high의 품질 평균을 비교하라.",
+    "file": "ex268_pressure_level_effect.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 269,
+    "title": "rf_level_effect",
+    "objective": "RF 수준별 균일도·식각률 효과를 추정합니다.",
+    "prompt": "RF 수준별 균일도와 식각률 평균을 동시에 추정하라.",
+    "file": "ex269_rf_level_effect.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 270,
+    "title": "recipe_pressure_interaction",
+    "objective": "레시피와 압력의 교호작용을 추정합니다.",
+    "prompt": "레시피×압력 교호작용을 베이지안 모형으로 추정하라.",
+    "file": "ex270_recipe_pressure_interaction.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 271,
+    "title": "recipe_chamber_interaction",
+    "objective": "레시피와 챔버의 교호작용을 추정합니다.",
+    "prompt": "레시피×챔버 교호작용을 추정하라.",
+    "file": "ex271_recipe_chamber_interaction.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 272,
+    "title": "hierarchical_experiment_model",
+    "objective": "챔버별 변동을 부분 풀링하는 계층 실험모형을 작성합니다.",
+    "prompt": "챔버 효과를 부분 풀링하는 계층 실험모형을 작성하라.",
+    "file": "ex272_hierarchical_experiment_model.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 273,
+    "title": "posterior_predictive_experiment",
+    "objective": "사후예측검사로 품질 분포 재현성을 확인합니다.",
+    "prompt": "사후예측검사로 관측·예측 평균과 표준편차를 비교하라.",
+    "file": "ex273_posterior_predictive_experiment.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 274,
+    "title": "optimal_condition_probability",
+    "objective": "각 조건이 최고 품질일 확률을 계산합니다.",
+    "prompt": "각 레시피·압력·RF 조건이 최고 균일도일 확률을 계산하라.",
+    "file": "ex274_optimal_condition_probability.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 275,
+    "title": "multiobjective_utility",
+    "objective": "균일도·불량률·식각률을 결합한 효용을 계산합니다.",
+    "prompt": "균일도·불량률·식각률을 결합한 다목적 효용을 계산하라.",
+    "file": "ex275_multiobjective_utility.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 276,
+    "title": "expected_regret",
+    "objective": "조건 선택의 기대 후회를 계산합니다.",
+    "prompt": "각 조건 선택의 기대 후회를 계산하라.",
+    "file": "ex276_expected_regret.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 277,
+    "title": "sequential_experiment_update",
+    "objective": "1차·2차 데이터로 사후분포 갱신을 비교합니다.",
+    "prompt": "1차 데이터와 전체 데이터로 사후분포 갱신 폭을 비교하라.",
+    "file": "ex277_sequential_experiment_update.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 278,
+    "title": "loo_interaction_comparison",
+    "objective": "교호작용 포함·제외 모형을 LOO로 비교합니다.",
+    "prompt": "가법모형과 교호작용 모형을 LOO로 비교하라.",
+    "file": "ex278_loo_interaction_comparison.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 279,
+    "title": "experiment_diagnostics",
+    "objective": "R-hat·ESS·Divergence와 사후그래프를 저장합니다.",
+    "prompt": "R-hat·ESS·Divergence와 레시피 사후분포 그래프를 저장하라.",
+    "file": "ex279_experiment_diagnostics.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 280,
+    "title": "automated_bayesian_experiment_report",
+    "objective": "조건 비교·우월확률·효용·추천 Excel 보고서를 생성합니다.",
+    "prompt": "조건 비교·우월확률·효용·추천 Excel 보고서를 생성하라.",
+    "file": "ex280_automated_bayesian_experiment_report.py",
+    "expected": "요청한 베이지안 실험분석 결과가 출력 또는 저장됩니다."
+  }
+]

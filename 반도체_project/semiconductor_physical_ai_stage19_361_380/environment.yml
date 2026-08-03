@@ -1,0 +1,14 @@
+name: semi-physical-ai-stage19
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - openpyxl
+  - pyyaml
+  - joblib
+  - jupyterlab

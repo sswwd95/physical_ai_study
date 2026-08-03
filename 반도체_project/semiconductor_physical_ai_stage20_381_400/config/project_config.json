@@ -1,0 +1,10 @@
+{
+  "project_name": "Semiconductor Physical AI Final Project",
+  "target_environment": "Windows 10 / Anaconda / Antigravity",
+  "quality_target_yield": 95.0,
+  "fault_probability_threshold": 0.7,
+  "rul_warning_cycles": 30,
+  "safety_priority": "interlock_over_model",
+  "random_seed": 42,
+  "batch_size": 300
+}

@@ -1,0 +1,7 @@
+{
+  "metric": "temperature_c",
+  "target": 65.0,
+  "lsl": 64.0,
+  "usl": 66.0,
+  "subgroup_size": 5
+}

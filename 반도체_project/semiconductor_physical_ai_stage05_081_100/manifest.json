@@ -1,0 +1,162 @@
+[
+  {
+    "num": 81,
+    "title": "anomaly_data_profile",
+    "objective": "정상·이상 라벨과 센서 분포를 먼저 확인하여 탐지 문제를 정의합니다.",
+    "prompt": "반도체 이상 탐지 CSV의 행·열 수, 이상 라벨 건수와 비율,\n정상·이상 그룹별 주요 센서 평균을 계산하는 pandas 예제를 작성하라.",
+    "file": "ex081_anomaly_data_profile.py",
+    "expected": "정상과 이상 그룹의 센서 평균 차이가 출력됩니다."
+  },
+  {
+    "num": 82,
+    "title": "mad_outlier_detection",
+    "objective": "중앙값과 MAD를 사용해 극단값에 강한 단변량 이상치를 탐지합니다.",
+    "prompt": "온도 센서의 중앙값과 MAD를 계산하라.\nmodified_z=0.6745*(x-median)/MAD를 구하고 절댓값 3.5 이상을 이상치로 표시하라.",
+    "file": "ex082_mad_outlier_detection.py",
+    "expected": "극단값에 덜 민감한 MAD 기반 온도 이상치가 탐지됩니다."
+  },
+  {
+    "num": 83,
+    "title": "iqr_multi_sensor_flags",
+    "objective": "여러 센서에 IQR 규칙을 적용하고 행별 이상 센서 수를 계산합니다.",
+    "prompt": "온도, 압력, RF, 가스, 진동, 입자 수에 대해 1.5*IQR 이상치 플래그를 만들라.\n행별 이상 센서 개수 anomaly_sensor_count를 계산하고 2개 이상이면 multi_iqr_anomaly로 표시하라.",
+    "file": "ex083_iqr_multi_sensor_flags.py",
+    "expected": "한 행에서 동시에 이상인 센서 수와 다중 이상 여부가 계산됩니다."
+  },
+  {
+    "num": 84,
+    "title": "contextual_rule_anomaly",
+    "objective": "공정 상태를 고려한 문맥적 이상을 탐지합니다.",
+    "prompt": "purge 상태인데 RF 전력이 900W 이상이거나 stabilize 상태인데 진동이 0.12g 이상이면\ncontextual_anomaly로 표시하라. 규칙별 탐지 건수를 출력하고 CSV로 저장하라.",
+    "file": "ex084_contextual_rule_anomaly.py",
+    "expected": "상태를 무시한 단순 임계값으로는 찾기 어려운 문맥적 이상이 탐지됩니다."
+  },
+  {
+    "num": 85,
+    "title": "rolling_residual_anomaly",
+    "objective": "이동평균 잔차로 국소적인 급변 이상을 탐지합니다.",
+    "prompt": "온도 20시점 이동평균과 이동표준편차를 계산하라.\nresidual=(x-rolling_mean)/rolling_std를 만들고 절댓값 3 이상을 이상으로 표시하라.",
+    "file": "ex085_rolling_residual_anomaly.py",
+    "expected": "주변 시점과 비교해 갑자기 튀는 온도값이 탐지됩니다."
+  },
+  {
+    "num": 86,
+    "title": "isolation_forest_basic",
+    "objective": "Isolation Forest로 다변량 비지도 이상 탐지를 수행합니다.",
+    "prompt": "StandardScaler로 6개 센서를 표준화하고 IsolationForest를 적용하라.\nn_estimators=200, contamination=0.1, random_state=42를 사용하고\n예측 -1을 anomaly로 변환하여 저장하라.",
+    "file": "ex086_isolation_forest_basic.py",
+    "expected": "전체 데이터의 약 10%가 Isolation Forest 이상 후보로 표시됩니다."
+  },
+  {
+    "num": 87,
+    "title": "isolation_forest_scores",
+    "objective": "Isolation Forest의 연속형 이상점수를 계산하고 상위 이상을 확인합니다.",
+    "prompt": "IsolationForest의 score_samples를 사용해 값이 클수록 이상하도록 anomaly_score=-score로 변환하라.\n점수가 높은 상위 20행을 출력하고 CSV로 저장하라.",
+    "file": "ex087_isolation_forest_scores.py",
+    "expected": "Isolation Forest 이상점수가 높은 상위 20개 시점이 출력됩니다."
+  },
+  {
+    "num": 88,
+    "title": "iforest_contamination_comparison",
+    "objective": "contamination 설정에 따른 탐지 건수와 성능 변화를 비교합니다.",
+    "prompt": "contamination 0.03, 0.05, 0.1, 0.15로 IsolationForest를 반복 학습하라.\n각 설정별 예측 이상 수, precision, recall, f1을 계산하여 CSV로 저장하라.",
+    "file": "ex088_iforest_contamination_comparison.py",
+    "expected": "이상 비율 가정에 따른 정밀도·재현율·F1 변화가 비교됩니다."
+  },
+  {
+    "num": 89,
+    "title": "local_outlier_factor",
+    "objective": "LOF로 주변 이웃과 밀도가 다른 국소 이상을 탐지합니다.",
+    "prompt": "StandardScaler 후 LocalOutlierFactor를 적용하라.\nn_neighbors=25, contamination=0.1을 사용하고 negative_outlier_factor_를 양의 점수로 변환하라.",
+    "file": "ex089_local_outlier_factor.py",
+    "expected": "주변 이웃과 밀도가 다른 국소 이상 후보가 탐지됩니다."
+  },
+  {
+    "num": 90,
+    "title": "lof_neighbors_comparison",
+    "objective": "LOF 이웃 수에 따른 민감도와 성능 차이를 비교합니다.",
+    "prompt": "n_neighbors 10, 20, 30, 50에 대해 LOF를 반복 실행하라.\ncontamination=0.1로 고정하고 precision, recall, f1을 비교하여 저장하라.",
+    "file": "ex090_lof_neighbors_comparison.py",
+    "expected": "LOF의 지역 범위에 따른 탐지 성능 변화가 표로 출력됩니다."
+  },
+  {
+    "num": 91,
+    "title": "one_class_svm",
+    "objective": "One-Class SVM으로 정상 영역의 경계를 학습합니다.",
+    "prompt": "StandardScaler 후 OneClassSVM을 적용하라.\nkernel='rbf', gamma='scale', nu=0.1을 사용하고 -1을 이상으로 변환하라.\ndecision_function의 음수를 이상점수로 저장하라.",
+    "file": "ex091_one_class_svm.py",
+    "expected": "정상 영역 경계 밖의 시점이 One-Class SVM 이상으로 표시됩니다."
+  },
+  {
+    "num": 92,
+    "title": "ocsvm_nu_comparison",
+    "objective": "nu 설정에 따른 One-Class SVM 이상 비율과 성능을 비교합니다.",
+    "prompt": "nu 0.03, 0.05, 0.1, 0.15로 OneClassSVM을 반복 실행하고\n예측 이상 수, precision, recall, f1을 비교하라.",
+    "file": "ex092_ocsvm_nu_comparison.py",
+    "expected": "nu에 따른 탐지 민감도와 성능 차이가 출력됩니다."
+  },
+  {
+    "num": 93,
+    "title": "robust_covariance",
+    "objective": "Robust Covariance로 다변량 타원형 정상 영역을 추정합니다.",
+    "prompt": "MinCovDet를 사용해 6개 센서의 robust Mahalanobis distance를 계산하라.\n거리 제곱의 97.5% 분위수를 임계값으로 사용하고 이상 여부를 저장하라.",
+    "file": "ex093_robust_covariance.py",
+    "expected": "극단값 영향을 줄인 공분산 기반 다변량 이상이 탐지됩니다."
+  },
+  {
+    "num": 94,
+    "title": "pca_reconstruction_error",
+    "objective": "PCA 재구성 오차로 정상 저차원 구조에서 벗어난 시점을 찾습니다.",
+    "prompt": "StandardScaler 후 PCA(n_components=3)를 적용하라.\n역변환 결과와 원본 표준화 데이터의 평균제곱오차를 행별 reconstruction_error로 계산하고\n97.5% 분위수 이상을 이상으로 표시하라.",
+    "file": "ex094_pca_reconstruction_error.py",
+    "expected": "정상 저차원 패턴으로 잘 복원되지 않는 시점이 이상으로 탐지됩니다."
+  },
+  {
+    "num": 95,
+    "title": "model_metric_comparison",
+    "objective": "여러 비지도 모델의 예측 결과를 동일한 평가 지표로 비교합니다.",
+    "prompt": "IsolationForest, LOF, OneClassSVM 세 모델을 같은 표준화 데이터에 적용하라.\n각 모델의 precision, recall, f1, predicted_count를 한 표로 비교하라.",
+    "file": "ex095_model_metric_comparison.py",
+    "expected": "세 비지도 이상 탐지 모델의 성능이 같은 기준으로 비교됩니다."
+  },
+  {
+    "num": 96,
+    "title": "confusion_matrix_report",
+    "objective": "이상 탐지 결과의 TP·FP·FN·TN과 주요 지표를 계산합니다.",
+    "prompt": "IsolationForest 예측과 true_anomaly를 사용하여 confusion_matrix를 계산하라.\nTN, FP, FN, TP와 precision, recall, specificity, f1을 출력하고 CSV로 저장하라.",
+    "file": "ex096_confusion_matrix_report.py",
+    "expected": "정상·이상 판정의 네 가지 경우와 핵심 평가 지표가 출력됩니다."
+  },
+  {
+    "num": 97,
+    "title": "threshold_optimization",
+    "objective": "연속형 이상점수의 임계값을 바꾸며 최적 F1 기준을 찾습니다.",
+    "prompt": "IsolationForest anomaly_score를 계산하라.\n90%부터 99% 분위수까지 1% 간격 임계값을 비교하고 precision, recall, f1을 계산하라.\nF1이 가장 높은 임계값을 출력하라.",
+    "file": "ex097_threshold_optimization.py",
+    "expected": "정밀도와 재현율 균형이 가장 좋은 점수 임계값 후보가 출력됩니다."
+  },
+  {
+    "num": 98,
+    "title": "anomaly_ensemble_vote",
+    "objective": "여러 탐지 모델의 투표로 단일 모델 의존성을 줄입니다.",
+    "prompt": "IsolationForest, LOF, OneClassSVM의 이상 예측을 각각 계산하라.\n3개 중 2개 이상이 이상이면 ensemble_anomaly로 표시하고 성능을 계산하라.",
+    "file": "ex098_anomaly_ensemble_vote.py",
+    "expected": "세 모델 중 다수결로 결정된 앙상블 이상과 성능이 출력됩니다."
+  },
+  {
+    "num": 99,
+    "title": "anomaly_dashboard_data",
+    "objective": "원본 센서와 모델별 이상점수를 하나의 대시보드 CSV로 통합합니다.",
+    "prompt": "IsolationForest 점수, LOF 점수, OneClassSVM 점수, 모델별 이상 플래그,\n앙상블 투표 수, true_anomaly를 포함하는 대시보드 CSV를 생성하라.",
+    "file": "ex099_anomaly_dashboard_data.py",
+    "expected": "모델 점수와 예측을 비교할 수 있는 통합 대시보드 CSV가 생성됩니다."
+  },
+  {
+    "num": 100,
+    "title": "automated_anomaly_report",
+    "objective": "모델 성능, 이상 행, LOT별 이상률을 Excel 보고서로 자동 생성합니다.",
+    "prompt": "IsolationForest, LOF, OneClassSVM과 2표 이상 앙상블을 계산하라.\nmodel_metrics, anomaly_rows, lot_summary 세 시트의 Excel 보고서와 CSV 요약을 생성하라.",
+    "file": "ex100_automated_anomaly_report.py",
+    "expected": "모델별 성능, 앙상블 이상 행, LOT별 이상률이 Excel 보고서로 저장됩니다."
+  }
+]

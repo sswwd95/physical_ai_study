@@ -1,0 +1,162 @@
+[
+  {
+    "num": 201,
+    "title": "fault_data_profile",
+    "objective": "고장 유형과 센서 분포를 확인합니다.",
+    "prompt": "고장 유형별 건수와 센서 평균을 비교하는 pandas 예제를 작성하라.",
+    "file": "ex201_fault_data_profile.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 202,
+    "title": "binary_fault_label",
+    "objective": "정상·고장 이진 라벨을 만듭니다.",
+    "prompt": "fault_type이 normal이 아니면 1인 이진 고장 라벨을 생성하라.",
+    "file": "ex202_binary_fault_label.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 203,
+    "title": "multiclass_split",
+    "objective": "다중 고장 유형을 층화 분할합니다.",
+    "prompt": "다중 클래스 비율을 유지하는 train_test_split 예제를 작성하라.",
+    "file": "ex203_multiclass_split.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 204,
+    "title": "sensor_feature_engineering",
+    "objective": "센서 비율과 복합 특징을 생성합니다.",
+    "prompt": "진동 peak/rms, 압력/펌프속도, 열부하, 입자/유량 특징을 생성하라.",
+    "file": "ex204_sensor_feature_engineering.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 205,
+    "title": "logistic_fault_classifier",
+    "objective": "Logistic Regression으로 정상·고장을 분류합니다.",
+    "prompt": "Logistic Regression으로 정상·고장 이진 분류를 수행하라.",
+    "file": "ex205_logistic_fault_classifier.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 206,
+    "title": "multiclass_logistic",
+    "objective": "다항 Logistic Regression으로 고장 유형을 분류합니다.",
+    "prompt": "다항 Logistic Regression으로 5개 장비 상태를 분류하라.",
+    "file": "ex206_multiclass_logistic.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 207,
+    "title": "decision_tree_faults",
+    "objective": "Decision Tree로 고장 규칙을 학습합니다.",
+    "prompt": "Decision Tree로 고장 유형을 분류하고 성능을 출력하라.",
+    "file": "ex207_decision_tree_faults.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 208,
+    "title": "random_forest_faults",
+    "objective": "Random Forest로 다중 고장을 분류합니다.",
+    "prompt": "Random Forest로 다중 고장 유형을 분류하라.",
+    "file": "ex208_random_forest_faults.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 209,
+    "title": "feature_importance",
+    "objective": "Random Forest 특징 중요도를 계산합니다.",
+    "prompt": "Random Forest 특징 중요도 상위 15개를 저장하라.",
+    "file": "ex209_feature_importance.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 210,
+    "title": "gradient_boosting_faults",
+    "objective": "Gradient Boosting으로 고장 유형을 분류합니다.",
+    "prompt": "HistGradientBoosting으로 장비 고장 유형을 분류하라.",
+    "file": "ex210_gradient_boosting_faults.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 211,
+    "title": "class_weight_comparison",
+    "objective": "클래스 가중치 효과를 비교합니다.",
+    "prompt": "class_weight None과 balanced의 macro F1을 비교하라.",
+    "file": "ex211_class_weight_comparison.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 212,
+    "title": "threshold_review_policy",
+    "objective": "고장확률 임계값과 재검사 정책을 비교합니다.",
+    "prompt": "고장 확률 임계값과 재검사 구간을 비교하라.",
+    "file": "ex212_threshold_review_policy.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 213,
+    "title": "confusion_matrix_analysis",
+    "objective": "혼동행렬로 고장 유형별 오분류를 분석합니다.",
+    "prompt": "라벨이 포함된 혼동행렬 CSV를 생성하라.",
+    "file": "ex213_confusion_matrix_analysis.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 214,
+    "title": "classwise_metrics",
+    "objective": "클래스별 precision·recall·F1을 저장합니다.",
+    "prompt": "classification_report를 DataFrame으로 저장하라.",
+    "file": "ex214_classwise_metrics.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 215,
+    "title": "equipment_group_validation",
+    "objective": "장비 단위 그룹 분할을 적용합니다.",
+    "prompt": "equipment_id 기반 GroupShuffleSplit을 수행하라.",
+    "file": "ex215_equipment_group_validation.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 216,
+    "title": "cross_validation_faults",
+    "objective": "층화 교차검증으로 성능 변동을 평가합니다.",
+    "prompt": "StratifiedKFold 5분할 교차검증을 수행하라.",
+    "file": "ex216_cross_validation_faults.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 217,
+    "title": "model_comparison",
+    "objective": "여러 고장 분류 모델을 비교합니다.",
+    "prompt": "Logistic, RandomForest, HistGradientBoosting 성능을 비교하라.",
+    "file": "ex217_model_comparison.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 218,
+    "title": "low_confidence_faults",
+    "objective": "낮은 확률 예측을 재검사 대상으로 분리합니다.",
+    "prompt": "최대 확률 0.65 미만을 재검사 대상으로 분리하라.",
+    "file": "ex218_low_confidence_faults.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 219,
+    "title": "fault_prediction_output",
+    "objective": "현업 전달용 고장 예측 CSV를 생성합니다.",
+    "prompt": "클래스별 고장확률이 포함된 예측 CSV를 생성하라.",
+    "file": "ex219_fault_prediction_output.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 220,
+    "title": "automated_fault_report",
+    "objective": "자동 장비 고장 진단 Excel 보고서를 생성합니다.",
+    "prompt": "클래스지표, 혼동행렬, 예측, 특징중요도 Excel 보고서를 생성하라.",
+    "file": "ex220_automated_fault_report.py",
+    "expected": "요청한 장비 상태 진단 결과가 출력 또는 저장됩니다."
+  }
+]

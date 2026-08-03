@@ -1,0 +1,30 @@
+{
+  "stage": 18,
+  "exercise_range": "086-090",
+  "topics": [
+    "logistic regression training",
+    "classifier evaluation",
+    "threshold optimization",
+    "feature effects and odds ratios",
+    "defect prediction dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/wafer_defect_modeling.csv",
+    "docs/examples_086_090_line_by_line.md",
+    "docs/stage18_overview.md",
+    "environment.yml",
+    "examples/example_086_train_logistic_regression.py",
+    "examples/example_087_evaluate_classifier.py",
+    "examples/example_088_optimize_threshold.py",
+    "examples/example_089_logistic_feature_effects.py",
+    "examples/example_090_defect_prediction_dashboard.py",
+    "prompts/prompt_086.md",
+    "prompts/prompt_087.md",
+    "prompts/prompt_088.md",
+    "prompts/prompt_089.md",
+    "prompts/prompt_090.md",
+    "requirements.txt",
+    "tests/test_stage18_logistic.py"
+  ]
+}

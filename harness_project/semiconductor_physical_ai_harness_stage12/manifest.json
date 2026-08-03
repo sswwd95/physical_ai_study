@@ -1,0 +1,30 @@
+{
+  "stage": 12,
+  "exercise_range": "056-060",
+  "topics": [
+    "EWMA control chart",
+    "CUSUM control chart",
+    "small shift detection",
+    "control chart performance comparison",
+    "integrated process alerts"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/temperature_shift_log.csv",
+    "docs/examples_056_060_line_by_line.md",
+    "docs/stage12_overview.md",
+    "environment.yml",
+    "examples/example_056_ewma_control_chart.py",
+    "examples/example_057_cusum_control_chart.py",
+    "examples/example_058_small_shift_detection.py",
+    "examples/example_059_compare_control_chart_performance.py",
+    "examples/example_060_integrated_process_alerts.py",
+    "prompts/prompt_056.md",
+    "prompts/prompt_057.md",
+    "prompts/prompt_058.md",
+    "prompts/prompt_059.md",
+    "prompts/prompt_060.md",
+    "requirements.txt",
+    "tests/test_stage12_ewma_cusum.py"
+  ]
+}

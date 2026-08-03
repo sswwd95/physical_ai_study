@@ -1,0 +1,30 @@
+{
+  "stage": 20,
+  "exercise_range": "096-100",
+  "topics": [
+    "class imbalance diagnostics",
+    "under and over sampling",
+    "SMOTE-like synthetic sampling",
+    "cost-sensitive learning",
+    "001-100 integrated mini project"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/imbalanced_wafer_quality.csv",
+    "docs/examples_096_100_line_by_line.md",
+    "docs/stage20_overview.md",
+    "environment.yml",
+    "examples/example_096_class_imbalance_diagnostics.py",
+    "examples/example_097_under_over_sampling.py",
+    "examples/example_098_simple_smote_like.py",
+    "examples/example_099_cost_sensitive_comparison.py",
+    "examples/example_100_integrated_mini_project.py",
+    "prompts/prompt_096.md",
+    "prompts/prompt_097.md",
+    "prompts/prompt_098.md",
+    "prompts/prompt_099.md",
+    "prompts/prompt_100.md",
+    "requirements.txt",
+    "tests/test_stage20_imbalance.py"
+  ]
+}

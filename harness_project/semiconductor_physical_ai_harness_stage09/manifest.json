@@ -1,0 +1,30 @@
+{
+  "stage": 9,
+  "exercise_range": "041-045",
+  "topics": [
+    "standard scaling",
+    "minmax normalization",
+    "robust scaling",
+    "feature engineering",
+    "integrated preprocessing pipeline"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log.csv",
+    "docs/examples_041_045_line_by_line.md",
+    "docs/stage09_overview.md",
+    "environment.yml",
+    "examples/example_041_standard_scaling.py",
+    "examples/example_042_minmax_normalization.py",
+    "examples/example_043_robust_scaling.py",
+    "examples/example_044_feature_engineering.py",
+    "examples/example_045_integrated_preprocessing_pipeline.py",
+    "prompts/prompt_041.md",
+    "prompts/prompt_042.md",
+    "prompts/prompt_043.md",
+    "prompts/prompt_044.md",
+    "prompts/prompt_045.md",
+    "requirements.txt",
+    "tests/test_stage09_preprocessing.py"
+  ]
+}

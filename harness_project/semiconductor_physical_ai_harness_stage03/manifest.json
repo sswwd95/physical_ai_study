@@ -1,0 +1,30 @@
+{
+  "stage": 3,
+  "exercise_range": "011-015",
+  "topics": [
+    "sensor log loading",
+    "descriptive statistics",
+    "rolling statistics",
+    "correlation analysis",
+    "equipment health summary"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log.csv",
+    "docs/examples_011_015_line_by_line.md",
+    "docs/stage03_overview.md",
+    "environment.yml",
+    "examples/example_011_load_and_inspect_sensor_log.py",
+    "examples/example_012_sensor_descriptive_statistics.py",
+    "examples/example_013_rolling_statistics.py",
+    "examples/example_014_sensor_correlation_analysis.py",
+    "examples/example_015_equipment_health_summary.py",
+    "prompts/prompt_011.md",
+    "prompts/prompt_012.md",
+    "prompts/prompt_013.md",
+    "prompts/prompt_014.md",
+    "prompts/prompt_015.md",
+    "requirements.txt",
+    "tests/test_stage03_data.py"
+  ]
+}

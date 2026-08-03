@@ -1,0 +1,29 @@
+{
+  "stage": 2,
+  "exercise_range": "006-010",
+  "platform": "Windows 10",
+  "environment": "Anaconda",
+  "bayesian_library": "PyMC",
+  "agent_harness": "Antigravity-compatible safe workspace",
+  "generated_files": [
+    "README.md",
+    "config/logging_config.yaml",
+    "config/project_config.yaml",
+    "docs/examples_006_010_line_by_line.md",
+    "docs/stage02_overview.md",
+    "environment.yml",
+    "examples/example_006_yaml_config_loader.py",
+    "examples/example_007_structured_logging.py",
+    "examples/example_008_pipeline_runner.py",
+    "examples/example_009_preflight_check.py",
+    "examples/example_010_safe_agent_workspace.py",
+    "prompts/prompt_006.md",
+    "prompts/prompt_007.md",
+    "prompts/prompt_008.md",
+    "prompts/prompt_009.md",
+    "prompts/prompt_010.md",
+    "requirements.txt",
+    "tests/test_agent_policy.py",
+    "tests/test_project_config.py"
+  ]
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "num": 61,
+    "title": "baseline_window_selection",
+    "objective": "초기 정상 구간을 기준선으로 선택하고 평균·표준편차를 계산합니다.",
+    "prompt": "초기 120개 시점을 정상 기준 구간으로 사용하여 온도와 압력의 평균과 표준편차를 계산하라.\n기준 구간과 전체 구간 통계를 비교하고 CSV로 저장하라.",
+    "file": "ex061_baseline_window_selection.py",
+    "expected": "초기 정상 구간과 전체 구간의 평균·표준편차 차이가 출력됩니다."
+  },
+  {
+    "num": 62,
+    "title": "standardized_residuals",
+    "objective": "기준 구간의 평균과 표준편차로 표준화 잔차를 계산합니다.",
+    "prompt": "초기 120개 온도 데이터를 기준으로 z=(x-mean)/std를 계산하라.\n절댓값 2 이상, 3 이상인 행의 개수를 각각 출력하고 결과를 CSV로 저장하라.",
+    "file": "ex062_standardized_residuals.py",
+    "expected": "기준 정상 구간 대비 온도 잔차가 표준화되어 저장됩니다."
+  },
+  {
+    "num": 63,
+    "title": "upper_cusum_temperature",
+    "objective": "상방 CUSUM으로 작은 온도 평균 상승을 누적 감지합니다.",
+    "prompt": "초기 120개 온도를 기준으로 상방 CUSUM을 계산하라.\n표준화 데이터에 대해 k=0.5, h=5를 사용하고 S+=max(0, 이전S+z-k)로 계산하라.\nh를 넘는 행에 alarm 플래그를 만들고 CSV로 저장하라.",
+    "file": "ex063_upper_cusum_temperature.py",
+    "expected": "작은 평균 상승이 누적되면서 상방 CUSUM 경보가 발생합니다."
+  },
+  {
+    "num": 64,
+    "title": "lower_cusum_temperature",
+    "objective": "하방 CUSUM으로 작은 온도 평균 하락을 감지합니다.",
+    "prompt": "초기 120개 온도를 기준으로 하방 CUSUM을 계산하라.\n표준화 데이터에 대해 k=0.5, h=5를 사용하고 S-=min(0, 이전S+z+k)로 계산하라.\n절댓값이 h 이상이면 경보로 표시하라.",
+    "file": "ex064_lower_cusum_temperature.py",
+    "expected": "하방 평균 이동 여부를 나타내는 CUSUM 값과 경보 수가 계산됩니다."
+  },
+  {
+    "num": 65,
+    "title": "two_sided_cusum",
+    "objective": "상방·하방 CUSUM을 동시에 계산해 양방향 평균 변화를 감지합니다.",
+    "prompt": "온도에 대해 상방과 하방 CUSUM을 함께 계산하는 함수를 작성하라.\nk=0.5, h=5를 사용하고 어느 한쪽이라도 임계값을 넘으면 two_sided_alarm으로 표시하라.",
+    "file": "ex065_two_sided_cusum.py",
+    "expected": "상승과 하락 모두를 감시하는 CUSUM 결과가 생성됩니다."
+  },
+  {
+    "num": 66,
+    "title": "cusum_parameter_comparison",
+    "objective": "k와 h 조합에 따른 CUSUM 경보 민감도를 비교합니다.",
+    "prompt": "온도 상방 CUSUM에서 k=[0.25,0.5,1.0], h=[4,5,8] 조합을 비교하라.\n각 조합별 최초 경보 인덱스와 전체 경보 행 수를 표로 만들고 CSV로 저장하라.",
+    "file": "ex066_cusum_parameter_comparison.py",
+    "expected": "k와 h가 작을수록 민감하지만 경보 수가 늘어나는 경향을 확인합니다."
+  },
+  {
+    "num": 67,
+    "title": "ewma_control_limits",
+    "objective": "EWMA 중심선과 시간에 따라 변하는 관리한계를 계산합니다.",
+    "prompt": "초기 120개 온도를 기준으로 lambda=0.2, L=3인 EWMA를 계산하라.\n시간 t에 따른 표준편차 공식 sigma*sqrt(lambda/(2-lambda)*(1-(1-lambda)^(2t)))을 사용하여\nEWMA UCL/LCL을 만들고 경보를 저장하라.",
+    "file": "ex067_ewma_control_limits.py",
+    "expected": "시간에 따라 안정화되는 EWMA 관리한계와 경보가 생성됩니다."
+  },
+  {
+    "num": 68,
+    "title": "ewma_lambda_comparison",
+    "objective": "lambda 값에 따른 EWMA 반응 속도를 비교합니다.",
+    "prompt": "온도 데이터에 lambda 0.05, 0.2, 0.5의 EWMA를 각각 계산하라.\n세 컬럼을 한 CSV에 저장하고 마지막 20행을 출력하라.",
+    "file": "ex068_ewma_lambda_comparison.py",
+    "expected": "lambda가 클수록 최근 변화에 빠르게 반응하는 모습을 비교할 수 있습니다."
+  },
+  {
+    "num": 69,
+    "title": "rolling_variance_change",
+    "objective": "이동분산으로 공정 변동성 증가 구간을 감지합니다.",
+    "prompt": "온도에 대해 30개 시점 이동분산을 계산하라.\n초기 120개 구간 분산의 2배를 초과하면 variance_alarm으로 표시하고 최초 경보 시점을 출력하라.",
+    "file": "ex069_rolling_variance_change.py",
+    "expected": "평균뿐 아니라 변동성 자체가 커지는 구간을 탐지합니다."
+  },
+  {
+    "num": 70,
+    "title": "variance_ratio_monitor",
+    "objective": "최근 구간 분산과 기준 분산의 비율로 변동성 변화를 정량화합니다.",
+    "prompt": "온도 기준분산은 초기 120개로 계산하라.\n최근 40개 이동분산을 기준분산으로 나눈 variance_ratio를 만들고\n비율이 2.5 이상이면 경보로 표시하여 CSV로 저장하라.",
+    "file": "ex070_variance_ratio_monitor.py",
+    "expected": "최근 변동성이 기준보다 몇 배 커졌는지 시점별로 계산됩니다."
+  },
+  {
+    "num": 71,
+    "title": "mean_shift_scan",
+    "objective": "분할점 후보마다 앞뒤 평균 차이를 계산해 변화점 후보를 찾습니다.",
+    "prompt": "온도 시계열에서 후보 인덱스 60부터 len-60까지를 5칸 간격으로 탐색하라.\n각 후보에서 앞 구간과 뒤 구간 평균 차이 절댓값을 계산하고 가장 큰 후보 10개를 저장하라.",
+    "file": "ex071_mean_shift_scan.py",
+    "expected": "앞뒤 평균 차이가 큰 변화점 후보 10개가 출력됩니다."
+  },
+  {
+    "num": 72,
+    "title": "window_mean_difference",
+    "objective": "좌우 고정 창의 평균 차이로 국소 변화점을 탐지합니다.",
+    "prompt": "각 시점 기준 앞 20개와 뒤 20개의 온도 평균 차이를 계산하라.\n절댓값이 1.0°C 이상이면 local_change_alarm으로 표시하고 결과를 저장하라.",
+    "file": "ex072_window_mean_difference.py",
+    "expected": "급격한 평균 이동이 있는 시점 주변에 변화 경보가 생성됩니다."
+  },
+  {
+    "num": 73,
+    "title": "multi_sensor_change_score",
+    "objective": "온도·압력·진동의 표준화 변화량을 합쳐 다중 센서 변화점수를 만듭니다.",
+    "prompt": "초기 120개를 기준으로 온도, 압력, 진동의 z-score를 계산하라.\n각 절댓값을 합한 change_score를 만들고 8 이상이면 change_alarm으로 표시하라.\n고득점 상위 20행을 저장하라.",
+    "file": "ex073_multi_sensor_change_score.py",
+    "expected": "여러 센서가 동시에 변하는 구간이 높은 변화점수로 탐지됩니다."
+  },
+  {
+    "num": 74,
+    "title": "pca_distance_monitor",
+    "objective": "주성분 공간에서 기준 공정과의 거리를 계산합니다.",
+    "prompt": "초기 120개 온도, 압력, RF, 가스, 진동을 StandardScaler와 PCA(2)로 학습하라.\n전체 데이터를 변환하고 기준 PCA 점수 평균으로부터 유클리드 거리를 계산하라.\n기준 거리 99% 분위수를 넘으면 alarm으로 표시하라.",
+    "file": "ex074_pca_distance_monitor.py",
+    "expected": "다변량 공정 상태가 기준 정상군에서 멀어지는 시점을 탐지합니다."
+  },
+  {
+    "num": 75,
+    "title": "mahalanobis_distance_monitor",
+    "objective": "센서 공분산을 반영한 Mahalanobis 거리로 다변량 이상을 감지합니다.",
+    "prompt": "초기 120개의 온도, 압력, RF, 가스, 진동으로 평균과 공분산을 계산하라.\n전체 행의 Mahalanobis 거리 제곱을 계산하고 기준 구간 99% 분위수를 넘으면 경보로 표시하라.",
+    "file": "ex075_mahalanobis_distance_monitor.py",
+    "expected": "센서 간 상관관계를 반영한 다변량 거리 경보가 계산됩니다."
+  },
+  {
+    "num": 76,
+    "title": "drift_segment_summary",
+    "objective": "경보가 연속된 구간을 하나의 드리프트 세그먼트로 묶습니다.",
+    "prompt": "온도 상방 CUSUM 경보를 계산한 뒤 연속된 True 구간마다 segment_id를 부여하라.\n각 세그먼트의 시작, 종료, 길이, 평균 온도를 요약하여 CSV로 저장하라.",
+    "file": "ex076_drift_segment_summary.py",
+    "expected": "연속 경보를 하나의 사건 단위로 묶은 드리프트 세그먼트 표가 생성됩니다."
+  },
+  {
+    "num": 77,
+    "title": "alarm_cooldown",
+    "objective": "경보 후 일정 시간 동안 재경보를 억제하는 쿨다운 로직을 구현합니다.",
+    "prompt": "change_score가 8 이상인 시점을 원시 경보로 정의하라.\n한 번 경보가 발생하면 다음 20개 시점 동안 새 경보를 억제하는 cooldown_alarm을 구현하라.\n원시 경보 수와 최종 경보 수를 비교하라.",
+    "file": "ex077_alarm_cooldown.py",
+    "expected": "중복 알림이 줄어들고 사건 중심의 경보만 남습니다."
+  },
+  {
+    "num": 78,
+    "title": "alarm_severity_levels",
+    "objective": "변화점수에 따라 주의·경고·위험 등급을 부여합니다.",
+    "prompt": "온도, 압력, 진동의 절대 z-score 합으로 change_score를 계산하라.\n0~4 normal, 4~8 caution, 8~12 warning, 12 이상 critical로 분류하고 등급별 건수를 출력하라.",
+    "file": "ex078_alarm_severity_levels.py",
+    "expected": "공정 변화 정도가 네 단계 등급으로 분류됩니다."
+  },
+  {
+    "num": 79,
+    "title": "change_detection_dashboard",
+    "objective": "CUSUM·EWMA·분산비·다중 센서 점수를 한 파일에 통합합니다.",
+    "prompt": "timestamp별 온도, 상방 CUSUM, EWMA, EWMA UCL/LCL, 분산비,\n다중 센서 change_score, severity를 포함하는 대시보드 CSV를 생성하라.",
+    "file": "ex079_change_detection_dashboard.py",
+    "expected": "변화 감지 대시보드에서 바로 사용할 통합 CSV가 생성됩니다."
+  },
+  {
+    "num": 80,
+    "title": "automated_change_report",
+    "objective": "여러 변화 감지 지표와 경보 세그먼트를 Excel 보고서로 자동 생성합니다.",
+    "prompt": "온도 상방 CUSUM, EWMA 경보, 분산비 경보, 다중 센서 change_score를 계산하라.\nsummary, alarm_rows, segments 세 시트의 Excel 보고서와 CSV 요약을 생성하라.",
+    "file": "ex080_automated_change_report.py",
+    "expected": "변화 감지 요약, 경보 행, 연속 경보 세그먼트가 Excel 보고서로 저장됩니다."
+  }
+]

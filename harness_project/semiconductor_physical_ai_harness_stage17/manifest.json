@@ -1,0 +1,31 @@
+{
+  "stage": 17,
+  "exercise_range": "081-085",
+  "topics": [
+    "defect label generation",
+    "feature-bin defect rates",
+    "chi-square crosstab",
+    "condition risk ratio",
+    "defect analysis dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/defect_rules.json",
+    "data/wafer_process_quality.csv",
+    "docs/examples_081_085_line_by_line.md",
+    "docs/stage17_overview.md",
+    "environment.yml",
+    "examples/example_081_generate_defect_labels.py",
+    "examples/example_082_feature_bin_defect_rates.py",
+    "examples/example_083_chi_square_crosstab.py",
+    "examples/example_084_condition_risk_ratio.py",
+    "examples/example_085_defect_analysis_dashboard.py",
+    "prompts/prompt_081.md",
+    "prompts/prompt_082.md",
+    "prompts/prompt_083.md",
+    "prompts/prompt_084.md",
+    "prompts/prompt_085.md",
+    "requirements.txt",
+    "tests/test_stage17_defects.py"
+  ]
+}

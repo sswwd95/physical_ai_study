@@ -1,0 +1,10 @@
+{
+  "project_name": "semiconductor_physical_ai_ops",
+  "environment": "training",
+  "input_file": "data/operations_stream.csv",
+  "output_dir": "outputs",
+  "log_level": "INFO",
+  "yield_warning_threshold": 93.0,
+  "fault_probability_threshold": 0.7,
+  "batch_size": 200
+}

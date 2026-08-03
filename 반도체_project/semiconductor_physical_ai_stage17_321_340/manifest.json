@@ -1,0 +1,162 @@
+[
+  {
+    "num": 321,
+    "title": "sensor_bias_posterior",
+    "objective": "온도 센서 바이어스의 사후분포를 추정합니다.",
+    "prompt": "두 온도 센서의 바이어스 사후분포와 94% HDI를 추정하라.",
+    "file": "ex321_sensor_bias_posterior.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 322,
+    "title": "sensor_noise_posterior",
+    "objective": "온도 센서별 노이즈 크기를 추정합니다.",
+    "prompt": "온도 센서 A·B의 노이즈 표준편차 사후분포를 추정하라.",
+    "file": "ex322_sensor_noise_posterior.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 323,
+    "title": "bayesian_temperature_fusion",
+    "objective": "두 온도 센서를 베이지안 방식으로 융합합니다.",
+    "prompt": "잠재 참온도와 센서별 바이어스·노이즈를 둔 베이지안 융합을 작성하라.",
+    "file": "ex323_bayesian_temperature_fusion.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 324,
+    "title": "bayesian_pressure_fusion",
+    "objective": "두 압력 센서를 베이지안 방식으로 융합합니다.",
+    "prompt": "잠재 참압력과 이중 압력 센서의 베이지안 융합을 작성하라.",
+    "file": "ex324_bayesian_pressure_fusion.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 325,
+    "title": "posterior_sensor_weights",
+    "objective": "센서 노이즈 사후분포로 가중치를 계산합니다.",
+    "prompt": "센서 노이즈 사후표본의 역분산으로 가중치 분포를 계산하라.",
+    "file": "ex325_posterior_sensor_weights.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 326,
+    "title": "phase_specific_bias",
+    "objective": "공정 단계별 센서 바이어스를 추정합니다.",
+    "prompt": "idle·ramp·process·cooldown 단계별 온도 센서 바이어스를 추정하라.",
+    "file": "ex326_phase_specific_bias.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 327,
+    "title": "hierarchical_sensor_bias",
+    "objective": "센서별 바이어스를 계층적으로 부분 풀링합니다.",
+    "prompt": "센서별 바이어스를 부분 풀링하는 계층모형을 작성하라.",
+    "file": "ex327_hierarchical_sensor_bias.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 328,
+    "title": "robust_student_t_fusion",
+    "objective": "Student-t 모형으로 이상치에 강한 융합을 수행합니다.",
+    "prompt": "Student-t 관측모형으로 이상치에 강한 온도 융합을 수행하라.",
+    "file": "ex328_robust_student_t_fusion.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 329,
+    "title": "latent_temperature_state",
+    "objective": "잠재 온도 상태를 GaussianRandomWalk로 추정합니다.",
+    "prompt": "GaussianRandomWalk 잠재 온도 상태공간 모형을 작성하라.",
+    "file": "ex329_latent_temperature_state.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 330,
+    "title": "latent_pressure_state",
+    "objective": "잠재 압력 상태를 GaussianRandomWalk로 추정합니다.",
+    "prompt": "GaussianRandomWalk 잠재 압력 상태공간 모형을 작성하라.",
+    "file": "ex330_latent_pressure_state.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 331,
+    "title": "joint_state_space_model",
+    "objective": "온도·압력 잠재 상태를 함께 추정합니다.",
+    "prompt": "온도·압력 잠재 상태를 함께 추정하는 모형을 작성하라.",
+    "file": "ex331_joint_state_space_model.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 332,
+    "title": "posterior_predictive_sensor_check",
+    "objective": "사후예측으로 센서 분포 재현성을 확인합니다.",
+    "prompt": "센서 잔차의 관측·사후예측 평균과 표준편차를 비교하라.",
+    "file": "ex332_posterior_predictive_sensor_check.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 333,
+    "title": "twin_residual_posterior",
+    "objective": "트윈 잔차 평균과 변동성의 사후분포를 추정합니다.",
+    "prompt": "디지털 트윈 온도 잔차 평균·표준편차의 사후분포를 저장하라.",
+    "file": "ex333_twin_residual_posterior.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 334,
+    "title": "sensor_fault_probability",
+    "objective": "센서 바이어스가 허용범위를 넘을 확률을 계산합니다.",
+    "prompt": "온도 센서 바이어스가 1도·2도를 넘을 사후확률을 계산하라.",
+    "file": "ex334_sensor_fault_probability.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 335,
+    "title": "anomaly_probability_stream",
+    "objective": "시점별 이상확률 스트림을 생성합니다.",
+    "prompt": "시점별 트윈 잔차에서 이상확률 스트림을 생성하라.",
+    "file": "ex335_anomaly_probability_stream.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 336,
+    "title": "credible_interval_fusion",
+    "objective": "융합 상태의 평균과 HDI를 CSV로 저장합니다.",
+    "prompt": "융합 온도의 사후평균과 94% HDI를 CSV로 저장하라.",
+    "file": "ex336_credible_interval_fusion.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 337,
+    "title": "bayesian_confidence_score",
+    "objective": "HDI 폭을 이용한 베이지안 신뢰도 점수를 계산합니다.",
+    "prompt": "HDI 폭을 사용해 0~1 베이지안 신뢰도 점수를 계산하라.",
+    "file": "ex337_bayesian_confidence_score.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 338,
+    "title": "model_comparison_sensor",
+    "objective": "Normal·Student-t 센서모형을 LOO로 비교합니다.",
+    "prompt": "Normal과 Student-t 센서 잔차모형을 LOO로 비교하라.",
+    "file": "ex338_model_comparison_sensor.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 339,
+    "title": "mcmc_diagnostics_sensor",
+    "objective": "R-hat·ESS·Divergence와 사후그래프를 저장합니다.",
+    "prompt": "R-hat·ESS·Divergence와 사후분포 그래프를 저장하라.",
+    "file": "ex339_mcmc_diagnostics_sensor.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 340,
+    "title": "automated_bayesian_twin_report",
+    "objective": "자동 베이지안 센서 융합·트윈 보고서를 생성합니다.",
+    "prompt": "온도·압력 사후요약, 단계요약, 이상스트림 Excel 보고서를 생성하라.",
+    "file": "ex340_automated_bayesian_twin_report.py",
+    "expected": "요청한 베이지안 센서 융합·디지털 트윈 불확실성 결과가 출력 또는 저장됩니다."
+  }
+]

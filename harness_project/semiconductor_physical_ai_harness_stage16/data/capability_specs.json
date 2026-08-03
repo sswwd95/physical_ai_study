@@ -1,0 +1,12 @@
+{
+  "temperature_c": {
+    "target": 65.0,
+    "lsl": 64.0,
+    "usl": 66.0
+  },
+  "film_thickness_nm": {
+    "target": 100.0,
+    "lsl": 99.2,
+    "usl": 101.2
+  }
+}

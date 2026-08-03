@@ -1,0 +1,30 @@
+{
+  "stage": 10,
+  "exercise_range": "046-050",
+  "topics": [
+    "time based split",
+    "data leakage check",
+    "preprocessor persistence",
+    "schema validation",
+    "data quality report"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/equipment_sensor_log.csv",
+    "docs/examples_046_050_line_by_line.md",
+    "docs/stage10_overview.md",
+    "environment.yml",
+    "examples/example_046_time_based_split.py",
+    "examples/example_047_data_leakage_check.py",
+    "examples/example_048_save_and_restore_preprocessor.py",
+    "examples/example_049_schema_validation.py",
+    "examples/example_050_data_quality_report.py",
+    "prompts/prompt_046.md",
+    "prompts/prompt_047.md",
+    "prompts/prompt_048.md",
+    "prompts/prompt_049.md",
+    "prompts/prompt_050.md",
+    "requirements.txt",
+    "tests/test_stage10_quality.py"
+  ]
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "num": 381,
+    "title": "project_charter",
+    "objective": "종합 프로젝트 목표·범위·성과지표를 정의합니다.",
+    "prompt": "종합 프로젝트의 문제·목표·범위·제외범위·성공지표를 JSON으로 정의하라.",
+    "file": "ex381_project_charter.py"
+  },
+  {
+    "num": 382,
+    "title": "requirements_traceability",
+    "objective": "요구사항과 구현·검증 항목을 연결합니다.",
+    "prompt": "요구사항 ID와 구현 실습·검증 지표를 연결한 추적표를 작성하라.",
+    "file": "ex382_requirements_traceability.py"
+  },
+  {
+    "num": 383,
+    "title": "data_contract",
+    "objective": "입력 데이터 컬럼·형식·품질 규칙을 정의합니다.",
+    "prompt": "핵심 데이터 컬럼의 dtype·nullable·범위 규칙을 JSON 계약으로 작성하라.",
+    "file": "ex383_data_contract.py"
+  },
+  {
+    "num": 384,
+    "title": "integrated_data_validation",
+    "objective": "종합 데이터 품질 검증을 수행합니다.",
+    "prompt": "결측·중복·범위·시간순서 통합 데이터 품질 검증을 작성하라.",
+    "file": "ex384_integrated_data_validation.py"
+  },
+  {
+    "num": 385,
+    "title": "integrated_feature_pipeline",
+    "objective": "수율·고장·RUL 공통 특징을 생성합니다.",
+    "prompt": "수율·고장·RUL 공통 편차·위험·건강점수 특징을 생성하라.",
+    "file": "ex385_integrated_feature_pipeline.py"
+  },
+  {
+    "num": 386,
+    "title": "yield_model_training",
+    "objective": "수율 예측 모델을 학습·평가합니다.",
+    "prompt": "범주형 전처리를 포함한 RandomForest 수율 예측 모델을 작성하라.",
+    "file": "ex386_yield_model_training.py"
+  },
+  {
+    "num": 387,
+    "title": "fault_model_training",
+    "objective": "고장 확률 모델을 학습·평가합니다.",
+    "prompt": "범주형 전처리를 포함한 RandomForest 고장확률 모델을 작성하라.",
+    "file": "ex387_fault_model_training.py"
+  },
+  {
+    "num": 388,
+    "title": "rul_model_training",
+    "objective": "RUL 예측 모델을 학습·평가합니다.",
+    "prompt": "GradientBoosting 기반 RUL 예측 모델을 작성하라.",
+    "file": "ex388_rul_model_training.py"
+  },
+  {
+    "num": 389,
+    "title": "model_registry",
+    "objective": "세 모델과 메타데이터를 등록합니다.",
+    "prompt": "수율·고장·RUL 모델과 특징·버전을 registry JSON으로 저장하라.",
+    "file": "ex389_model_registry.py"
+  },
+  {
+    "num": 390,
+    "title": "integrated_inference",
+    "objective": "수율·고장확률·RUL 통합 추론을 수행합니다.",
+    "prompt": "등록된 세 모델을 로드해 통합 예측 CSV를 생성하라.",
+    "file": "ex390_integrated_inference.py"
+  },
+  {
+    "num": 391,
+    "title": "decision_engine",
+    "objective": "통합 예측으로 운영 행동을 결정합니다.",
+    "prompt": "수율·고장확률·RUL로 운영 행동을 결정하라.",
+    "file": "ex391_decision_engine.py"
+  },
+  {
+    "num": 392,
+    "title": "safety_gate",
+    "objective": "안전 게이트가 모델보다 우선하도록 검증합니다.",
+    "prompt": "극한 센서 조건에서는 모델 판단보다 강제 안전정지를 우선하라.",
+    "file": "ex392_safety_gate.py"
+  },
+  {
+    "num": 393,
+    "title": "end_to_end_pipeline",
+    "objective": "입력부터 결과 저장까지 전체 파이프라인을 실행합니다.",
+    "prompt": "데이터 검증부터 특징 생성·결과 저장까지 전체 파이프라인을 실행하라.",
+    "file": "ex393_end_to_end_pipeline.py"
+  },
+  {
+    "num": 394,
+    "title": "integration_tests",
+    "objective": "핵심 통합 테스트를 자동 실행합니다.",
+    "prompt": "행수·결측·범위·클래스·장비수 통합 테스트를 작성하라.",
+    "file": "ex394_integration_tests.py"
+  },
+  {
+    "num": 395,
+    "title": "kpi_scorecard",
+    "objective": "프로젝트 KPI 스코어카드를 생성합니다.",
+    "prompt": "수율 MAE·R², 고장 Recall, RUL MAE KPI 스코어카드를 생성하라.",
+    "file": "ex395_kpi_scorecard.py"
+  },
+  {
+    "num": 396,
+    "title": "error_analysis",
+    "objective": "수율·고장·RUL 오차를 통합 분석합니다.",
+    "prompt": "수율과 RUL 예측 오차 상위 사례를 저장하라.",
+    "file": "ex396_error_analysis.py"
+  },
+  {
+    "num": 397,
+    "title": "portfolio_case_study",
+    "objective": "포트폴리오용 문제·접근·결과 문서를 생성합니다.",
+    "prompt": "문제·접근·결과·기여가 포함된 포트폴리오 사례 문서를 생성하라.",
+    "file": "ex397_portfolio_case_study.py"
+  },
+  {
+    "num": 398,
+    "title": "presentation_summary",
+    "objective": "최종 발표용 1페이지 요약을 생성합니다.",
+    "prompt": "최종 발표용 1페이지 요약 문서를 생성하라.",
+    "file": "ex398_presentation_summary.py"
+  },
+  {
+    "num": 399,
+    "title": "deployment_checklist",
+    "objective": "배포·운영·안전 체크리스트를 생성합니다.",
+    "prompt": "환경·데이터·모델·안전·모니터링·복구·문서 체크리스트를 생성하라.",
+    "file": "ex399_deployment_checklist.py"
+  },
+  {
+    "num": 400,
+    "title": "final_project_package",
+    "objective": "최종 종합 Excel·문서·manifest를 생성합니다.",
+    "prompt": "일별KPI·장비요약·위험행동·품질검사 Excel과 최종 manifest를 생성하라.",
+    "file": "ex400_final_project_package.py"
+  }
+]

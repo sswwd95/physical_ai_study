@@ -1,0 +1,162 @@
+[
+  {
+    "num": 281,
+    "title": "optimization_data_profile",
+    "objective": "최적화 이력과 후보 공간을 확인합니다.",
+    "prompt": "공정 최적화 이력과 후보공간의 크기·범위를 요약하라.",
+    "file": "ex281_optimization_data_profile.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 282,
+    "title": "single_objective_uniformity",
+    "objective": "균일도 최대 조건을 탐색합니다.",
+    "prompt": "RandomForest 대리모델로 균일도 최대 후보 20개를 선택하라.",
+    "file": "ex282_single_objective_uniformity.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 283,
+    "title": "single_objective_defect_rate",
+    "objective": "불량률 최소 조건을 탐색합니다.",
+    "prompt": "불량률 최소 후보 20개를 선택하라.",
+    "file": "ex283_single_objective_defect_rate.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 284,
+    "title": "cycle_time_optimization",
+    "objective": "사이클타임 최소 조건을 탐색합니다.",
+    "prompt": "사이클타임 최소 후보 20개를 선택하라.",
+    "file": "ex284_cycle_time_optimization.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 285,
+    "title": "constraint_filtering",
+    "objective": "안전·품질 제약조건으로 후보를 필터링합니다.",
+    "prompt": "압력·RF·가스유량 안전범위로 후보를 필터링하라.",
+    "file": "ex285_constraint_filtering.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 286,
+    "title": "surrogate_models",
+    "objective": "균일도·불량률·시간 대리모델을 학습합니다.",
+    "prompt": "균일도·불량률·사이클타임 대리모델의 학습점수를 비교하라.",
+    "file": "ex286_surrogate_models.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 287,
+    "title": "candidate_prediction",
+    "objective": "전체 후보 조건의 결과를 예측합니다.",
+    "prompt": "모든 후보 조건의 세 품질 결과를 예측해 저장하라.",
+    "file": "ex287_candidate_prediction.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 288,
+    "title": "weighted_utility",
+    "objective": "가중 효용함수로 조건을 순위화합니다.",
+    "prompt": "균일도 55%, 불량률 30%, 시간 15% 가중 효용을 계산하라.",
+    "file": "ex288_weighted_utility.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 289,
+    "title": "pareto_front",
+    "objective": "다목적 Pareto 후보를 계산합니다.",
+    "prompt": "균일도 최대·불량률 최소·시간 최소 Pareto 후보를 계산하라.",
+    "file": "ex289_pareto_front.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 290,
+    "title": "robust_condition_score",
+    "objective": "예측 변동을 고려한 강건 점수를 계산합니다.",
+    "prompt": "앙상블 평균-1.64표준편차로 강건 점수를 계산하라.",
+    "file": "ex290_robust_condition_score.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 291,
+    "title": "expected_improvement",
+    "objective": "균일도 기대개선량을 계산합니다.",
+    "prompt": "현재 최고 균일도 대비 Expected Improvement를 계산하라.",
+    "file": "ex291_expected_improvement.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 292,
+    "title": "probability_of_improvement",
+    "objective": "현재 최고값 초과확률을 계산합니다.",
+    "prompt": "현재 최고 균일도 초과확률을 계산하라.",
+    "file": "ex292_probability_of_improvement.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 293,
+    "title": "lower_confidence_bound",
+    "objective": "보수적 신뢰하한으로 후보를 선택합니다.",
+    "prompt": "95% 보수적 신뢰하한이 높은 후보를 선택하라.",
+    "file": "ex293_lower_confidence_bound.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 294,
+    "title": "safe_optimization",
+    "objective": "불량률 제약을 만족할 확률로 안전 후보를 선택합니다.",
+    "prompt": "P(불량률<4%)≥0.9 조건에서 균일도 최고 후보를 선택하라.",
+    "file": "ex294_safe_optimization.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 295,
+    "title": "bayesian_linear_surrogate",
+    "objective": "PyMC 베이지안 회귀 대리모델을 작성합니다.",
+    "prompt": "PyMC 다중 선형 회귀로 균일도 베이지안 대리모델을 작성하라.",
+    "file": "ex295_bayesian_linear_surrogate.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 296,
+    "title": "posterior_candidate_ranking",
+    "objective": "후보별 최적일 사후확률을 계산합니다.",
+    "prompt": "후보 60개 중 각 후보가 최적일 사후확률을 계산하라.",
+    "file": "ex296_posterior_candidate_ranking.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 297,
+    "title": "sequential_batch_selection",
+    "objective": "다음 실험 배치를 다양성 있게 선택합니다.",
+    "prompt": "상위 후보 중 조건 간 거리를 고려해 다음 실험 12개를 선택하라.",
+    "file": "ex297_sequential_batch_selection.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 298,
+    "title": "cost_sensitive_decision",
+    "objective": "품질·불량·시간·실험비용을 결합합니다.",
+    "prompt": "품질손실·불량비용·시간비용·실험비용을 합산하라.",
+    "file": "ex298_cost_sensitive_decision.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 299,
+    "title": "confirmation_experiment_plan",
+    "objective": "추천 조건의 확인 실험 계획을 생성합니다.",
+    "prompt": "상위 5개 조건을 3회 반복하고 실행순서를 무작위화하라.",
+    "file": "ex299_confirmation_experiment_plan.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  },
+  {
+    "num": 300,
+    "title": "automated_optimization_report",
+    "objective": "자동 공정 최적화 Excel 보고서를 생성합니다.",
+    "prompt": "후보예측·추천·확인실험·특징중요도 Excel 보고서를 생성하라.",
+    "file": "ex300_automated_optimization_report.py",
+    "expected": "요청한 공정 최적화·베이지안 의사결정 결과가 출력 또는 저장됩니다."
+  }
+]

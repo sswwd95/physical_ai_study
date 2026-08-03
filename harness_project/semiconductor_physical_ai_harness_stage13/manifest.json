@@ -1,0 +1,30 @@
+{
+  "stage": 13,
+  "exercise_range": "061-065",
+  "topics": [
+    "multisensor z-score monitoring",
+    "Hotelling T2",
+    "combined alerts",
+    "process health score",
+    "multivariate dashboard"
+  ],
+  "generated_files": [
+    "README.md",
+    "data/multisensor_process_log.csv",
+    "docs/examples_061_065_line_by_line.md",
+    "docs/stage13_overview.md",
+    "environment.yml",
+    "examples/example_061_multisensor_zscore_monitoring.py",
+    "examples/example_062_hotelling_t2.py",
+    "examples/example_063_combine_sensor_alerts.py",
+    "examples/example_064_process_health_score.py",
+    "examples/example_065_multivariate_dashboard.py",
+    "prompts/prompt_061.md",
+    "prompts/prompt_062.md",
+    "prompts/prompt_063.md",
+    "prompts/prompt_064.md",
+    "prompts/prompt_065.md",
+    "requirements.txt",
+    "tests/test_stage13_multivariate.py"
+  ]
+}

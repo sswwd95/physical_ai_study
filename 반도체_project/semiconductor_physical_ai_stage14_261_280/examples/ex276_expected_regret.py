@@ -1,0 +1,22 @@
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import pymc as pm
+import arviz as az
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_FILE = ROOT / "data" / "bayesian_process_experiment.csv"
+OUTPUT_DIR = ROOT / "outputs"
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+experiment_df = pd.read_csv(DATA_FILE)
+
+group=experiment_df.groupby(["recipe","pressure_level","rf_level"])["uniformity_percent"].agg(["mean","std","count"]).reset_index()
+mu=group["mean"].to_numpy(); se=(group["std"]/np.sqrt(group["count"])).fillna(.2).to_numpy()
+draws=np.random.default_rng(42).normal(mu,se,size=(5000,len(group)))
+best=draws.max(axis=1,keepdims=True)
+regret=(best-draws).mean(axis=0)
+group["expected_regret"]=regret
+out=group.sort_values("expected_regret")
+print(out.head(10).round(4))
+out.to_csv(OUTPUT_DIR/"ex276_expected_regret.csv",index=False,encoding="utf-8-sig")
