@@ -1,0 +1,31 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "representative_examples_executed": [
+    341,
+    348,
+    355,
+    358,
+    360
+  ],
+  "mujoco_example_359": "not_tested_in_build_runtime",
+  "data_rows": 1800,
+  "output_files": [
+    "ex342_relative_speed.csv",
+    "ex346_friction_braking_distance.csv",
+    "ex347_unsafe_distance.csv",
+    "ex348_risk_levels.csv",
+    "ex349_deceleration_command.csv",
+    "ex350_emergency_stop.csv",
+    "ex351_hysteresis_warning.csv",
+    "ex352_avoidance_yaw_rate.csv",
+    "ex354_safety_speed_limit.csv",
+    "ex356_logistic_risk_report.json",
+    "ex357_random_forest_risk_report.json",
+    "ex358_collision_risk_timeline.png",
+    "ex360_integrated_report.json",
+    "ex360_integrated_safety_control.csv"
+  ],
+  "total_files": 85
+}

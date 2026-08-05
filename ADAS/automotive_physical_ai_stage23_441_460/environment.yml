@@ -1,0 +1,10 @@
+name: automotive_digital_twin_viewer
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - pip
+  - pip:
+      - mujoco==3.6.0

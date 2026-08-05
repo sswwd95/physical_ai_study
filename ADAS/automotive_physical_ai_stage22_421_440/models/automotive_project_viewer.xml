@@ -1,0 +1,73 @@
+<mujoco model="automotive_project_viewer">
+  <compiler angle="degree"/>
+  <option timestep="0.01" gravity="0 0 -9.81"/>
+  <visual>
+    <global offwidth="1280" offheight="720"/>
+    <quality shadowsize="2048"/>
+  </visual>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker"
+             rgb1=".15 .15 .15" rgb2=".28 .28 .28" width="512" height="512"/>
+    <material name="ground" texture="grid" texrepeat="12 12"/>
+    <material name="car_body" rgba=".1 .45 .9 1"/>
+    <material name="wheel" rgba=".06 .06 .06 1"/>
+    <material name="obstacle" rgba=".9 .2 .1 1"/>
+    <material name="warning" rgba="1 .75 .05 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="main_light" pos="0 0 6" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="20 20 .1" material="ground"/>
+
+    <camera name="overview" pos="6 -10 7" xyaxes=".86 .50 0 -.30 .52 .80"/>
+    <camera name="follow_cam" mode="trackcom" target="base" pos="0 -4 2"/>
+    <camera name="front_sensor_cam" mode="trackcom" target="base" pos="0 -2 .8"/>
+
+    <body name="base" pos="0 0 .12">
+      <freejoint/>
+      <geom name="chassis" type="box" size=".22 .15 .065" mass="1.4" material="car_body"/>
+      <site name="imu_site" pos="0 0 .10" size=".025" rgba="1 1 0 1"/>
+      <site name="front_sensor_site" pos=".22 0 .06" size=".025" rgba="0 1 1 1"/>
+
+      <body name="left_wheel" pos="0 .18 0">
+        <joint name="left_wheel_joint" type="hinge" axis="0 1 0" damping=".02"/>
+        <geom type="cylinder" size=".06 .028" euler="90 0 0" mass=".16" material="wheel"/>
+      </body>
+
+      <body name="right_wheel" pos="0 -.18 0">
+        <joint name="right_wheel_joint" type="hinge" axis="0 1 0" damping=".02"/>
+        <geom type="cylinder" size=".06 .028" euler="90 0 0" mass=".16" material="wheel"/>
+      </body>
+    </body>
+
+    <body name="obstacle_1" pos="2.8 .4 .3">
+      <geom name="obstacle_1_geom" type="box" size=".3 .3 .3" material="obstacle"/>
+    </body>
+
+    <body name="obstacle_2" pos="5.0 -1.0 .25">
+      <geom name="obstacle_2_geom" type="cylinder" size=".25 .25" material="warning"/>
+    </body>
+
+    <body name="target_marker" mocap="true" pos="1 0 .08">
+      <geom type="sphere" size=".08" rgba=".2 1 .2 1"/>
+    </body>
+
+    <body name="risk_marker" mocap="true" pos="0 0 .45">
+      <geom type="sphere" size=".05" rgba="1 0 0 1"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <velocity name="left_motor" joint="left_wheel_joint" kv="2" ctrlrange="-20 20"/>
+    <velocity name="right_motor" joint="right_wheel_joint" kv="2" ctrlrange="-20 20"/>
+  </actuator>
+
+  <sensor>
+    <framepos name="base_position" objtype="body" objname="base"/>
+    <framequat name="base_orientation" objtype="body" objname="base"/>
+    <velocimeter name="base_linear_velocity" site="imu_site"/>
+    <gyro name="base_gyro" site="imu_site"/>
+    <jointvel name="left_wheel_velocity" joint="left_wheel_joint"/>
+    <jointvel name="right_wheel_velocity" joint="right_wheel_joint"/>
+  </sensor>
+</mujoco>

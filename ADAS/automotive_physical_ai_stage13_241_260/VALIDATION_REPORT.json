@@ -1,0 +1,21 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "lightweight_examples_executed": [
+    241,
+    242,
+    243,
+    256,
+    257
+  ],
+  "full_pymc_sampling": "not_run_in_build_runtime_due_to_runtime_cost",
+  "recommended_runtime": "Windows conda-forge environment.yml",
+  "data_rows": 420,
+  "output_files": [
+    "ex243_risk_prior.png",
+    "ex256_threshold_cost.csv",
+    "ex257_best_cost_threshold.json"
+  ],
+  "total_files": 74
+}

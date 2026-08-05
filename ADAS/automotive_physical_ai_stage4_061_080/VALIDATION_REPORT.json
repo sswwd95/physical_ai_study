@@ -1,0 +1,28 @@
+{
+  "python_files": 22,
+  "examples_executed": 20,
+  "all_ok": true,
+  "output_files": [
+    "ex061_speed_timeseries.png",
+    "ex062_multi_sensor.png",
+    "ex063_acceleration_histogram.png",
+    "ex064_speed_current_scatter.png",
+    "ex065_correlation_matrix.csv",
+    "ex066_correlation_heatmap.png",
+    "ex067_speed_moving_average.png",
+    "ex068_stop_segments.csv",
+    "ex069_hard_acceleration.csv",
+    "ex070_hard_braking.csv",
+    "ex071_turn_segments.csv",
+    "ex072_close_approach.csv",
+    "ex073_ttc_timeseries.png",
+    "ex074_wheel_speed_difference.png",
+    "ex075_steering_yaw_relation.png",
+    "ex076_voltage_drop_summary.csv",
+    "ex077_driving_state_summary.csv",
+    "ex078_driving_state_timeline.png",
+    "ex079_window_statistics.csv",
+    "ex080_integrated_dashboard.png",
+    "ex080_summary.json"
+  ]
+}

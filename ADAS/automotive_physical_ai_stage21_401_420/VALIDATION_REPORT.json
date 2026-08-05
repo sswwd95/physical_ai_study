@@ -1,0 +1,7 @@
+{
+  "examples": 20,
+  "syntax_check": "passed",
+  "xml_parse": "passed",
+  "gui_execution": "not_run_in_headless_environment",
+  "files": 68
+}

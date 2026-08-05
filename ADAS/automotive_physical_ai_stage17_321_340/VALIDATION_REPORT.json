@@ -1,0 +1,40 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "representative_examples_executed": [
+    321,
+    322,
+    323,
+    325,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    336,
+    337,
+    338,
+    340
+  ],
+  "mujoco_example_339": "not_installed_in_build_runtime",
+  "output_files": [
+    "ex322_reference_path.png",
+    "ex328_pure_pursuit.csv",
+    "ex329_lookahead_comparison.csv",
+    "ex331_stanley.csv",
+    "ex332_stanley_gain.csv",
+    "ex333_controller_comparison.csv",
+    "ex334_lane_change_tracking.csv",
+    "ex336_curvature_speed_limit.csv",
+    "ex338_tracking_trajectory.png",
+    "ex340_comparison.csv",
+    "ex340_integrated_report.json",
+    "ex340_pure_pursuit_log.csv",
+    "ex340_stanley_log.csv"
+  ],
+  "total_files": 86
+}

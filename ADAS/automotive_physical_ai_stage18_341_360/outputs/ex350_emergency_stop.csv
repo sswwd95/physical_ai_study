@@ -1,0 +1,1 @@
+﻿time_s,ego_speed_mps,lead_speed_mps,distance_m,relative_speed_mps,closing_speed_mps,ttc_s,reaction_time_s,friction_coeff,braking_distance_m,safe_distance_m,obstacle_angle_deg,obstacle_width_m,risk_label,emergency_stop

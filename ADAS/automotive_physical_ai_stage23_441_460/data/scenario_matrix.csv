@@ -1,0 +1,6 @@
+scenario,friction,payload,dropout,delay
+normal,1.0,0.4,0.0,0
+wet,0.55,0.4,0.0,0
+heavy,1.0,1.0,0.0,0
+dropout,1.0,0.4,0.25,0
+delay,1.0,0.4,0.0,20

@@ -1,0 +1,25 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "all_examples_executed": true,
+  "output_files": [
+    "ex145_bias_corrected_accel.csv",
+    "ex146_accel_moving_average.csv",
+    "ex147_accel_error_histogram.png",
+    "ex148_gyro_drift.png",
+    "ex149_gyro_integrated_yaw.csv",
+    "ex150_corrected_yaw.csv",
+    "ex154_encoder_distance.csv",
+    "ex155_slip_events.csv",
+    "ex156_window_noise_statistics.csv",
+    "ex157_random_walk.csv",
+    "ex158_accel_calibrated.csv",
+    "ex159_sensor_quality_report.json",
+    "ex160_integrated_sensor_analysis.csv",
+    "ex160_integrated_sensor_analysis.png",
+    "ex160_summary.json"
+  ],
+  "total_files": 85,
+  "data_rows": 12000
+}

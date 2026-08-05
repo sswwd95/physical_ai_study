@@ -1,0 +1,33 @@
+# 실습 033 | 열 선택과 파생 변수 생성
+
+## 핵심 주제
+속도를 km/h로 변환하고 조향 방향 열을 만든다.
+
+## 실행 방법
+프로젝트 루트에서 Anaconda Prompt를 열고 다음을 실행합니다.
+
+```bat
+conda activate auto_physical_ai
+cd /d C:\work\automotive_physical_ai_stage2_021_040
+python ex033\main.py
+```
+
+## 기대 결과
+코드가 오류 없이 실행되고, 계산 결과 또는 생성 파일 경로가 출력되어야 합니다.
+
+## 실무 연결
+이 예제는 ROS2 토픽 또는 MuJoCo 센서 배열을 받기 전에 Python 자료구조와 데이터 처리 흐름을 연습하는 단계입니다. 실제 차량 프로젝트에서는 단위, 시간축, 임계값, 결측값을 항상 함께 확인해야 합니다.
+
+## 라인별 해설
+- **01행** `from common.load_data import load_vehicle_log` — 필요한 라이브러리 또는 공통 함수를 불러옵니다.
+- **03행** `df = load_vehicle_log()` — 센서 값, 조건식 또는 계산 결과를 변수에 저장합니다.
+- **04행** `df["speed_kph"] = df["speed_mps"] * 3.6` — 센서 값, 조건식 또는 계산 결과를 변수에 저장합니다.
+- **05행** `df["steering_direction"] = "STRAIGHT"` — 센서 값, 조건식 또는 계산 결과를 변수에 저장합니다.
+- **06행** `df.loc[df["steering_deg"] > 1.0, "steering_direction"] = "LEFT"` — 센서 값, 조건식 또는 계산 결과를 변수에 저장합니다.
+- **07행** `df.loc[df["steering_deg"] < -1.0, "steering_direction"] = "RIGHT"` — 센서 값, 조건식 또는 계산 결과를 변수에 저장합니다.
+- **08행** `print(df[["speed_mps", "speed_kph", "steering_deg", "steering_direction"]].head(12))` — 계산 결과나 상태를 화면에 출력해 확인합니다.
+
+## 확인 문제
+1. 입력 단위가 바뀌면 어느 부분을 수정해야 합니까?
+2. 임계값을 너무 낮게 설정하면 어떤 오경보가 발생할 수 있습니까?
+3. 이 결과를 ROS2 메시지로 전달하려면 어떤 필드가 필요합니까?

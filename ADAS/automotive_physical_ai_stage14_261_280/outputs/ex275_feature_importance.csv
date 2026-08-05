@@ -1,0 +1,7 @@
+﻿feature,importance
+bearing_vibration_g,0.3722644899570384
+motor_temp_c,0.25624888796792045
+motor_current_a,0.17250547725952609
+battery_voltage_v,0.09434482044472045
+battery_internal_resistance_ohm,0.08793204728966333
+wheel_friction_index,0.016704277081131296

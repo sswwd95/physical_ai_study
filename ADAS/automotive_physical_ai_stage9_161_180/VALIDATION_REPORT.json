@@ -1,0 +1,15 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "lightweight_examples_executed": [
+    162,
+    163
+  ],
+  "full_pymc_sampling": "not_run_in_build_runtime_due_to_incompatible_preinstalled_pymc_arviz",
+  "recommended_runtime": "Windows conda-forge environment.yml",
+  "data_rows": 240,
+  "output_files": [
+    "ex163_accel_bias_prior.png"
+  ]
+}

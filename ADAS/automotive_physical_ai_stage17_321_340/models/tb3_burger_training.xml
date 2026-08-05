@@ -1,0 +1,8 @@
+<mujoco model="tb3_control"><option timestep="0.01"/><worldbody>
+<body name="base" pos="0 0 0.08"><freejoint/><geom type="box" size=".09 .07 .035" mass="1"/>
+<body pos="0 .085 0"><joint name="left_wheel_joint" type="hinge" axis="0 1 0"/>
+<geom type="cylinder" size=".033 .012" euler="1.5708 0 0" mass=".1"/></body>
+<body pos="0 -.085 0"><joint name="right_wheel_joint" type="hinge" axis="0 1 0"/>
+<geom type="cylinder" size=".033 .012" euler="1.5708 0 0" mass=".1"/></body></body></worldbody>
+<actuator><velocity name="left_wheel_motor" joint="left_wheel_joint" kv="1" ctrlrange="-20 20"/>
+<velocity name="right_wheel_motor" joint="right_wheel_joint" kv="1" ctrlrange="-20 20"/></actuator></mujoco>

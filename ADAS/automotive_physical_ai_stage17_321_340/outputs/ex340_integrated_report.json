@@ -1,0 +1,16 @@
+{
+  "recommended_controller": "pure_pursuit",
+  "recommended_rmse_cte_m": 0.20505438235926168,
+  "pure_pursuit": {
+    "mae_cte_m": 0.07803211915880519,
+    "rmse_cte_m": 0.20505438235926168,
+    "max_abs_cte_m": 0.7717180279804154,
+    "final_abs_cte_m": 0.08078316644469516
+  },
+  "stanley": {
+    "mae_cte_m": 6.953276687463528,
+    "rmse_cte_m": 7.818633861263285,
+    "max_abs_cte_m": 13.063910371897075,
+    "final_abs_cte_m": 12.765145008486334
+  }
+}

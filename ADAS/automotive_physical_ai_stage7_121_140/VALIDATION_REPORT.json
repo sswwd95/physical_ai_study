@@ -1,0 +1,20 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "all_examples_executed": true,
+  "output_files": [
+    "ex128_straight_odometry.csv",
+    "ex129_spin_odometry.csv",
+    "ex130_arc_odometry.csv",
+    "ex131_composite_odometry.csv",
+    "ex132_xy_trajectory.png",
+    "ex138_trajectory_error.csv",
+    "ex139_odometry_report.json",
+    "ex140_integrated_trajectory.csv",
+    "ex140_integrated_trajectory.png",
+    "ex140_summary.json",
+    "ex140_wheel_commands.csv"
+  ],
+  "total_files": 81
+}

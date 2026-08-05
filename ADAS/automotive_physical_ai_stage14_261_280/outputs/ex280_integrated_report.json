@@ -1,0 +1,34 @@
+{
+  "final_health_score": 3.388836360789183,
+  "final_motor_temp_c": 72.66268215896056,
+  "final_vibration_g": 0.5666687862504225,
+  "final_battery_voltage_v": 12.262690933130555,
+  "failure_samples": 658,
+  "classification_report": {
+    "0": {
+      "precision": 0.9512195121951219,
+      "recall": 1.0,
+      "f1-score": 0.975,
+      "support": 156.0
+    },
+    "1": {
+      "precision": 1.0,
+      "recall": 0.9865319865319865,
+      "f1-score": 0.9932203389830508,
+      "support": 594.0
+    },
+    "accuracy": 0.9893333333333333,
+    "macro avg": {
+      "precision": 0.975609756097561,
+      "recall": 0.9932659932659933,
+      "f1-score": 0.9841101694915254,
+      "support": 750.0
+    },
+    "weighted avg": {
+      "precision": 0.9898536585365854,
+      "recall": 0.9893333333333333,
+      "f1-score": 0.9894305084745763,
+      "support": 750.0
+    }
+  }
+}

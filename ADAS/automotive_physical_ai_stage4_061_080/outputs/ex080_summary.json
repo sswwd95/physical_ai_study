@@ -1,0 +1,15 @@
+{
+  "samples": 900,
+  "duration_s": 89.9,
+  "mean_speed_mps": 8.89804656468579,
+  "max_speed_mps": 17.724325421260943,
+  "minimum_ttc_s": 1.1752134980920657,
+  "risk_samples": 196,
+  "state_counts": {
+    "DECELERATE": 239,
+    "ACCELERATE": 233,
+    "CRUISE": 220,
+    "STOP": 176,
+    "TURN": 32
+  }
+}

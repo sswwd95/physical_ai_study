@@ -1,0 +1,16 @@
+name: auto_physical_ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - jupyterlab
+  - ipykernel
+  - pymc>=5,<7
+  - arviz
+  - pip:
+      - mujoco==3.6.0

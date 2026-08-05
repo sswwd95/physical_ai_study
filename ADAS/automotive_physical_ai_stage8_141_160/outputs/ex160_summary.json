@@ -1,0 +1,7 @@
+{
+  "accel_bias_estimate": 0.04770445047875371,
+  "gyro_bias_estimate": -0.011228952557450536,
+  "corrected_accel_rmse": 0.00976150055640766,
+  "corrected_yaw_rmse": 0.06507074728143541,
+  "slip_detection_samples": 1002
+}

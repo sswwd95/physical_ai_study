@@ -1,0 +1,15 @@
+import numpy as np, pandas as pd
+from common.sync_utils import load_stream, nearest_merge, out
+grid=pd.DataFrame({"timestamp_s":np.arange(0,90,0.1)})
+imu=load_stream("imu_50hz.csv")
+wheel=load_stream("wheel_20hz.csv")
+rng=load_stream("range_10hz.csv")
+gps=load_stream("gps_2hz.csv")
+m=nearest_merge(grid,imu,0.03)
+m=nearest_merge(m,wheel,0.03)
+m=nearest_merge(m,rng,0.06)
+m=nearest_merge(m,gps,0.26)
+path=out("ex098_integrated_sensor_table.csv")
+m.to_csv(path,index=False)
+print(m.head())
+print(m.isna().sum())

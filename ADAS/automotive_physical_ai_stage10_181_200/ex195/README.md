@@ -1,0 +1,44 @@
+# 예제 195 — 노면별 계층적 슬립 모델
+
+## 실행
+```bat
+cd /d C:\work\automotive_physical_ai_stage10_181_200
+conda activate auto_physical_ai
+python ex195\main.py
+```
+
+## 핵심 개념
+휠 슬립률과 오도메트리 오차를 하나의 고정값으로 보지 않고 확률분포로 추정합니다.
+사후분포를 이용하면 평균 오차뿐 아니라 기준 초과 가능성도 계산할 수 있습니다.
+
+## ROS2 연결
+- 휠 엔코더 → `/joint_states`
+- IMU → `/imu`
+- 적분 위치와 자세 → `/odom`
+- 슬립 위험확률 → `/diagnostics` 또는 사용자 정의 경고 토픽
+- 노면별 사후분포 → 주행 제어기의 속도·가속도 제한값 조정
+
+## 라인별 해설
+| 줄 | 소스 | 설명 |
+|---:|---|---|
+| 1 | `import pymc as pm` | PyMC·ArviZ 또는 공통 함수를 불러옵니다. |
+| 2 | `from common.bayes_slip_utils import load_data, sample_model, save_summary` | PyMC·ArviZ 또는 공통 함수를 불러옵니다. |
+| 3 | `df = load_data()` | 데이터, 모델 모수, 통계량 또는 판정값을 계산합니다. |
+| 4 | `sid = df["surface_id"].to_numpy()` | 데이터, 모델 모수, 통계량 또는 판정값을 계산합니다. |
+| 5 | `y = df["slip_ratio"].to_numpy()` | 데이터, 모델 모수, 통계량 또는 판정값을 계산합니다. |
+| 6 | `n = int(df["surface_id"].nunique())` | 데이터, 모델 모수, 통계량 또는 판정값을 계산합니다. |
+| 7 | `with pm.Model() as model:` | 확률 모델 정의를 시작합니다. |
+| 8 | `    group_mu = pm.Normal("group_mu", 0.08, 0.08)` | 정규 사전분포 또는 정규 우도를 정의합니다. |
+| 9 | `    group_sigma = pm.HalfNormal("group_sigma", 0.08)` | 양수인 표준편차의 사전분포를 정의합니다. |
+| 10 | `    surface_mu = pm.Normal("surface_mu", group_mu, group_sigma, shape=n)` | 정규 사전분포 또는 정규 우도를 정의합니다. |
+| 11 | `    sigma = pm.HalfNormal("sigma", 0.08)` | 양수인 표준편차의 사전분포를 정의합니다. |
+| 12 | `    pm.Normal("obs", mu=surface_mu[sid], sigma=sigma, observed=y)` | 정규 사전분포 또는 정규 우도를 정의합니다. |
+| 13 | `idata = sample_model(model)` | MCMC 샘플링으로 사후분포를 생성합니다. |
+| 14 | `summary, path = save_summary(idata, ["group_mu","group_sigma","surface_mu","sigma"], "ex195_hierarchical_surface.csv")` | 데이터, 모델 모수, 통계량 또는 판정값을 계산합니다. |
+| 15 | `print(summary)` | 핵심 추정값·진단값·저장 경로를 출력합니다. |
+| 16 | `print("saved:", path)` | 핵심 추정값·진단값·저장 경로를 출력합니다. |
+
+## 확인 문제
+1. 슬립률 평균만 사용하는 것보다 사후분포를 사용하는 장점은 무엇인가?
+2. 노면별 계층 모델은 표본이 적은 노면에 어떤 도움을 주는가?
+3. 위험확률을 제어기에 연결할 때 히스테리시스가 필요한 이유는 무엇인가?

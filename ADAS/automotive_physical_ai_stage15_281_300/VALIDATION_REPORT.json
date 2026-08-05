@@ -1,0 +1,22 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "lightweight_examples_executed": [
+    281,
+    282,
+    283,
+    294,
+    298
+  ],
+  "full_pymc_sampling": "not_run_in_build_runtime_due_to_runtime_cost",
+  "lifetime_rows": 480,
+  "rul_rows": 360,
+  "output_files": [
+    "ex282_lifetime_summary.csv",
+    "ex283_failure_probability_prior.png",
+    "ex294_rul_feature_correlation.csv",
+    "ex298_maintenance_threshold_probability.json"
+  ],
+  "total_files": 76
+}

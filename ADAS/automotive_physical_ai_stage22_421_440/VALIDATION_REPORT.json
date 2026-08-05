@@ -1,0 +1,8 @@
+{
+  "examples": 20,
+  "python_syntax": "passed",
+  "xml_parse": "passed",
+  "path_points": 161,
+  "gui_execution": "not_run_in_headless_build_environment",
+  "total_files": 69
+}

@@ -1,0 +1,9 @@
+name: auto_physical_ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=1.26
+  - pandas>=2.2
+  - matplotlib>=3.8
+  - pip

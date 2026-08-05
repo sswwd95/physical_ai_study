@@ -1,0 +1,17 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "lightweight_examples_executed": [
+    181,
+    182,
+    183
+  ],
+  "full_pymc_sampling": "not_run_in_build_runtime_due_to_runtime_cost",
+  "recommended_runtime": "Windows conda-forge environment.yml",
+  "data_rows": 320,
+  "output_files": [
+    "ex183_slip_prior.png"
+  ],
+  "total_files": 72
+}

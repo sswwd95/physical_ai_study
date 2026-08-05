@@ -1,0 +1,20 @@
+{
+  "rows": 1800,
+  "state_counts": {
+    "CRUISE": 1700,
+    "TURN": 40,
+    "ACCELERATE": 30,
+    "DECELERATE": 30
+  },
+  "rule_anomalies": 454,
+  "iforest_anomalies": 180,
+  "final_anomalies": 456,
+  "confusion": {
+    "tp": 174,
+    "fp": 282,
+    "tn": 1338,
+    "fn": 6
+  },
+  "precision": 0.3815789473684211,
+  "recall": 0.9666666666666667
+}

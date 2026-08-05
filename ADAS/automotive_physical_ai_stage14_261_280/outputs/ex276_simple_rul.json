@@ -1,0 +1,6 @@
+{
+  "temperature_threshold_c": 70.0,
+  "current_temp_c": 72.66268215896056,
+  "slope_c_per_s": 0.04581476240377778,
+  "estimated_rul_s": -58.11843212224114
+}

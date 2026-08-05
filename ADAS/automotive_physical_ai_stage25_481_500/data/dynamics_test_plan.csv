@@ -1,0 +1,9 @@
+﻿test,duration_s,target_speed_rad_s
+straight,10,10
+brake,8,14
+slalom,14,12
+bump,10,10
+ramp,12,8
+curb,10,6
+payload_shift,12,10
+trailer,15,8

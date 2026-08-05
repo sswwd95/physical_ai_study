@@ -1,0 +1,100 @@
+<mujoco model="vehicle_dynamics_viewer">
+  <compiler angle="degree"/>
+  <option timestep="0.005" gravity="0 0 -9.81" integrator="RK4"/>
+
+  <asset>
+    <texture name="ground_tex" type="2d" builtin="checker"
+             rgb1=".14 .14 .14" rgb2=".24 .24 .24" width="512" height="512"/>
+    <material name="ground" texture="ground_tex" texrepeat="16 16"/>
+    <material name="body" rgba=".12 .48 .90 1"/>
+    <material name="wheel" rgba=".05 .05 .05 1"/>
+    <material name="payload" rgba=".95 .65 .10 1"/>
+    <material name="trailer" rgba=".25 .75 .35 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="sun" pos="0 0 8" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="30 20 .1" material="ground"/>
+
+    <camera name="overview" pos="10 -14 9" xyaxes=".82 .57 0 -.36 .52 .78"/>
+    <camera name="side_test" pos="2 -10 3" xyaxes="1 0 0 0 .94 .34"/>
+    <camera name="follow" mode="trackcom" target="chassis" pos="0 -5 2.5"/>
+
+    <geom name="speed_bump" type="box" pos="4 0 .07" size=".35 2 .07" rgba=".9 .8 .1 1"/>
+    <geom name="ramp" type="box" pos="10 0 .35" size="2 2 .12" euler="0 -10 0" rgba=".35 .35 .35 1"/>
+    <geom name="curb" type="box" pos="15 .8 .10" size=".35 1 .10" rgba=".7 .7 .7 1"/>
+
+    <body name="chassis" pos="0 0 .42">
+      <freejoint/>
+      <geom name="chassis_geom" type="box" size=".45 .25 .10" mass="6.0" material="body"/>
+      <site name="imu_site" pos="0 0 .12" size=".03" rgba="1 1 0 1"/>
+
+      <body name="payload" pos=".05 0 .20">
+        <joint name="payload_x" type="slide" axis="1 0 0" range="-.20 .20" damping="2"/>
+        <joint name="payload_y" type="slide" axis="0 1 0" range="-.15 .15" damping="2"/>
+        <geom name="payload_geom" type="box" size=".15 .12 .08" mass="1.0" material="payload"/>
+      </body>
+
+      <body name="front_left_hub" pos=".30 .29 -.10">
+        <joint name="fl_suspension" type="slide" axis="0 0 1" range="-.08 .08" stiffness="800" damping="35"/>
+        <body name="front_left_wheel">
+          <joint name="fl_wheel_joint" type="hinge" axis="0 1 0" damping=".03"/>
+          <geom type="cylinder" size=".12 .045" euler="90 0 0" mass=".45" material="wheel"/>
+        </body>
+      </body>
+
+      <body name="front_right_hub" pos=".30 -.29 -.10">
+        <joint name="fr_suspension" type="slide" axis="0 0 1" range="-.08 .08" stiffness="800" damping="35"/>
+        <body name="front_right_wheel">
+          <joint name="fr_wheel_joint" type="hinge" axis="0 1 0" damping=".03"/>
+          <geom type="cylinder" size=".12 .045" euler="90 0 0" mass=".45" material="wheel"/>
+        </body>
+      </body>
+
+      <body name="rear_left_hub" pos="-.30 .29 -.10">
+        <joint name="rl_suspension" type="slide" axis="0 0 1" range="-.08 .08" stiffness="900" damping="40"/>
+        <body name="rear_left_wheel">
+          <joint name="rl_wheel_joint" type="hinge" axis="0 1 0" damping=".03"/>
+          <geom type="cylinder" size=".12 .045" euler="90 0 0" mass=".45" material="wheel"/>
+        </body>
+      </body>
+
+      <body name="rear_right_hub" pos="-.30 -.29 -.10">
+        <joint name="rr_suspension" type="slide" axis="0 0 1" range="-.08 .08" stiffness="900" damping="40"/>
+        <body name="rear_right_wheel">
+          <joint name="rr_wheel_joint" type="hinge" axis="0 1 0" damping=".03"/>
+          <geom type="cylinder" size=".12 .045" euler="90 0 0" mass=".45" material="wheel"/>
+        </body>
+      </body>
+    </body>
+
+    <body name="trailer" pos="-1.2 0 .35">
+      <freejoint/>
+      <geom name="trailer_body" type="box" size=".35 .22 .10" mass="2.0" material="trailer"/>
+      <body pos="-.2 .25 -.1"><joint name="trailer_left_joint" type="hinge" axis="0 1 0"/><geom type="cylinder" size=".10 .04" euler="90 0 0" mass=".25"/></body>
+      <body pos="-.2 -.25 -.1"><joint name="trailer_right_joint" type="hinge" axis="0 1 0"/><geom type="cylinder" size=".10 .04" euler="90 0 0" mass=".25"/></body>
+    </body>
+
+    <equality>
+      <connect body1="chassis" body2="trailer" anchor="-.48 0 .34"/>
+    </equality>
+  </worldbody>
+
+  <actuator>
+    <velocity name="fl_motor" joint="fl_wheel_joint" kv="3" ctrlrange="-30 30"/>
+    <velocity name="fr_motor" joint="fr_wheel_joint" kv="3" ctrlrange="-30 30"/>
+    <velocity name="rl_motor" joint="rl_wheel_joint" kv="3" ctrlrange="-30 30"/>
+    <velocity name="rr_motor" joint="rr_wheel_joint" kv="3" ctrlrange="-30 30"/>
+  </actuator>
+
+  <sensor>
+    <framepos name="chassis_position" objtype="body" objname="chassis"/>
+    <framequat name="chassis_orientation" objtype="body" objname="chassis"/>
+    <accelerometer name="accel" site="imu_site"/>
+    <gyro name="gyro" site="imu_site"/>
+    <jointpos name="fl_suspension_pos" joint="fl_suspension"/>
+    <jointpos name="fr_suspension_pos" joint="fr_suspension"/>
+    <jointpos name="rl_suspension_pos" joint="rl_suspension"/>
+    <jointpos name="rr_suspension_pos" joint="rr_suspension"/>
+  </sensor>
+</mujoco>

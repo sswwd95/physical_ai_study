@@ -1,0 +1,8 @@
+{
+  "rows": 12000,
+  "duration_s": 119.99,
+  "accel_rmse": 0.06301450368764609,
+  "gyro_rmse": 0.012914647320208696,
+  "encoder_speed_rmse_normal": 0.004341578173779003,
+  "slip_samples": 1001
+}

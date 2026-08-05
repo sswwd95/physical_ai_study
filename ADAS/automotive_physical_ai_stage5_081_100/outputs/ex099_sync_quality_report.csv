@@ -1,0 +1,8 @@
+column,missing_count,missing_ratio_pct
+timestamp_s,0,0.0
+imu_ax_mps2,0,0.0
+imu_gyroz_rps,0,0.0
+wheel_left_mps,0,0.0
+wheel_right_mps,0,0.0
+front_distance_m,1,0.1111111111111111
+gps_speed_mps,0,0.0

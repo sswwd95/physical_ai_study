@@ -1,0 +1,55 @@
+<mujoco model="traffic_v2x_viewer">
+  <compiler angle="degree"/>
+  <option timestep="0.01" gravity="0 0 -9.81"/>
+  <asset>
+    <texture name="road_tex" type="2d" builtin="checker" rgb1=".12 .12 .12" rgb2=".18 .18 .18" width="512" height="512"/>
+    <material name="road" texture="road_tex" texrepeat="20 20"/>
+    <material name="ego" rgba=".1 .45 .95 1"/>
+    <material name="vehicle" rgba=".7 .7 .75 1"/>
+    <material name="emergency" rgba=".9 .1 .1 1"/>
+    <material name="pedestrian" rgba=".95 .65 .2 1"/>
+    <material name="construction" rgba="1 .45 .05 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="sun" pos="0 0 8" dir="0 0 -1" diffuse=".9 .9 .9"/>
+    <geom name="ground" type="plane" size="25 25 .1" material="road"/>
+
+    <camera name="overview" pos="10 -14 12" xyaxes=".81 .58 0 -.39 .55 .74"/>
+    <camera name="intersection_cam" pos="0 -10 7" xyaxes="1 0 0 0 .57 .82"/>
+    <camera name="ego_follow" mode="trackcom" target="ego" pos="0 -4 2"/>
+
+    <body name="ego" pos="-6 0 .12">
+      <freejoint/>
+      <geom name="ego_body" type="box" size=".24 .15 .07" mass="1.6" material="ego"/>
+      <body pos="0 .18 0"><joint name="ego_left_joint" type="hinge" axis="0 1 0"/><geom type="cylinder" size=".06 .028" euler="90 0 0" mass=".15"/></body>
+      <body pos="0 -.18 0"><joint name="ego_right_joint" type="hinge" axis="0 1 0"/><geom type="cylinder" size=".06 .028" euler="90 0 0" mass=".15"/></body>
+    </body>
+
+    <body name="lead_vehicle" mocap="true" pos="-2 0 .12">
+      <geom type="box" size=".24 .15 .07" material="vehicle"/>
+    </body>
+    <body name="cross_vehicle" mocap="true" pos="0 -5 .12">
+      <geom type="box" size=".24 .15 .07" rgba=".25 .8 .35 1"/>
+    </body>
+    <body name="emergency_vehicle" mocap="true" pos="-8 -2 .12">
+      <geom type="box" size=".26 .16 .08" material="emergency"/>
+    </body>
+    <body name="pedestrian" mocap="true" pos="0 -1.5 .9">
+      <geom type="capsule" size=".12 .45" material="pedestrian"/>
+    </body>
+
+    <body name="signal_red" mocap="true" pos="-.5 .8 1.2"><geom type="sphere" size=".11" rgba="1 .05 .05 1"/></body>
+    <body name="signal_yellow" mocap="true" pos="-.5 .8 .9"><geom type="sphere" size=".11" rgba=".25 .15 .03 1"/></body>
+    <body name="signal_green" mocap="true" pos="-.5 .8 .6"><geom type="sphere" size=".11" rgba=".03 .2 .03 1"/></body>
+
+    <body name="construction_cone_1" mocap="true" pos="2.5 .5 .25"><geom type="cone" size=".16 .3" material="construction"/></body>
+    <body name="construction_cone_2" mocap="true" pos="3.0 -.5 .25"><geom type="cone" size=".16 .3" material="construction"/></body>
+    <body name="v2x_marker" mocap="true" pos="0 0 1.8"><geom type="sphere" size=".08" rgba="0 1 1 .6"/></body>
+  </worldbody>
+
+  <actuator>
+    <velocity joint="ego_left_joint" kv="2" ctrlrange="-20 20"/>
+    <velocity joint="ego_right_joint" kv="2" ctrlrange="-20 20"/>
+  </actuator>
+</mujoco>

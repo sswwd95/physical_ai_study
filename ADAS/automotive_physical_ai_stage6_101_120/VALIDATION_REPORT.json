@@ -1,0 +1,8 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "execution_status": "mujoco_not_installed_in_build_runtime",
+  "output_files": [],
+  "total_files": 68
+}

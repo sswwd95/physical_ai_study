@@ -1,0 +1,28 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "all_examples_executed": true,
+  "data_rows": 1800,
+  "output_files": [
+    "ex202_driving_state_summary.csv",
+    "ex203_hard_acceleration.csv",
+    "ex204_hard_braking.csv",
+    "ex205_sharp_turn.csv",
+    "ex206_close_approach.csv",
+    "ex207_ttc_levels.csv",
+    "ex208_motor_overcurrent.csv",
+    "ex209_zscore_anomalies.csv",
+    "ex210_iqr_anomalies.csv",
+    "ex211_rolling_current_anomalies.csv",
+    "ex212_risk_score.csv",
+    "ex213_anomaly_segments.csv",
+    "ex215_isolation_forest.csv",
+    "ex216_isolation_scores.csv",
+    "ex218_anomaly_timeline.png",
+    "ex219_anomaly_quality_report.json",
+    "ex220_integrated_anomaly_result.csv",
+    "ex220_integrated_summary.json"
+  ],
+  "total_files": 88
+}

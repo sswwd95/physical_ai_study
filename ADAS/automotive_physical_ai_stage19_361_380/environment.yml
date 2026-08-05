@@ -1,0 +1,15 @@
+name: auto_physical_ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - gymnasium
+  - pip
+  - pip:
+      - stable-baselines3
+      - mujoco==3.6.0

@@ -1,0 +1,28 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "representative_examples_executed": [
+    221,
+    223,
+    229,
+    231,
+    232,
+    235,
+    236,
+    240
+  ],
+  "data_rows": 3000,
+  "output_files": [
+    "ex223_window_mean_features.csv",
+    "ex229_threshold_grid.csv",
+    "ex231_logistic_metrics.json",
+    "ex232_random_forest_metrics.json",
+    "ex235_roc_curve.png",
+    "ex236_pr_curve.png",
+    "ex240_feature_importance.csv",
+    "ex240_integrated_predictions.csv",
+    "ex240_integrated_summary.json"
+  ],
+  "total_files": 79
+}

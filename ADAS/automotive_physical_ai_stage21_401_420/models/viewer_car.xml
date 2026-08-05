@@ -1,0 +1,27 @@
+<mujoco model="viewer_car">
+<option timestep="0.01"/>
+<worldbody>
+  <light pos="0 0 5"/>
+  <geom name="floor" type="plane" size="10 10 .1" rgba=".25 .25 .25 1"/>
+  <camera name="overview" pos="4 -6 4" xyaxes=".83 .55 0 -.3 .45 .84"/>
+  <body name="base" pos="0 0 .12">
+    <freejoint/>
+    <geom name="chassis" type="box" size=".18 .12 .06" mass="1.2" rgba=".15 .45 .85 1"/>
+    <body pos="0 .145 0"><joint name="left_joint" type="hinge" axis="0 1 0"/>
+      <geom type="cylinder" size=".055 .025" euler="90 0 0" mass=".15"/></body>
+    <body pos="0 -.145 0"><joint name="right_joint" type="hinge" axis="0 1 0"/>
+      <geom type="cylinder" size=".055 .025" euler="90 0 0" mass=".15"/></body>
+  </body>
+  <body name="obstacle" pos="2 .4 .25"><geom type="box" size=".25 .25 .25" rgba=".9 .2 .1 1"/></body>
+  <body name="marker" mocap="true" pos="1 -1 .1"><geom type="sphere" size=".08" rgba=".2 1 .2 1"/></body>
+</worldbody>
+<actuator>
+  <velocity joint="left_joint" kv="2" ctrlrange="-20 20"/>
+  <velocity joint="right_joint" kv="2" ctrlrange="-20 20"/>
+</actuator>
+<sensor>
+  <framepos objtype="body" objname="base"/>
+  <jointvel joint="left_joint"/>
+  <jointvel joint="right_joint"/>
+</sensor>
+</mujoco>

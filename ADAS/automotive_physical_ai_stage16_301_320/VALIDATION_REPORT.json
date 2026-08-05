@@ -1,0 +1,39 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax_check": "passed",
+  "representative_examples_executed": [
+    301,
+    302,
+    305,
+    308,
+    311,
+    312,
+    314,
+    316,
+    318,
+    320
+  ],
+  "mujoco_example_319": "not_installed_in_build_runtime",
+  "output_files": [
+    "ex302_p_speed_response.csv",
+    "ex303_pi_speed_response.csv",
+    "ex304_pid_speed_response.csv",
+    "ex305_controller_comparison.csv",
+    "ex306_output_saturation.csv",
+    "ex307_deadzone_response.csv",
+    "ex308_anti_windup.csv",
+    "ex309_disturbance_rejection.csv",
+    "ex310_step_reference_tracking.csv",
+    "ex312_dual_wheel_pi.csv",
+    "ex313_yaw_rate_pid.csv",
+    "ex314_lateral_error_control.csv",
+    "ex315_combined_twist_control.csv",
+    "ex316_pid_grid_search.csv",
+    "ex317_sampling_period_comparison.csv",
+    "ex318_pid_response.png",
+    "ex320_integrated_pid_log.csv",
+    "ex320_integrated_report.json"
+  ],
+  "total_files": 109
+}
