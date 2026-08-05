@@ -1,0 +1,4 @@
+﻿model,roc_auc
+LogisticRegression,0.6233183856502242
+RandomForest,0.45291479820627806
+DecisionTree,0.4439461883408072

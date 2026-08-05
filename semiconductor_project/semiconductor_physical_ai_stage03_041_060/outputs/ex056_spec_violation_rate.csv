@@ -1,0 +1,4 @@
+﻿rule,violation_count,violation_rate
+temperature,15,0.05
+pressure,16,0.05333333333333334
+any,16,0.05333333333333334

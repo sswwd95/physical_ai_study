@@ -1,0 +1,17 @@
+﻿feature,coefficient
+num__temp_mean_c,-0.014771484292150788
+num__temp_std_c,-0.20232970159022998
+num__pressure_mean_pa,-0.017208290716098158
+num__pressure_std_pa,-0.12707116399186072
+num__rf_power_mean_w,-0.0027155580802880595
+num__gas_flow_mean_sccm,-0.0027084319352735794
+num__vibration_rms_g,-0.027023424555070143
+num__particle_mean,-0.6294377622099104
+num__downtime_min,-0.2877211629967921
+num__maintenance_age_hours,-0.33790419718670067
+cat__recipe_ETCH-A,0.43542576362205465
+cat__recipe_ETCH-B,0.0
+cat__recipe_ETCH-C,-0.7908687196060203
+cat__chamber_id_CH-01,0.40276704264637103
+cat__chamber_id_CH-02,0.0
+cat__chamber_id_CH-03,-0.5438789737250375

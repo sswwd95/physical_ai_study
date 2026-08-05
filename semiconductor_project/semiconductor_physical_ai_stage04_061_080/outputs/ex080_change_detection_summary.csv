@@ -1,0 +1,2 @@
+﻿row_count,cusum_alarm_count,ewma_alarm_count,variance_alarm_count,multi_sensor_alarm_count,combined_alarm_count,segment_count
+360,194,107,101,55,195,1
