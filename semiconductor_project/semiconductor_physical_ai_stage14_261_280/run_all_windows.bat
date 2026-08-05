@@ -10,8 +10,16 @@ echo ============================================
 echo.
 
 for %%f in (examples\ex*.py) do (
-    echo Running %%f
+    echo --------------------------------------------
+    echo Running: %%f
     python "%%f"
+
+    if errorlevel 1 (
+        echo [FAILED] %%f
+    ) else (
+        echo [SUCCESS] %%f
+    )
+
     echo.
 )
 
@@ -19,4 +27,4 @@ echo ============================================
 echo All examples finished.
 echo ============================================
 
-pause
+exit

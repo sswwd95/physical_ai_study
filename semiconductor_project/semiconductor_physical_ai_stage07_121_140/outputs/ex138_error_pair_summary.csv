@@ -1,0 +1,8 @@
+﻿defect_type,predicted_class,error_count
+normal,etch_rate,33
+particle,normal,16
+uniformity,normal,11
+normal,particle,9
+normal,uniformity,7
+etch_rate,normal,5
+uniformity,etch_rate,1
