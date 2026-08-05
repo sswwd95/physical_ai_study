@@ -1,0 +1,11 @@
+{
+  "samples": 10001,
+  "emergency_stop_samples": 0,
+  "final_pose": {
+    "x_m": 0.32860711956890937,
+    "y_m": 0.4121565874925228,
+    "z_m": -0.0002614999254563918,
+    "yaw_rad": 1.7115396682803528
+  },
+  "official_scene": "b'TB3-Burger scene\\x00world\\x00base\\x00wheel_left\\x00wheel_right\\x00base_joint\\x00wheel_left\\x00wheel_right\\x00floor\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00burger_base\\x00left_tire\\x00right_tire\\x00lds\\x00\\x00groundplane\\x00grey\\x00black\\x00groundplane\\x00\\x00\\x00wheel_left\\x00wheel_right\\x00'"
+}
