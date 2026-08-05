@@ -10,7 +10,7 @@ dependencies:
   - scikit-learn
   - pymc
   - arviz
-  - jupyterlab
+  - jupyter
   - pip
   - pip:
       - rich

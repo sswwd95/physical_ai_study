@@ -1,0 +1,3 @@
+﻿timestamp,lot_id,process_state,invalid_category
+2026-01-01 09:00:35,LOT-A,unknown,True
+2026-01-01 09:02:15,LOT-B,unknown,True

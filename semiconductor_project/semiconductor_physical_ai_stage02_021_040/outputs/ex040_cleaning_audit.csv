@@ -1,0 +1,2 @@
+﻿input_rows,invalid_timestamp_count,removed_duplicate_count,interpolated_cell_count,invalid_state_count,output_rows,remaining_missing_cells,range_violation_rows
+302,0,2,7,2,300,2,0
