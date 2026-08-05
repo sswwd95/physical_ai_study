@@ -1,0 +1,9 @@
+scenario,metric,threshold
+lane_keep,lateral_error_m,0.25
+lane_departure,lateral_error_m,0.45
+forward_collision,ttc_s,1.5
+blind_spot,side_distance_m,0.8
+rear_cross_traffic,rear_distance_m,1.2
+speed_assist,speed_limit_mps,0.35
+driver_monitor,attention_score,0.4
+parking_assist,slot_distance_m,0.25

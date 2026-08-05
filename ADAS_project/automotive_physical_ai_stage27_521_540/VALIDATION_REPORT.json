@@ -1,0 +1,9 @@
+{
+  "examples": 20,
+  "python_files": 22,
+  "syntax": "passed",
+  "official_assets_included": false,
+  "clone_script": true,
+  "gui_execution": "not_run_headless",
+  "total_files": 69
+}

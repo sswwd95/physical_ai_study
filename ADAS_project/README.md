@@ -1,0 +1,1 @@
+* 가상환경 : activate auto_physical_ai

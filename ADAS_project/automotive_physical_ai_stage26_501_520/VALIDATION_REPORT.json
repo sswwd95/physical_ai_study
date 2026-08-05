@@ -1,0 +1,15 @@
+{
+  "examples": 20,
+  "python_files": 23,
+  "python_syntax": "passed",
+  "official_model_assets_included": false,
+  "official_repo_clone_script": true,
+  "expected_scene": "robotis_tb3/scene_turtlebot3_burger.xml",
+  "expected_model": "robotis_tb3/turtlebot3_burger.xml",
+  "expected_wheel_names": [
+    "wheel_left",
+    "wheel_right"
+  ],
+  "gui_execution": "not_run_in_headless_build_environment",
+  "total_files": 69
+}
