@@ -1,0 +1,11 @@
+name: opencv-100
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - opencv
+  - matplotlib
+  - pip
+  - pip:
+      - qrcode[pil]
