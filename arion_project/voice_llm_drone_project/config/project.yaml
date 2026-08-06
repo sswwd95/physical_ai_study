@@ -1,0 +1,29 @@
+simulation:
+  timestep: 0.01
+  realtime: true
+  viewer: true
+  use_menagerie: true
+  menagerie_env_var: MUJOCO_MENAGERIE_PATH
+safety:
+  max_altitude_m: 5.0
+  min_altitude_m: 0.15
+  max_horizontal_distance_m: 8.0
+  max_speed_mps: 1.5
+  max_wait_sec: 10.0
+  allowed_actions: [takeoff, land, move_relative, goto, rotate, hover, emergency_stop]
+controller:
+  position_tolerance_m: 0.15
+  yaw_tolerance_deg: 5.0
+llm:
+  backend: auto
+  ollama_url: http://localhost:11434/api/generate
+  model: qwen2.5:3b
+  timeout_sec: 8.0
+voice:
+  language: ko-KR
+  phrase_time_limit_sec: 8
+  ambient_adjust_sec: 0.5
+report:
+  draws: 500
+  tune: 500
+  random_seed: 42

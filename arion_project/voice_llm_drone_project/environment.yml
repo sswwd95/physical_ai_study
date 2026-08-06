@@ -1,0 +1,20 @@
+name: voice-llm-drone
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - pyyaml
+  - requests
+  - pip:
+      - mujoco==3.6.0
+      - pydantic>=2.7,<3
+      - pymc>=5.16,<6
+      - arviz>=0.18,<1
+      - gymnasium>=0.29,<1.1
+      - stable-baselines3>=2.3,<3
+      - SpeechRecognition>=3.10
+      - sounddevice>=0.4.7
+      - tabulate>=0.9

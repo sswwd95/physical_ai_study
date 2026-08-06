@@ -1,0 +1,28 @@
+simulation:
+  timestep: 0.01
+  duration_sec: 40
+  realtime: true
+  width: 640
+  height: 480
+vision:
+  hsv_lower: [0, 120, 100]
+  hsv_upper: [10, 255, 255]
+  min_area_px: 120
+  lost_frame_threshold: 12
+  alpha: 0.75
+  beta: 0.08
+control:
+  target_area_ratio: 0.035
+  safe_area_ratio: 0.10
+  yaw_gain: 0.9
+  roll_gain: 0.6
+  pitch_gain: 0.8
+  altitude_gain: 0.8
+  max_horizontal_speed: 1.2
+  max_vertical_speed: 0.7
+  search_yaw_rate: 0.55
+  desired_altitude: 1.6
+report:
+  draws: 500
+  tune: 500
+  seed: 42
