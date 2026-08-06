@@ -1,35 +1,203 @@
-"""예제 20. Otsu Threshold
-
-초보자용 상세 주석판입니다.
-
-읽는 순서:
-1. 위에서 아래로 주석을 먼저 읽습니다.
-2. 바로 아래 코드가 어떤 작업을 하는지 확인합니다.
-3. 실행 후 나타나는 창이나 터미널 결과를 비교합니다.
-
-실행 위치: 이 프로젝트의 opencv_100 폴더
-주의: cv2.imshow()가 있는 예제는 화면 창에서 아무 키나 눌러야 종료됩니다.
-"""
-
-# OpenCV 기능을 사용하기 위해 cv2 모듈을 불러옵니다.
+# ============================================================================
+# 노션 원문 학습 설명: 예제 20. Otsu Threshold
+# ============================================================================
+#
+# [핵심 주제]
+# Otsu Threshold는 사람이 기준값을 직접 정하지 않고, 이미지의 밝기 분포를 보고 자동으로 적절한 기준값을 찾아주는 방법임
+#
+# [실습 목표]
+# 1. 자동 Threshold 개념 이해
+# 2. Otsu Threshold 사용법 이해
+# 3. 일반 Threshold와 차이 이해
+# 4. ret 값이 실제 자동 기준값이라는 점 이해
+#
+# [실무에서 자주 하는 실수]
+# 실수 1. Otsu에 임의 기준값을 의미 있게 넣으려 함
+#
+# Otsu를 사용할 때는 기준값 자리에 보통 `0`을 넣습니다.
+#
+# cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+#
+# 기준값은 Otsu가 자동으로 계산
+#
+# 실수 2. 조명이 심하게 불균일한 이미지에 Otsu만 사용
+#
+# Otsu는 이미지 전체의 밝기 분포를 보고 하나의 기준값을 찾습니다.
+#
+# 그래서 조명이 고르지 않은 경우에는 Adaptive Threshold가 더 나을 수 있음
+#
+# [ROS2와 연결되는 포인트]
+# Otsu Threshold는 카메라 환경이 비교적 일정하고, 객체와 배경의 밝기 차이가 분명할 때 좋습니다.
+#
+# 예를 들어 다음 상황에 적합
+#
+# 1. 흰색 바탕 위 검은색 라인
+# 2. 검은색 컨베이어 위 밝은 물체
+# 3. 일정한 조명 아래 부품 윤곽 검출
+#
+# ROS2 비전 노드에서는 Threshold 값을 매번 수동 조절하기 어렵기 때문에, Otsu 방식이 초기 프로토타입에 유용
+#
+# # 2단계 핵심 정리
+#
+# 이번 2단계에서는 OpenCV 전처리의 핵심을 배웠습니다.
+#
+# | 예제 | 핵심 내용 |
+# | --- | --- |
+# | 11 | BGR 이미지를 RGB로 변환 |
+# | 12 | BGR 이미지를 Grayscale로 변환 |
+# | 13 | BGR 이미지를 HSV로 변환 |
+# | 14 | HSV 기반 특정 색상 검출 |
+# | 15 | 밝기 조절 |
+# | 16 | 대비 조절 |
+# | 17 | 이미지 반전 |
+# | 18 | 일반 Threshold 이진화 |
+# | 19 | Adaptive Threshold |
+# | 20 | Otsu Threshold |
+#
+# # 초보자가 반드시 기억해야 할 핵심 문법
+#
+# rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
+#
+# BGR 이미지를 RGB로 바꿉니다.
+#
+# gray_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2GRAY)
+#
+# 컬러 이미지를 흑백으로 바꿉니다.
+#
+# hsv_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2HSV)
+#
+# 컬러 이미지를 HSV로 바꿉니다.
+#
+# mask = cv2.inRange(hsv_image, lower_color, upper_color)
+#
+# 특정 색상 범위에 해당하는 영역을 마스크로 생성
+#
+# result = cv2.bitwise_and(image, image, mask=mask)
+#
+# 마스크 영역만 원본 이미지에서 남깁니다.
+#
+# bright = cv2.convertScaleAbs(image, alpha=1.0, beta=50)
+#
+# 이미지를 밝게 생성
+#
+# contrast = cv2.convertScaleAbs(image, alpha=1.8, beta=0)
+#
+# 이미지 대비를 높임
+#
+# inverted = cv2.bitwise_not(image)
+#
+# 이미지를 반전함
+#
+# ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+#
+# 일반 이진화를 수행함
+#
+# adaptive = cv2.adaptiveThreshold(
+# gray,
+# 255,
+# cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+# cv2.THRESH_BINARY,
+# 11,
+# 2
+# )
+#
+# Adaptive Threshold를 수행함
+#
+# ret, otsu = cv2.threshold(
+# gray,
+# 0,
+# 255,
+# cv2.THRESH_BINARY + cv2.THRESH_OTSU
+# )
+#
+# Otsu Threshold를 수행함
+#
+# # ROS2 Humble 강의 전 관점에서 중요한 이유
+#
+# ROS2에서 카메라 데이터를 처리할 때 가장 흔한 흐름은 다음과 같습니다.
+#
+# /camera/image_raw
+# → cv_bridge
+# → OpenCV BGR 이미지
+# → Grayscale 또는 HSV 변환
+# → Threshold 또는 색상 마스크
+# → 객체 영역 검출
+# → 중심 좌표 계산
+# → ROS2 Topic 발행
+#
+# 즉, 이번 2단계에서 배운 내용은 다음 로봇 비전 기능의 기반임
+#
+# 라인 트레이싱
+# 색상 공 추적
+# 장애물 색상 검출
+# 컨베이어 객체 분리
+# 로봇 팔 Pick 위치 계산
+# 카메라 기반 주행 보정
+#
+# # 실무 기준으로 기억할 점
+#
+# 초보자에게 가장 중요한 판단 기준은 다음임
+#
+# | 상황 | 추천 처리 |
+# | --- | --- |
+# | 색상 객체를 찾고 싶다 | HSV 변환 + inRange |
+# | 밝고 어두운 차이로 나누고 싶다 | Grayscale + Threshold |
+# | 조명이 일정하다 | 일반 Threshold 또는 Otsu |
+# | 조명이 불균일하다 | Adaptive Threshold |
+# | 색상이 이상하게 보인다 | BGR/RGB 순서 확인 |
+# | 검정 객체를 흰색 객체처럼 찾고 싶다 | 반전 처리 |
+# | 영상이 너무 어둡다 | beta로 밝기 보정 |
+# | 영상이 흐릿하고 차이가 약하다 | alpha로 대비 보정 |
+# - 3단계: 이미지 크기 변환과 기하 변환
+#
+# 이번 단계는 ROS2 Humble 로봇 비전에서 매우 중요
+#
+# 카메라 영상은 항상 원하는 크기, 각도, 위치로 들어오지 않습니다.
+#
+# 예를 들어 실무에서는 다음 상황이 자주 발생함
+#
+# 카메라 해상도가 너무 큼
+# 로봇 카메라가 기울어져 있음
+# ROI 영역만 확대해서 보고 싶음
+# 바닥 라인을 위에서 내려다본 것처럼 변환하고 싶음
+# 모델 입력 크기에 맞게 이미지를 줄여야 함
+#
+# 그래서 이번 단계에서는 이미지의 크기, 위치, 방향, 시점을 다루는 핵심 문법을 학습함
+#
+# # 3단계: 이미지 크기 변환과 기하 변환
+#
+# | 번호 | 핵심 주제 |
+# | --- | --- |
+# | 21 | 이미지 Resize |
+# | 22 | 비율 유지 Resize |
+# | 23 | 이미지 회전 |
+# | 24 | 이미지 이동 |
+# | 25 | 이미지 뒤집기 |
+# | 26 | Affine Transform |
+# | 27 | Perspective Transform |
+# | 28 | 이미지 패딩 |
+# | 29 | 이미지 피라미드 축소 |
+# | 30 | 이미지 피라미드 확대 |
+# ============================================================================
+# OpenCV 기능 사용을 위한 cv2 모듈 불러오기
 import cv2
 
-# 사용할 입력 파일 또는 저장할 결과 파일의 경로를 문자열로 지정합니다.
+# 입력 또는 출력 파일 경로 지정
 image_path = "practice_images/sample.jpg"
 
-# 지정한 경로의 이미지 파일을 읽어 NumPy 배열로 저장합니다.
+# 지정 경로의 이미지 읽기 및 NumPy 배열 저장
 image = cv2.imread(image_path)
 
-# 이미지나 검출 결과가 생성되지 않았는지 확인합니다.
+# 이미지 또는 검출 결과 생성 여부 확인
 if image is None:
-    # 현재 상태나 계산 결과를 터미널에 출력합니다.
+    # 현재 상태 또는 계산 결과의 터미널 출력
     print("이미지를 읽을 수 없습니다.")
-# 앞의 조건이 거짓인 경우 아래 코드를 실행합니다.
+# 앞 조건이 거짓일 때의 실행 구간
 else:
-    # BGR 컬러 이미지를 밝기 정보만 있는 흑백 이미지로 변환합니다.
+    # BGR 컬러 이미지를 밝기 정보만 있는 흑백 이미지로 변환
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    # 기준값을 이용해 이미지를 흰색과 검은색의 이진 이미지로 나눕니다.
+    # 기준값을 이용해 이미지를 흰색과 검은색의 이진 이미지로 분할
     ret, otsu_binary = cv2.threshold(
         gray_image,
         0,
@@ -37,14 +205,14 @@ else:
         cv2.THRESH_BINARY + cv2.THRESH_OTSU
     )
 
-    # 현재 상태나 계산 결과를 터미널에 출력합니다.
+    # 현재 상태 또는 계산 결과의 터미널 출력
     print("Otsu가 자동으로 찾은 Threshold 값:", ret)
 
-    # 처리 결과를 확인할 수 있도록 별도의 OpenCV 창에 이미지를 표시합니다.
+    # 처리 결과 확인용 OpenCV 창 표시
     cv2.imshow("Gray Image", gray_image)
     cv2.imshow("Otsu Threshold", otsu_binary)
 
-    # 키 입력을 기다립니다. 값이 작으면 실시간 영상이 계속 갱신됩니다.
+    # 키 입력 대기 및 실시간 영상 갱신
     cv2.waitKey(0)
-    # OpenCV가 만든 모든 이미지 창을 닫습니다.
+    # 모든 OpenCV 이미지 창 닫기
     cv2.destroyAllWindows()

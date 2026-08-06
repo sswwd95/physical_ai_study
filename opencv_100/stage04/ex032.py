@@ -1,43 +1,77 @@
-"""예제 32. Gaussian Blur
-
-초보자용 상세 주석판입니다.
-
-읽는 순서:
-1. 위에서 아래로 주석을 먼저 읽습니다.
-2. 바로 아래 코드가 어떤 작업을 하는지 확인합니다.
-3. 실행 후 나타나는 창이나 터미널 결과를 비교합니다.
-
-실행 위치: 이 프로젝트의 opencv_100 폴더
-주의: cv2.imshow()가 있는 예제는 화면 창에서 아무 키나 눌러야 종료됩니다.
-"""
-
-# OpenCV 기능을 사용하기 위해 cv2 모듈을 불러옵니다.
+# ============================================================================
+# 노션 원문 학습 설명: 예제 32. Gaussian Blur
+# ============================================================================
+#
+# [핵심 주제]
+# Gaussian Blur는 주변 픽셀을 단순 평균내는 것이 아니라, 중심 픽셀에 가까운 값에 더 큰 가중치를 주는 블러임
+#
+# 평균 블러보다 자연스러운 흐림 효과를 만들며, Edge 검출 전 노이즈 제거에 많이 사용됨
+#
+# [실습 목표]
+# 1. Gaussian Blur 개념 이해
+# 2. cv2.GaussianBlur() 사용법 이해
+# 3. 커널 크기와 sigma 값 이해
+# 4. Canny Edge 전처리와의 관계 이해
+#
+# [실무에서 자주 하는 실수]
+# 실수 1. Gaussian 커널 크기를 짝수로 넣음
+#
+# Gaussian Blur의 커널 크기는 보통 양의 홀수여야 함
+#
+# 올바른 예:
+#
+# cv2.GaussianBlur(image, (5, 5), 0)
+#
+# 잘못된 예:
+#
+# cv2.GaussianBlur(image, (4, 4), 0)
+#
+# 실수 2. 무조건 Gaussian Blur가 평균 블러보다 좋다고 생각함
+#
+# Gaussian Blur는 자연스럽고 안정적이지만, 모든 상황에서 최고의 선택은 아님
+#
+# 일반 노이즈 완화: Gaussian Blur
+# Salt & Pepper 노이즈: Median Blur
+# Edge 보존 필요: Bilateral Filter
+#
+# [ROS2와 연결되는 포인트]
+# Canny Edge 검출 전에는 보통 Gaussian Blur를 먼저 적용
+#
+# 카메라 프레임
+# → Grayscale
+# → Gaussian Blur
+# → Canny Edge
+# → Contour 또는 라인 검출
+#
+# 노이즈가 많은 상태에서 바로 Canny를 적용하면 작은 점까지 Edge로 검출될 수 있음
+# ============================================================================
+# OpenCV 기능 사용을 위한 cv2 모듈 불러오기
 import cv2
 
-# 사용할 입력 파일 또는 저장할 결과 파일의 경로를 문자열로 지정합니다.
+# 입력 또는 출력 파일 경로 지정
 image_path = "practice_images/sample.jpg"
 
-# 지정한 경로의 이미지 파일을 읽어 NumPy 배열로 저장합니다.
+# 지정 경로의 이미지 읽기 및 NumPy 배열 저장
 image = cv2.imread(image_path)
 
-# 이미지나 검출 결과가 생성되지 않았는지 확인합니다.
+# 이미지 또는 검출 결과 생성 여부 확인
 if image is None:
-    # 현재 상태나 계산 결과를 터미널에 출력합니다.
+    # 현재 상태 또는 계산 결과의 터미널 출력
     print("이미지를 읽을 수 없습니다.")
-# 앞의 조건이 거짓인 경우 아래 코드를 실행합니다.
+# 앞 조건이 거짓일 때의 실행 구간
 else:
-    # 가운데 픽셀에 더 큰 가중치를 주는 가우시안 블러를 적용합니다.
+    # 가운데 픽셀에 더 큰 가중치를 주는 가우시안 블러를 적용
     gaussian_3 = cv2.GaussianBlur(image, (3, 3), 0)
     gaussian_7 = cv2.GaussianBlur(image, (7, 7), 0)
     gaussian_15 = cv2.GaussianBlur(image, (15, 15), 0)
 
-    # 처리 결과를 확인할 수 있도록 별도의 OpenCV 창에 이미지를 표시합니다.
+    # 처리 결과 확인용 OpenCV 창 표시
     cv2.imshow("Original Image", image)
     cv2.imshow("Gaussian Blur 3x3", gaussian_3)
     cv2.imshow("Gaussian Blur 7x7", gaussian_7)
     cv2.imshow("Gaussian Blur 15x15", gaussian_15)
 
-    # 키 입력을 기다립니다. 값이 작으면 실시간 영상이 계속 갱신됩니다.
+    # 키 입력 대기 및 실시간 영상 갱신
     cv2.waitKey(0)
-    # OpenCV가 만든 모든 이미지 창을 닫습니다.
+    # 모든 OpenCV 이미지 창 닫기
     cv2.destroyAllWindows()

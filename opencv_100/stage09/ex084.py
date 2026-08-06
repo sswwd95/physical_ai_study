@@ -1,35 +1,63 @@
-"""예제 84. ROS2 Image 메시지를 OpenCV로 변환
-
-초보자용 상세 주석판입니다.
-
-읽는 순서:
-1. 위에서 아래로 주석을 먼저 읽습니다.
-2. 바로 아래 코드가 어떤 작업을 하는지 확인합니다.
-3. 실행 후 나타나는 창이나 터미널 결과를 비교합니다.
-
-실행 위치: 이 프로젝트의 opencv_100 폴더
-주의: cv2.imshow()가 있는 예제는 화면 창에서 아무 키나 눌러야 종료됩니다.
-"""
-
-# Python으로 ROS2 노드를 만들고 실행하기 위해 rclpy를 불러옵니다.
+# ============================================================================
+# 노션 원문 학습 설명: 예제 84. ROS2 Image 메시지를 OpenCV로 변환
+# ============================================================================
+#
+# [핵심 주제]
+# ROS2 카메라 Topic을 구독하고, 수신한 Image 메시지를 OpenCV 이미지로 변환
+#
+# 이 구조가 ROS2 비전 노드의 기본임
+#
+# [실습 목표]
+# 1. ROS2 Image Subscriber 생성
+# 2. imgmsg_to_cv2() 사용법 이해
+# 3. OpenCV 화면 출력
+# 4. 카메라 Topic 처리 구조 이해
+#
+# [실무에서 자주 하는 실수]
+# 실수 1. Topic 이름이 다름
+#
+# 카메라 Topic 이름은 환경에 따라 다를 수 있음
+#
+# 먼저 다음 명령으로 확인
+#
+# ros2 topic list
+#
+# 그리고 Image Topic 정보를 확인
+#
+# ros2 topic info /camera/image_raw
+#
+# 실수 2. cv2.waitKey(1)을 빼먹음
+#
+# `cv2.imshow()`를 사용하면 `cv2.waitKey(1)`이 필요합니다.
+#
+# 없으면 창이 갱신되지 않거나 멈춘 것처럼 보일 수 있음
+#
+# [ROS2와 연결되는 포인트]
+# 이 예제는 앞으로 만들 모든 ROS2 OpenCV 노드의 출발점임
+#
+# Image Subscribe
+# → cv_bridge 변환
+# → OpenCV 처리
+# ============================================================================
+# Python으로 ROS2 노드를 만들고 실행하기 위해 rclpy를 불러오기
 import rclpy
-# ROS2 노드 클래스를 만들 때 상속할 Node를 불러옵니다.
+# ROS2 노드 클래스를 만들 때 상속할 Node를 불러오기
 from rclpy.node import Node
-# ROS2에서 카메라 영상을 주고받는 Image 메시지 형식을 불러옵니다.
+# ROS2에서 카메라 영상을 주고받는 Image 메시지 형식을 불러오기
 from sensor_msgs.msg import Image
-# ROS2 Image 메시지와 OpenCV 이미지 배열을 서로 변환하는 CvBridge를 불러옵니다.
+# ROS2 Image 메시지와 OpenCV 이미지 배열을 서로 변환하는 CvBridge를 불러오기
 from cv_bridge import CvBridge
-# OpenCV 기능을 사용하기 위해 cv2 모듈을 불러옵니다.
+# OpenCV 기능 사용을 위한 cv2 모듈 불러오기
 import cv2
 
-# 관련 기능과 데이터를 하나로 묶는 클래스를 정의합니다.
+# 관련 기능과 데이터를 하나로 묶는 클래스를 정의함
 class ImageSubscriber(Node):
-    # 객체가 만들어질 때 한 번 실행되는 초기화 메서드입니다.
+    # 객체가 만들어질 때 한 번 실행되는 초기화 메서드임
     def __init__(self):
-        # 부모 Node 클래스의 초기화 기능을 실행하고 이 ROS2 노드의 이름을 정합니다.
+        # 부모 Node 클래스의 초기화 기능을 실행하고 이 ROS2 노드의 이름을 정함
         super().__init__("image_subscriber")
 
-        # 다른 ROS2 노드가 보낸 메시지를 받을 Subscriber를 만듭니다.
+        # 다른 ROS2 노드가 보낸 메시지를 받을 Subscriber를 생성
         self.subscription = self.create_subscription(
             Image,
             "/camera/image_raw",
@@ -37,40 +65,40 @@ class ImageSubscriber(Node):
             10
         )
 
-        # ROS2 이미지와 OpenCV 이미지 사이를 변환할 CvBridge 객체를 만듭니다.
+        # ROS2 이미지와 OpenCV 이미지 사이를 변환할 CvBridge 객체를 생성
         self.bridge = CvBridge()
 
-    # image_callback 작업을 반복해서 사용할 수 있도록 함수로 정의합니다.
+    # image_callback 작업을 반복해서 사용할 수 있도록 함수로 정의함
     def image_callback(self, msg):
-        # 수신한 ROS2 Image 메시지를 OpenCV에서 처리할 수 있는 NumPy 배열로 변환합니다.
+        # 수신한 ROS2 Image 메시지를 OpenCV에서 처리할 수 있는 NumPy 배열로 변환
         frame = self.bridge.imgmsg_to_cv2(
             msg,
             desired_encoding="bgr8"
         )
 
-        # 처리 결과를 확인할 수 있도록 별도의 OpenCV 창에 이미지를 표시합니다.
+        # 처리 결과 확인용 OpenCV 창 표시
         cv2.imshow("ROS2 Camera Image", frame)
-        # 키 입력을 기다립니다. 값이 작으면 실시간 영상이 계속 갱신됩니다.
+        # 키 입력 대기 및 실시간 영상 갱신
         cv2.waitKey(1)
 
-# 프로그램 실행 순서를 담당하는 main 함수를 정의합니다.
+# 프로그램 실행 순서를 담당하는 main 함수를 정의함
 def main(args=None):
-    # ROS2 통신을 사용할 수 있도록 rclpy를 초기화합니다.
+    # ROS2 통신을 사용할 수 있도록 rclpy를 초기화
     rclpy.init(args=args)
 
-    # node 변수에 이후 처리에 사용할 값을 저장합니다.
+    # node 변수에 이후 처리에 사용할 값을 저장
     node = ImageSubscriber()
 
-    # 노드가 종료될 때까지 콜백을 계속 처리하도록 실행 상태를 유지합니다.
+    # 노드가 종료될 때까지 콜백을 계속 처리하도록 실행 상태를 유지
     rclpy.spin(node)
 
-    # 사용이 끝난 ROS2 노드 자원을 정리합니다.
+    # 사용이 끝난 ROS2 노드 자원을 정리함
     node.destroy_node()
-    # OpenCV가 만든 모든 이미지 창을 닫습니다.
+    # 모든 OpenCV 이미지 창 닫기
     cv2.destroyAllWindows()
-    # ROS2 사용을 종료하고 관련 자원을 정리합니다.
+    # ROS2 사용을 종료하고 관련 자원을 정리함
     rclpy.shutdown()
 
-# 이 파일을 직접 실행했을 때만 main 함수를 호출하도록 확인합니다.
+# 이 파일을 직접 실행했을 때만 main 함수를 호출하도록 확인
 if __name__ == "__main__":
     main()

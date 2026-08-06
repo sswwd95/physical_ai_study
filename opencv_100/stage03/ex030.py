@@ -1,47 +1,221 @@
-"""예제 30. 이미지 피라미드 확대
-
-초보자용 상세 주석판입니다.
-
-읽는 순서:
-1. 위에서 아래로 주석을 먼저 읽습니다.
-2. 바로 아래 코드가 어떤 작업을 하는지 확인합니다.
-3. 실행 후 나타나는 창이나 터미널 결과를 비교합니다.
-
-실행 위치: 이 프로젝트의 opencv_100 폴더
-주의: cv2.imshow()가 있는 예제는 화면 창에서 아무 키나 눌러야 종료됩니다.
-"""
-
-# OpenCV 기능을 사용하기 위해 cv2 모듈을 불러옵니다.
+# ============================================================================
+# 노션 원문 학습 설명: 예제 30. 이미지 피라미드 확대
+# ============================================================================
+#
+# [핵심 주제]
+# `cv2.pyrUp()`을 사용하여 이미지를 단계적으로 확대합니다.
+#
+# 이미지 피라미드에서 축소된 이미지를 다시 키울 때 사용 가능
+#
+# [실습 목표]
+# 1. pyrUp() 사용법 이해
+# 2. 이미지 확대 결과 확인
+# 3. 축소 후 확대 시 정보 손실 이해
+# 4. 원본과 복원 이미지 차이 이해
+#
+# [실무에서 자주 하는 실수]
+# 실수 1. 축소 후 확대하면 원본이 완벽히 복원된다고 생각함
+#
+# 한 번 줄어든 이미지에는 이미 정보 손실이 있음
+#
+# 다시 키워도 원본의 세부 정보는 돌아오지 않습니다.
+#
+# 원본 이미지
+# → 축소
+# → 일부 세부 정보 손실
+# → 확대
+# → 크기는 비슷하지만 디테일은 부족
+#
+# 실수 2. pyrUp을 고화질 확대 방법으로 오해함
+#
+# `pyrUp()`은 이미지 피라미드 처리용 확대 함수입니다.
+#
+# 저해상도 이미지를 고해상도처럼 복원하는 슈퍼해상도 기술이 아님
+#
+# [ROS2와 연결되는 포인트]
+# ROS2에서 이미지 피라미드는 직접 주행 제어보다 SLAM, 특징점 추적, 시각적 위치 추정 쪽에서 더 중요
+#
+# 예를 들어 다음 알고리즘에서 피라미드 개념이 사용됨
+#
+# Optical Flow
+# Feature Tracking
+# Visual Odometry
+# Visual SLAM
+#
+# 로봇이 움직이는 동안 이전 프레임과 현재 프레임의 특징점을 추적할 때, 여러 해상도에서 점진적으로 추적하면 더 안정적임
+#
+# # 3단계 핵심 정리
+#
+# 이번 3단계에서는 이미지의 크기와 기하 구조를 다루었습니다.
+#
+# | 예제 | 핵심 내용 |
+# | --- | --- |
+# | 21 | 이미지 크기 변경 |
+# | 22 | 비율 유지 Resize |
+# | 23 | 이미지 회전 |
+# | 24 | 이미지 이동 |
+# | 25 | 이미지 뒤집기 |
+# | 26 | Affine Transform |
+# | 27 | Perspective Transform |
+# | 28 | 이미지 패딩 |
+# | 29 | 이미지 피라미드 축소 |
+# | 30 | 이미지 피라미드 확대 |
+#
+# # 초보자가 반드시 기억해야 할 핵심 문법
+#
+# resized = cv2.resize(image, (width, height))
+#
+# 이미지 크기를 변경함
+#
+# height, width = image.shape[:2]
+#
+# 이미지 높이와 너비를 가져옵니다.
+#
+# center = (width // 2, height // 2)
+# matrix = cv2.getRotationMatrix2D(center, 30, 1.0)
+# rotated = cv2.warpAffine(image, matrix, (width, height))
+#
+# 이미지를 회전함
+#
+# translation_matrix = np.float32([
+# [1, 0, move_x],
+# [0, 1, move_y]
+# ])
+# moved = cv2.warpAffine(image, translation_matrix, (width, height))
+#
+# 이미지를 이동함
+#
+# flip_horizontal = cv2.flip(image, 1)
+#
+# 이미지를 좌우 반전함
+#
+# affine_matrix = cv2.getAffineTransform(src_points, dst_points)
+# affine_image = cv2.warpAffine(image, affine_matrix, (width, height))
+#
+# Affine 변환을 적용
+#
+# perspective_matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+# perspective_image = cv2.warpPerspective(image, perspective_matrix, (400, 300))
+#
+# Perspective 변환을 적용
+#
+# padded = cv2.copyMakeBorder(
+# image,
+# top=50,
+# bottom=50,
+# left=100,
+# right=100,
+# borderType=cv2.BORDER_CONSTANT,
+# value=(0, 0, 0)
+# )
+#
+# 이미지에 패딩을 추가
+#
+# down = cv2.pyrDown(image)
+#
+# 이미지를 피라미드 방식으로 축소함
+#
+# up = cv2.pyrUp(image)
+#
+# 이미지를 피라미드 방식으로 확대함
+#
+# # ROS2 Humble 강의 전 관점에서 중요한 이유
+#
+# ROS2 비전 노드에서는 카메라 영상이 그대로 사용되기보다 대부분 전처리됨
+#
+# 대표 흐름은 다음과 같습니다.
+#
+# /camera/image_raw
+# → cv_bridge
+# → OpenCV 이미지
+# → Resize
+# → ROI 자르기
+# → 회전 또는 시점 보정
+# → Threshold / HSV / Edge 처리
+# → 객체 좌표 계산
+# → ROS2 Topic 발행
+#
+# 이번 단계의 핵심은 다음임
+#
+# 이미지를 빠르게 처리하기 위해 줄인다.
+# 카메라 각도 문제를 보정한다.
+# 로봇이 보기 쉬운 시점으로 변환한다.
+# 딥러닝 모델 입력 크기에 맞춘다.
+# 좌표 변환 후 로봇 제어에 연결한다.
+#
+# # 실무 기준으로 기억할 점
+#
+# | 상황 | 추천 처리 |
+# | --- | --- |
+# | 영상 처리 속도가 느림 | Resize로 해상도 축소 |
+# | 이미지가 찌그러짐 | 비율 유지 Resize |
+# | 카메라가 기울어짐 | Rotation 보정 |
+# | 영상이 거울처럼 보임 | Flip 처리 |
+# | 바닥을 위에서 본 것처럼 만들고 싶음 | Perspective Transform |
+# | YOLO 입력 크기에 맞추고 싶음 | Resize + Padding |
+# | 작은 객체도 보고 싶음 | 너무 많이 축소하지 않기 |
+# | SLAM/특징점 추적 준비 | 이미지 피라미드 개념 이해 |
+# - 4단계: 필터링과 노이즈 제거
+#
+# 이번 단계는 ROS2 Humble 로봇 비전에서 카메라 영상 품질을 안정화하는 핵심 전처리임
+#
+# 실제 로봇 카메라는 항상 깨끗한 영상을 주지 않습니다.
+#
+# 조명이 흔들림
+# 카메라 센서 노이즈가 있음
+# 바닥 반사가 있음
+# 영상이 거칠게 보임
+# Edge 검출 전에 잡음이 많음
+# 색상 마스크에 작은 점 노이즈가 생김
+#
+# 그래서 필터링과 노이즈 제거를 알아야 이후 단계의 Edge, Contour, 객체 추적, ROS2 카메라 노드를 안정적으로 구현할 수 있음
+#
+# # 4단계: 필터링과 노이즈 제거
+#
+# | 번호 | 핵심 주제 |
+# | --- | --- |
+# | 31 | 평균 블러 |
+# | 32 | Gaussian Blur |
+# | 33 | Median Blur |
+# | 34 | Bilateral Filter |
+# | 35 | Sharpening |
+# | 36 | 엣지 보존 필터 |
+# | 37 | 노이즈 이미지 생성 |
+# | 38 | Salt & Pepper 노이즈 제거 |
+# | 39 | 이미지 스무딩 비교 |
+# | 40 | 실시간 카메라 블러 처리 |
+# ============================================================================
+# OpenCV 기능 사용을 위한 cv2 모듈 불러오기
 import cv2
 
-# 사용할 입력 파일 또는 저장할 결과 파일의 경로를 문자열로 지정합니다.
+# 입력 또는 출력 파일 경로 지정
 image_path = "practice_images/sample.jpg"
 
-# 지정한 경로의 이미지 파일을 읽어 NumPy 배열로 저장합니다.
+# 지정 경로의 이미지 읽기 및 NumPy 배열 저장
 image = cv2.imread(image_path)
 
-# 이미지나 검출 결과가 생성되지 않았는지 확인합니다.
+# 이미지 또는 검출 결과 생성 여부 확인
 if image is None:
-    # 현재 상태나 계산 결과를 터미널에 출력합니다.
+    # 현재 상태 또는 계산 결과의 터미널 출력
     print("이미지를 읽을 수 없습니다.")
-# 앞의 조건이 거짓인 경우 아래 코드를 실행합니다.
+# 앞 조건이 거짓일 때의 실행 구간
 else:
-    # 가우시안 피라미드 방식으로 이미지 크기를 절반가량 축소합니다.
+    # 가우시안 피라미드 방식으로 이미지 크기를 절반가량 축소함
     down_image = cv2.pyrDown(image)
-    # 가우시안 피라미드 방식으로 이미지 크기를 두 배가량 확대합니다.
+    # 가우시안 피라미드 방식으로 이미지 크기를 두 배가량 확대함
     up_image = cv2.pyrUp(down_image)
 
-    # 현재 상태나 계산 결과를 터미널에 출력합니다.
+    # 현재 상태 또는 계산 결과의 터미널 출력
     print("원본 크기:", image.shape)
     print("축소 이미지 크기:", down_image.shape)
     print("다시 확대한 이미지 크기:", up_image.shape)
 
-    # 처리 결과를 확인할 수 있도록 별도의 OpenCV 창에 이미지를 표시합니다.
+    # 처리 결과 확인용 OpenCV 창 표시
     cv2.imshow("Original Image", image)
     cv2.imshow("Pyramid Down", down_image)
     cv2.imshow("Pyramid Up After Down", up_image)
 
-    # 키 입력을 기다립니다. 값이 작으면 실시간 영상이 계속 갱신됩니다.
+    # 키 입력 대기 및 실시간 영상 갱신
     cv2.waitKey(0)
-    # OpenCV가 만든 모든 이미지 창을 닫습니다.
+    # 모든 OpenCV 이미지 창 닫기
     cv2.destroyAllWindows()
