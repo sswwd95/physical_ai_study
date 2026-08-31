@@ -68,12 +68,12 @@ else:
 
     # 주변 밝기를 기준으로 영역마다 다른 임계값을 적용
     adaptive_binary = cv2.adaptiveThreshold(
-        gray_image,
-        255,
-        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-        cv2.THRESH_BINARY,
-        11,
-        2
+        gray_image,                       # 입력 이미지: 흑백(Grayscale) 이미지
+        255,                              # 조건을 만족했을 때 지정할 픽셀값
+        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,   # 주변 픽셀에 가중치를 주어 임계값 계산
+        cv2.THRESH_BINARY,                # 임계값보다 크면 255, 작으면 0
+        11,                               # 임계값 계산에 사용할 주변 영역 크기: 11×11
+        2                                 # 계산된 임계값에서 뺄 값
     )
 
     # 처리 결과 확인용 OpenCV 창 표시
